@@ -10,7 +10,7 @@ namespace Quizz_PhysioUnited
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new StartScreen());
         }
 
         protected override void OnStart()
