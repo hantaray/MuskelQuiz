@@ -15,7 +15,7 @@ namespace Quizz_PhysioUnited
     {
         public StartScreen()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         async void GoToGamePage(object sender, EventArgs e)
@@ -23,6 +23,9 @@ namespace Quizz_PhysioUnited
             await Navigation.PushAsync(new GamePage());
         }
 
-
+        async void GoToDatabasePage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DatabasePage());
+        }
     }
 }
