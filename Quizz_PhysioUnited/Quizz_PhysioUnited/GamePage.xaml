@@ -6,12 +6,10 @@
              mc:Ignorable="d"
              x:Class="Quizz_PhysioUnited.GamePage"
              NavigationPage.HasNavigationBar="False">
-    <ContentPage.Content>
-        <Grid>
+    <!--<ContentPage.Content>-->
+        <Grid   x:Name="gridGamePage">
             <Grid.RowDefinitions>
-                <!--<RowDefinition Height="2*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="100" />-->
+                <RowDefinition Height="*" />                
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="3*" />
@@ -19,13 +17,13 @@
             </Grid.ColumnDefinitions>
 
         
-
+    <!--Layout nested in grid and in column 1, containslabel for question and answerbuttons-->
         <StackLayout>
 
-            
-
-            <Label Text="questiondddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+            <Label Text="question"
+                   x:Name="labelQuestion"
                    FontSize="Large"
+                   TextColor="Black"
                    Padding="5"
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand">
@@ -33,33 +31,93 @@
 
             <Button Text="answerButton1"
                     x:Name="answerButton1"
+                    TextColor="White"
+                    BackgroundColor="DarkGray"
                     Clicked="answerButton_Clicked">                
             </Button>
 
             <Button Text="answerButton2"
                     x:Name="answerButton2"
+                    TextColor="White"
+                    BackgroundColor="DarkGray"
                     Clicked="answerButton_Clicked">
             </Button>
 
             <Button Text="answerButton3"
                     x:Name="answerButton3"
+                    TextColor="White"
+                    BackgroundColor="DarkGray"
                     Clicked="answerButton_Clicked">
             </Button>
 
             <Button Text="answerButton4"
                     x:Name="answerButton4"
+                    TextColor="White"
+                    BackgroundColor="DarkGray"
                     Clicked="answerButton_Clicked"
-                    Margin="0,0,0,15"
-                    >
+                    Margin="0,0,0,15">
             </Button>
+
+        </StackLayout>
+
+    <!--Layout nested in grid and in column 2, contains endButton, level label, score label, timer, next button-->
+        <StackLayout Grid.Column="1">
+
+            <Button Text="End Game"
+                    x:Name="endButton"
+                    Clicked="endButton_Clicked"
+                    VerticalOptions="CenterAndExpand"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    Margin="30,0,30,0"/>
+
+            <Label 
+                    Text="Lvl "
+                    x:Name="labelLevel"
+                    FontSize="Medium"
+                    TextColor="Black"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+            </Label>
+
+            <Label 
+                    Text="Score "
+                    x:Name="labelScore"
+                    FontSize="Medium"
+                    TextColor="Black"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+            </Label>
+
+            <Label 
+                    Text="Timer "
+                    x:Name="labelTimer"
+                    FontSize="Medium"
+                    TextColor="Black"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+            </Label>
+
+
+
+            <Button Text="Next"
+                    x:Name="nextButton"
+                    Clicked="nextButton_Clicked"
+                    VerticalOptions="CenterAndExpand"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    Margin="30,0,30,0"/>
+
+        </StackLayout>
+
+        </Grid>
+    <!--</ContentPage.Content>-->
+</ContentPage>
+
+
+
 
             <!--<button text="start screen" 
                     x:name="gotostartscreen" 
                     clicked="gotostartscreen_clicked">
             </button>-->
-
-        </StackLayout>
-
-        </Grid>
-    </ContentPage.Content>
-</ContentPage>
