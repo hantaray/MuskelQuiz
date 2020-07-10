@@ -10,14 +10,16 @@
     <StackLayout>
         <!-- Place new controls here -->
         
-        <Label x:Name="testname" Text="Welcome to our quizz game!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <Label  x:Name="testname" 
+                Text="Welcome to our quizz game!" 
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand" />
 
         <Button Text="Start Game" 
-                Clicked="GoToGamePage" />
-        <Button Text="Database" 
-                Clicked="GoToDatabasePage" />
+                Clicked="GoToGamePage" 
+                
+                VerticalOptions="CenterAndExpand" 
+                />
     </StackLayout>
 
 </ContentPage>
