@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "2ySLqP6ERzKaZ5Vh3bN0Au+V8E1rmVpLjAC4MX1SWGjtXbCIhtkFp/2+9PzhAFAA+3rGaySURIQWXjjTTDvE2w==",
+  "dgSpecHash": "5oi1c9ZcFVqMR9h3fs2r7RZHeR2lrFXIvhMKCDW3k1eLb902O5sx85OYzU6CDGIjYPRmc18WtilIepT/gWKBWw==",
   "success": true,
   "projectFilePath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\Quizz_PhysioUnited.iOS.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ahant\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\ahant\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\ahant\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\ahant\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
     "C:\\Users\\ahant\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",
