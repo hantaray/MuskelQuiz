@@ -24,11 +24,5 @@ androidgeneratejnimarshalmethods=false
 os=windows_nt
 androidincludedebugsymbols=true
 androidpackagenamingpolicy=lowercasecrc64
-<<<<<<< HEAD
 _nugetassetstimestamp=637299290591103429
-||||||| 1e5693d... Merge branch 'gamePlay2' into 'master'
-_nugetassetstimestamp=637299019909393388
-=======
-_nugetassetstimestamp=637293756530760867
->>>>>>> parent of 1e5693d... Merge branch 'gamePlay2' into 'master'
 typemapkind=strings-asm

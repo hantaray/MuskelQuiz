@@ -73,13 +73,7 @@ mono_aot_mode_name:
 	.section	.rodata.env.str.8,"aMS",@progbits,1
 	.type	.L.env.str.8, @object
 .L.env.str.8:
-<<<<<<< HEAD
 	.asciz	"b0daf2f4-6d36-4230-8c38-ef1b721c539d"
-||||||| 1e5693d... Merge branch 'gamePlay2' into 'master'
-	.asciz	"4be5cb9f-465e-4576-a563-99550c5fcb76"
-=======
-	.asciz	"846f726d-418d-4fee-bdc5-00c67b11a766"
->>>>>>> parent of 1e5693d... Merge branch 'gamePlay2' into 'master'
 	.size	.L.env.str.8, 37
 	.section	.rodata.env.str.9,"aMS",@progbits,1
 	.type	.L.env.str.9, @object
