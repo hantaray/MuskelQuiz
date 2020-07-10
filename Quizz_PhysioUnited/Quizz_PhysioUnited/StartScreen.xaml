@@ -15,9 +15,20 @@
            VerticalOptions="CenterAndExpand" />
 
         <Button Text="Start Game" 
+<<<<<<< HEAD
                 Clicked="GoToGamePage" />
         <Button Text="Database" 
                 Clicked="GoToDatabasePage" />
+||||||| 1e5693d... Merge branch 'gamePlay2' into 'master'
+                Clicked="GoToGamePage" 
+                
+                VerticalOptions="CenterAndExpand" 
+                />
+=======
+                Clicked="GoToGamePage" 
+                 
+                />
+>>>>>>> parent of 1e5693d... Merge branch 'gamePlay2' into 'master'
     </StackLayout>
 
 </ContentPage>

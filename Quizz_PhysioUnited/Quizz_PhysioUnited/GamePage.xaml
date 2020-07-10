@@ -18,13 +18,32 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+<<<<<<< HEAD
+||||||| 1e5693d... Merge branch 'gamePlay2' into 'master'
+        
+    <!--Layout nested in grid and in column 1, containslabel for question and answerbuttons-->
+        <StackLayout>
+=======
+        
 
+        <StackLayout>
+>>>>>>> parent of 1e5693d... Merge branch 'gamePlay2' into 'master'
+
+<<<<<<< HEAD
 
             <StackLayout>
 
 
 
                 <Label Text="questiondddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+||||||| 1e5693d... Merge branch 'gamePlay2' into 'master'
+            <Label Text="question"
+                   x:Name="labelQuestion"
+=======
+            
+
+            <Label Text="questiondddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
+>>>>>>> parent of 1e5693d... Merge branch 'gamePlay2' into 'master'
                    FontSize="Large"
                    Padding="5"
                    VerticalOptions="CenterAndExpand"
@@ -33,8 +52,18 @@
 
                 <Button Text="answerButton1"
                     x:Name="answerButton1"
+<<<<<<< HEAD
                     Clicked="answerButton_Clicked">
                 </Button>
+||||||| 1e5693d... Merge branch 'gamePlay2' into 'master'
+                    TextColor="White"
+                    BackgroundColor="DarkGray"
+                    Clicked="answerButton_Clicked">                
+            </Button>
+=======
+                    Clicked="answerButton_Clicked">                
+            </Button>
+>>>>>>> parent of 1e5693d... Merge branch 'gamePlay2' into 'master'
 
                 <Button Text="answerButton2"
                     x:Name="answerButton2"
@@ -49,6 +78,7 @@
                 <Button Text="answerButton4"
                     x:Name="answerButton4"
                     Clicked="answerButton_Clicked"
+<<<<<<< HEAD
                     Margin="0,0,0,15"
                     >
                 </Button>
@@ -59,6 +89,73 @@
             </button>-->
 
             </StackLayout>
+||||||| 1e5693d... Merge branch 'gamePlay2' into 'master'
+                    Margin="0,0,0,15">
+            </Button>
+
+        </StackLayout>
+
+    <!--Layout nested in grid and in column 2, contains endButton, level label, score label, timer, next button-->
+        <StackLayout Grid.Column="1">
+
+            <Button Text="End Game"
+                    x:Name="endButton"
+                    Clicked="endButton_Clicked"
+                    VerticalOptions="CenterAndExpand"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    Margin="30,0,30,0"/>
+
+            <Label 
+                    Text="Lvl "
+                    x:Name="labelLevel"
+                    FontSize="Medium"
+                    TextColor="Black"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+            </Label>
+
+            <Label 
+                    Text="Score "
+                    x:Name="labelScore"
+                    FontSize="Medium"
+                    TextColor="Black"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+            </Label>
+
+            <Label 
+                    Text="Timer "
+                    x:Name="labelTimer"
+                    FontSize="Medium"
+                    TextColor="Black"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
+            </Label>
+
+
+
+            <Button Text="Next"
+                    x:Name="nextButton"
+                    Clicked="nextButton_Clicked"
+                    VerticalOptions="CenterAndExpand"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    Margin="30,0,30,0"/>
+
+        </StackLayout>
+=======
+                    Margin="0,0,0,15"
+                    >
+            </Button>
+
+            <!--<button text="start screen" 
+                    x:name="gotostartscreen" 
+                    clicked="gotostartscreen_clicked">
+            </button>-->
+
+        </StackLayout>
+>>>>>>> parent of 1e5693d... Merge branch 'gamePlay2' into 'master'
 
         </Grid>
     </ContentPage.Content>

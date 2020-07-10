@@ -23,6 +23,12 @@ AndroidDexTool=d8
 AndroidLinkTool=
 AndroidEnableProfiledAot=
 AndroidInstallAfterBuild=True
+<<<<<<< HEAD
 AndroidSessionId=f4e8a62b-623c-4d34-b100-56ff53d14101
+||||||| 1e5693d... Merge branch 'gamePlay2' into 'master'
+AndroidSessionId=931a7414-6f89-401b-8dc9-1897d0008b2e
+=======
+AndroidSessionId=11924424-68d1-4612-8e12-32113265438a
+>>>>>>> parent of 1e5693d... Merge branch 'gamePlay2' into 'master'
 BuildConfiguration=Debug
 TemplateName={c9e5eea5-ca05-42a1-839b-61506e0a37df}
