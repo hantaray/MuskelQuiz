@@ -17,36 +17,36 @@ namespace Quizz_PhysioUnited
             InitializeComponent();
         }
 
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-            listView.ItemsSource = await App.Database.GetFrageAsync();
+        //protected override async void OnAppearing()
+        //{
+        //    base.OnAppearing();
+        //    listView.ItemsSource = await App.Database.GetFrageAsync();
 
-            internetLabel.Text = $"Internetverbindung: {Connectivity.NetworkAccess}";
-        }
-        async void OnAddButtonClicked(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(frageEntry.Text) && !string.IsNullOrWhiteSpace(gruppeIDEntry.Text)
-                && !string.IsNullOrWhiteSpace(antwortEntry.Text))
-            {
-                int antwrtID = 0;
+        //    internetLabel.Text = $"Internetverbindung: {Connectivity.NetworkAccess}";
+        //}
+        //async void OnAddButtonClicked(object sender, EventArgs e)
+        //{
+        //    if (!string.IsNullOrWhiteSpace(frageEntry.Text) && !string.IsNullOrWhiteSpace(gruppeIDEntry.Text)
+        //        && !string.IsNullOrWhiteSpace(antwortEntry.Text))
+        //    {
+        //        int antwrtID = 0;
 
-                antwrtID = await App.Database.SaveAntwortAsync(new Antwort
-                {
-                    AntwortText = antwortEntry.Text,
-                    GruppeID = int.Parse(gruppeIDEntry.Text)
-                });
+        //        antwrtID = await App.Database.SaveAntwortAsync(new Antwort
+        //        {
+        //            AntwortText = antwortEntry.Text,
+        //            GruppeID = int.Parse(gruppeIDEntry.Text)
+        //        });
 
-                await App.Database.SaveFrageAsync(new Frage
-                {
-                    FrageText = frageEntry.Text,
-                    AntwortID = antwrtID
-                });
+        //        await App.Database.SaveFrageAsync(new Frage
+        //        {
+        //            FrageText = frageEntry.Text,
+        //            AntwortID = antwrtID
+        //        });
 
-                frageEntry.Text = gruppeIDEntry.Text = antwortEntry.Text = string.Empty;
+        //        frageEntry.Text = gruppeIDEntry.Text = antwortEntry.Text = string.Empty;
 
-                listView.ItemsSource = await App.Database.GetFrageAsync();
-            }
-        }
+        //        listView.ItemsSource = await App.Database.GetFrageAsync();
+        //    }
+        //}
     }
 }

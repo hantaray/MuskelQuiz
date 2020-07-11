@@ -13,8 +13,8 @@
                Placeholder="GruppeID eingeben" />
             <Entry x:Name="antwortEntry"
                Placeholder="Antwort eingeben" />
-            <Button Text="Add to Database"
-                Clicked="OnAddButtonClicked" />
+            <!--<Button Text="Add to Database"
+                Clicked="OnAddButtonClicked" />-->
             <Label x:Name="internetLabel" Text="Internetverbindung: "/>
             <ListView x:Name="listView">
                 <ListView.ItemTemplate>
