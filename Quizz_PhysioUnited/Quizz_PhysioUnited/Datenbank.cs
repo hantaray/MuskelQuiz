@@ -15,10 +15,10 @@ namespace Quizz_PhysioUnited
             _database.CreateTableAsync<Antwort>().Wait();
         }
 
-        //public Task<List<Frage>> GetFrageAsync()
-        //{
-        //    return _database.Table<Frage>().Where(id="1").ToListAsync();
-        //}
+        public Task<List<Frage>> GetFrageAsync()
+        {
+            return _database.Table<Frage>().ToListAsync();
+        }
         public Task<List<Antwort>> GetAntwortAsync()
         {
             return _database.Table<Antwort>().ToListAsync();
