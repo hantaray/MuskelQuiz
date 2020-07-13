@@ -19,9 +19,11 @@
                 Clicked="GoToGamePage" 
                 
                 VerticalOptions="CenterAndExpand" />
-        <Button Text="Datenbank" 
+        <!--<Button Text="Datenbank" 
                 Clicked="GoToDatabasePage" 
-                
+                VerticalOptions="CenterAndExpand" />-->
+        <Button Text="Band-Datenbank" 
+                Clicked="GoToBandDBPage" 
                 VerticalOptions="CenterAndExpand" />
         <Label x:Name="internetLabel" Text="Internetverbindung: "/>
     </StackLayout>

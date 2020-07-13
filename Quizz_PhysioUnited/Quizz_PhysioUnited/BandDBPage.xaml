@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Quizz_PhysioUnited.BandDBPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry x:Name="nameEntry"
+               Placeholder="Name eingeben" />
+            <Entry x:Name="foundedEntry"
+               Placeholder="Gründungsjahr eingeben" />
+            <Entry x:Name="albumEntry"
+               Placeholder="Erstes Album eingeben" />
+            <Entry x:Name="membersEntry"
+               Placeholder="Mitglieder eingeben" />
+            <Button Text="Add to Database"
+                Clicked="OnAddButtonClicked" />
+            <ListView x:Name="listView"
+                      Header="Header">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Label Text="{Binding Name}" FontAttributes="Bold" />
+                                <Label Grid.Column="1" Text="{Binding Founded}" />
+                                <Label Grid.Column="2" Text="{Binding FirstAlbumName}"/>
+                                <Label Grid.Column="3" Text="{Binding Members}"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

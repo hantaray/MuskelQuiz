@@ -11,6 +11,8 @@ namespace Quizz_PhysioUnited
 
         static Dictionary<string, string[]> namesAndAnswers = new Dictionary<string, string[]>();
 
+        static List<Band> bandList = new List<Band>();
+
         static string[] questions =
         {
                 "When did * get founded? ",
@@ -27,36 +29,52 @@ namespace Quizz_PhysioUnited
         {
             //is there a better way to clear the dictionary, because if I dont clear, there's an exception
             namesAndAnswers.Clear();
+            GetDataFromDB();
             SetDicionary();
         }
 
 
 
-        public static void SetDicionary() { 
-            string[] answersBand1 = { "1990", "Undertow", "4" };
-            namesAndAnswers.Add("Tool", answersBand1);
+        //public static void SetDicionary() { 
+        //    string[] answersBand1 = { "1990", "Undertow", "4" };
+        //    namesAndAnswers.Add("Tool", answersBand1);
 
-                string[] answersBand2 = { "1975", "Motörhead", "3" };
-            namesAndAnswers.Add("Motörhead", answersBand2);
+        //        string[] answersBand2 = { "1975", "Motörhead", "3" };
+        //    namesAndAnswers.Add("Motörhead", answersBand2);
 
-                string[] answersBand3 = { "1991", "Wretch", "4" };
-            namesAndAnswers.Add("Kyuss", answersBand3);
+        //        string[] answersBand3 = { "1991", "Wretch", "4" };
+        //    namesAndAnswers.Add("Kyuss", answersBand3);
 
-                string[] answersBand4 = { "1991", "Transnational Speedway League: Anthems, Anecdotes and Undeniable Truths", "4" };
-            namesAndAnswers.Add("Clutch", answersBand4);
+        //        string[] answersBand4 = { "1991", "Transnational Speedway League: Anthems, Anecdotes and Undeniable Truths", "4" };
+        //    namesAndAnswers.Add("Clutch", answersBand4);
 
-                string[] answersBand5 = { "1995", "Frequencies From Planet Ten", "5" };
-            namesAndAnswers.Add("Orange Goblin", answersBand5);
+        //        string[] answersBand5 = { "1995", "Frequencies From Planet Ten", "5" };
+        //    namesAndAnswers.Add("Orange Goblin", answersBand5);
 
-                string[] answersBand6 = { "1992", "Atomic Bitchwax", "3" };
-            namesAndAnswers.Add("Atomic Bitchwax", answersBand6);
+        //        string[] answersBand6 = { "1992", "Atomic Bitchwax", "3" };
+        //    namesAndAnswers.Add("Atomic Bitchwax", answersBand6);
 
-                string[] answersBand7 = { "2005", "Malverde / Favorite Son", "4" };
-            namesAndAnswers.Add("Red Fang", answersBand7);
+        //        string[] answersBand7 = { "2005", "Malverde / Favorite Son", "4" };
+        //    namesAndAnswers.Add("Red Fang", answersBand7);
 
-                string[] answersBand8 = { "1996", "Do or Die", "6" };
-            namesAndAnswers.Add("Dropkick Murphys", answersBand8);  
+        //        string[] answersBand8 = { "1996", "Do or Die", "6" };
+        //    namesAndAnswers.Add("Dropkick Murphys", answersBand8);  
+        //}
+
+        async void GetDataFromDB()
+        {
+            bandList = await App.BandDB.GetBandAsync();
         }
+
+        public static void SetDicionary()
+        {
+            foreach (Band band in bandList)
+            {
+                string[] answersBand = { band.Founded.ToString(), band.FirstAlbumName, band.Members.ToString() };
+                namesAndAnswers.Add(band.Name, answersBand);
+            }
+        }
+
 
 
         public List<string> GetBandNames()

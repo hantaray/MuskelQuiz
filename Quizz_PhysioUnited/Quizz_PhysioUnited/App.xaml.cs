@@ -8,6 +8,7 @@ namespace Quizz_PhysioUnited
     public partial class App : Application
     {
         static Database database;
+        static BandDB bandDB;
 
         public static Database Database
         {
@@ -18,6 +19,17 @@ namespace Quizz_PhysioUnited
                     database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "datenbank.db3"));
                 }
                 return database;
+            }
+        }
+        public static BandDB BandDB
+        {
+            get
+            {
+                if (bandDB == null)
+                {
+                    bandDB = new BandDB(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "bands.db3"));
+                }
+                return bandDB;
             }
         }
 
