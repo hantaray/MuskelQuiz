@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quizz_PhysioUnited.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace Quizz_PhysioUnited
 
     public partial class GamePage : ContentPage
     {
+        //if you reached the end of the game and press continue gamae after closing the app, theres a excetion
+
 
         //der next button zählt die questionNumber hoch und wenn größer als 2 dann auf null gesetzt und bandCounter geht eins hoch
         int questionNumber = 0;
@@ -25,6 +28,12 @@ namespace Quizz_PhysioUnited
         List<string> choices;
         string rightAnswer;
         int score = 0;
+        double gameTime = 30.0;
+        double timerCounter;
+        bool timerBool = true;
+        bool answerButtonIsClicked = false;
+
+
 
 
 
@@ -36,42 +45,79 @@ namespace Quizz_PhysioUnited
             SetLevel();
             SetScore();
             EnableButtons();
-            nextButton.IsEnabled = false;
+            SetTimer();
+        }
+
+        public GamePage(int questionNumber, int bandCounter, int questionCounter, int score)
+        {
+            this.questionNumber = questionNumber;
+            this.bandCounter = bandCounter;
+            this.questionCounter = questionCounter;
+            this.score = score;
+            InitializeComponent();
+            InitializeGameData();
+            SetQuestionAndAnswer();
+            SetLevel();
+            SetScore();
+            EnableButtons();
+            SetTimer();
         }
 
 
         private void answerButton_Clicked(object sender, EventArgs e)
         {
+            answerButtonIsClicked = true;
             CheckAnswer(sender);
-            nextButton.IsEnabled = true;
+            DisableButtons();
+            StopTimer();
+            SetBandAndQuestionNumber();
+            SaveUserData();
         }
 
         private async void endButton_Clicked(object sender, EventArgs e)
         {
+            StopTimer();
             bool answer = await DisplayAlert("Sure?", "Would you like to end the game?", "Yes", "No");
             if (answer)
             {
                 await Navigation.PopAsync();
             }
+            else
+            {
+                if (!answerButtonIsClicked)
+                {
+                    StartTimerAgain();
+                };
+            }
         }
 
         private void nextButton_Clicked(object sender, EventArgs e)
         {
-            SetBandAndQuestionNumber();
+            //SetBandAndQuestionNumber();            
             if (questionCounter > totalQuestions)
             {
                 AlertGameEnd();
                 //return;
-            } else
-            {                
+            }
+            else
+            {
+                answerButtonIsClicked = false;
                 SetQuestionAndAnswer();
                 SetLevel();
                 EnableButtons();
-                nextButton.IsEnabled = false;
+                SetTimer();
             }
 
         }
         //work with xaml elements: e.g. answerButton1.Text = "dick"; answerButton1.IsEnabled = false;
+
+        public void SaveUserData()
+        {
+            Settings.LastUsedQuestionNumber = questionNumber.ToString();
+            Settings.LastUsedBandCounter = bandCounter.ToString();
+            Settings.LastUsedQuestionCounter = questionCounter.ToString();
+            Settings.LastUsedScore = score.ToString();
+        }
 
         public void SetQuestionAndAnswer()
         {
@@ -99,7 +145,7 @@ namespace Quizz_PhysioUnited
         public void SetLevel()
         {
             labelLevel.Text = "Lvl " + questionCounter + "/" + totalQuestions;
-            
+
         }
 
         public void SetScore()
@@ -107,15 +153,57 @@ namespace Quizz_PhysioUnited
             labelScore.Text = "Score " + score;
         }
 
+        public void SetTimer()
+        {
+            timerBool = true;
+            timerCounter = gameTime;
+            Device.StartTimer(new TimeSpan(0, 0, 0, 0, 100), () =>
+            {
+                // do something every 1 seconds
+                timerCounter = Math.Round(timerCounter, 1) - 0.1;
+                if (timerCounter == 0.0)
+                {
+                    timerBool = false;
+                    DisableButtons();
+
+                }
+                labelTimer.Text = timerCounter.ToString("0.0");
+                return timerBool; // runs again, or false to stop
+            });
+        }
+
+        public void StopTimer()
+        {
+            timerBool = false;
+        }
+
+        public void StartTimerAgain()
+        {
+            timerBool = true;
+            Device.StartTimer(new TimeSpan(0, 0, 0, 0, 100), () =>
+            {
+                // do something every 1 seconds
+                timerCounter = Math.Round(timerCounter, 1) - 0.1;
+                if (timerCounter == 0.0)
+                {
+                    timerBool = false;
+                    DisableButtons();
+
+                }
+                labelTimer.Text = timerCounter.ToString("0.0");
+                return timerBool; // runs again, or false to stop
+            });
+        }
+
         public void CheckAnswer(object sender)
         {
-            DisableButtons();
+
             Button clickedButton = (Button)sender;
             if (clickedButton.Text.Equals(rightAnswer))
             {
                 clickedButton.BackgroundColor = Color.FromHex("#00FF00");
                 score++;
-            } 
+            }
             else
             {
                 clickedButton.BackgroundColor = Color.FromHex("#FF0000");
@@ -125,6 +213,7 @@ namespace Quizz_PhysioUnited
 
         public void EnableButtons()
         {
+            nextButton.IsEnabled = false;
             answerButton1.IsEnabled = true;
             answerButton2.IsEnabled = true;
             answerButton3.IsEnabled = true;
@@ -137,6 +226,7 @@ namespace Quizz_PhysioUnited
 
         public void DisableButtons()
         {
+            nextButton.IsEnabled = true;
             answerButton1.IsEnabled = false;
             answerButton2.IsEnabled = false;
             answerButton3.IsEnabled = false;

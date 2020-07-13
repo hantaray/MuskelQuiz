@@ -1,10 +1,10 @@
-﻿using System;
+﻿using Quizz_PhysioUnited.Utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Quizz_PhysioUnited
@@ -18,24 +18,25 @@ namespace Quizz_PhysioUnited
         {
             InitializeComponent();
         }
-        protected override async void OnAppearing()
-        {
 
-            internetLabel.Text = $"Internetverbindung: {Connectivity.NetworkAccess}";
-        }
         async void GoToGamePage(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new GamePage());
         }
 
-        async void GoToDatabasePage(object sender, EventArgs e)
+        private async void ContinueGameButton_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DatabasePage());
+
+            await Navigation.PushAsync(new GamePage(Int32.Parse(Settings.LastUsedQuestionNumber),
+                                                    Int32.Parse(Settings.LastUsedBandCounter),
+                                                    Int32.Parse(Settings.LastUsedQuestionCounter),
+                                                    Int32.Parse(Settings.LastUsedScore)
+                                                    ));
         }
-        async void GoToBandDBPage(object sender, EventArgs e)
+
+        async void openDataBase_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new BandDBPage());
-
         }
     }
 }

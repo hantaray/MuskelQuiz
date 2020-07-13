@@ -9,7 +9,7 @@
 
     <StackLayout>
         <!-- Place new controls here -->
-        
+
         <Label  x:Name="testname" 
                 Text="Welcome to our quizz game!" 
                 HorizontalOptions="Center"
@@ -17,15 +17,20 @@
 
         <Button Text="Start Game" 
                 Clicked="GoToGamePage" 
-                
-                VerticalOptions="CenterAndExpand" />
-        <!--<Button Text="Datenbank" 
-                Clicked="GoToDatabasePage" 
-                VerticalOptions="CenterAndExpand" />-->
-        <Button Text="Band-Datenbank" 
-                Clicked="GoToBandDBPage" 
-                VerticalOptions="CenterAndExpand" />
-        <Label x:Name="internetLabel" Text="Internetverbindung: "/>
+        
+                VerticalOptions="CenterAndExpand" 
+                />
+
+        <Button Text="Continue Game"
+                x:Name="ContinueGameButton"
+                Clicked="ContinueGameButton_Clicked"
+                VerticalOptions="CenterAndExpand"/>
+
+        <Button Text="open Database"
+                x:Name="openDataBase"
+                Clicked="openDataBase_Clicked"
+                VerticalOptions="CenterAndExpand"/>
+
     </StackLayout>
 
 </ContentPage>
