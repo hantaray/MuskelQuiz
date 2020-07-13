@@ -19,25 +19,25 @@ namespace Quizz_PhysioUnited
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            listView.ItemsSource = await App.BandDB.GetBandAsync();
+            listView.ItemsSource = App.BandDB.GetBand();
         }
         async void OnAddButtonClicked(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(nameEntry.Text) && !string.IsNullOrWhiteSpace(foundedEntry.Text)
-                && !string.IsNullOrWhiteSpace(albumEntry.Text) && !string.IsNullOrWhiteSpace(membersEntry.Text))
-            {
-                await App.BandDB.SaveBandAsync(new Band
-                {
-                    Name = nameEntry.Text,
-                    Founded = int.Parse(foundedEntry.Text),
-                    FirstAlbumName = albumEntry.Text,
-                    Members = int.Parse(membersEntry.Text)
-                });
+            //if (!string.IsNullOrWhiteSpace(nameEntry.Text) && !string.IsNullOrWhiteSpace(foundedEntry.Text)
+            //    && !string.IsNullOrWhiteSpace(albumEntry.Text) && !string.IsNullOrWhiteSpace(membersEntry.Text))
+            //{
+            //    await App.BandDB.SaveBandAsync(new Band
+            //    {
+            //        Name = nameEntry.Text,
+            //        Founded = int.Parse(foundedEntry.Text),
+            //        FirstAlbumName = albumEntry.Text,
+            //        Members = int.Parse(membersEntry.Text)
+            //    });
 
-                nameEntry.Text = foundedEntry.Text = albumEntry.Text = membersEntry.Text = string.Empty;
+            //    nameEntry.Text = foundedEntry.Text = albumEntry.Text = membersEntry.Text = string.Empty;
 
-                listView.ItemsSource = await App.BandDB.GetBandAsync();
-            }
+            //    listView.ItemsSource = await App.BandDB.GetBandAsync();
+            //}
         }
     }
 }

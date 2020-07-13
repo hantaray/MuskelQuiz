@@ -7,7 +7,7 @@
              x:Class="Quizz_PhysioUnited.BandDBPage">
     <ContentPage.Content>
         <StackLayout>
-            <Entry x:Name="nameEntry"
+            <!--<Entry x:Name="nameEntry"
                Placeholder="Name eingeben" />
             <Entry x:Name="foundedEntry"
                Placeholder="Gründungsjahr eingeben" />
@@ -16,7 +16,7 @@
             <Entry x:Name="membersEntry"
                Placeholder="Mitglieder eingeben" />
             <Button Text="Add to Database"
-                Clicked="OnAddButtonClicked" />
+                Clicked="OnAddButtonClicked" />-->
             <ListView x:Name="listView"
                       Header="Header">
                 <ListView.ItemTemplate>
