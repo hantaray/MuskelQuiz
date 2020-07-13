@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Dynamic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Quizz_PhysioUnited
 {
@@ -61,9 +62,9 @@ namespace Quizz_PhysioUnited
         //    namesAndAnswers.Add("Dropkick Murphys", answersBand8);  
         //}
 
-        async void GetDataFromDB()
+        public void GetDataFromDB()
         {
-            bandList = await App.BandDB.GetBandAsync();
+            bandList = App.BandDB.GetBand();
         }
 
         public static void SetDicionary()

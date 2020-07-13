@@ -6,22 +6,21 @@ namespace Quizz_PhysioUnited
 {
     public class BandDB
     {
-        readonly SQLiteAsyncConnection _database;
+        readonly SQLiteConnection _database;
 
         public BandDB(string dbPath)
         {
-            _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Band>().Wait();
+            _database = new SQLiteConnection(dbPath);
+            _database.CreateTable<Band>();
         }
 
-        public Task<List<Band>> GetBandAsync()
+        public List<Band> GetBand()
         {
-            return _database.Table<Band>().ToListAsync();
+            return _database.Table<Band>().ToList();
         }
-
-        public Task<int> SaveBandAsync(Band band)
+        public void SaveBand(Band band)
         {
-            return _database.InsertAsync(band);
+            _database.Insert(band);
         }
     }
 }

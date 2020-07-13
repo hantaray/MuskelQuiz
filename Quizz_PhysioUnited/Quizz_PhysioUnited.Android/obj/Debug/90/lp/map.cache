@@ -1,4 +1,5 @@
 FormsViewGroup
+Plugin.Settings
 SQLitePCLRaw.lib.e_sqlite3.android
 Xamarin.Android.Arch.Core.Common
 Xamarin.Android.Arch.Core.Runtime
@@ -40,4 +41,3 @@ Xamarin.Android.Support.ViewPager
 Xamarin.Essentials
 Xamarin.Forms.Platform.Android
 Xamarin.Forms.Platform
-Plugin.Settings
