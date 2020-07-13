@@ -18,8 +18,12 @@
         <Button Text="Start Game" 
                 Clicked="GoToGamePage" 
                 
-                VerticalOptions="CenterAndExpand" 
-                />
+                VerticalOptions="CenterAndExpand" />
+        <Button Text="Datenbank" 
+                Clicked="GoToDatabasePage" 
+                
+                VerticalOptions="CenterAndExpand" />
+        <Label x:Name="internetLabel" Text="Internetverbindung: "/>
     </StackLayout>
 
 </ContentPage>

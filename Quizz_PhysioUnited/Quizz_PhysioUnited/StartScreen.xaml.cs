@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace Quizz_PhysioUnited
@@ -15,12 +16,21 @@ namespace Quizz_PhysioUnited
     {
         public StartScreen()
         {
-            InitializeComponent();            
+            InitializeComponent();
         }
+        protected override async void OnAppearing()
+        {
 
+            internetLabel.Text = $"Internetverbindung: {Connectivity.NetworkAccess}";
+        }
         async void GoToGamePage(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new GamePage());
+        }
+
+        async void GoToDatabasePage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new DatabasePage());
         }
 
 
