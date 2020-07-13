@@ -1147,6 +1147,7 @@
         "lib/Xamarin.Mac20/Plugin.Settings.dll",
         "lib/Xamarin.Mac20/Plugin.Settings.pdb",
         "lib/Xamarin.iOS10/Plugin.Settings.Abstractions.dll",
+        "lib/Xamarin.iOS10/Plugin.Settings.Abstractions.dll.mdb",
         "lib/Xamarin.iOS10/Plugin.Settings.Abstractions.pdb",
         "lib/Xamarin.iOS10/Plugin.Settings.Abstractions.xml",
         "lib/Xamarin.iOS10/Plugin.Settings.dll",
@@ -2286,24 +2287,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\konne\\.nuget\\packages\\": {},
+    "C:\\Users\\ahant\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.Android\\Quizz_PhysioUnited.Android.csproj",
+      "projectUniqueName": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.Android\\Quizz_PhysioUnited.Android.csproj",
       "projectName": "Quizz_PhysioUnited.Android",
-      "projectPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.Android\\Quizz_PhysioUnited.Android.csproj",
-      "packagesPath": "C:\\Users\\konne\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.Android\\obj\\",
+      "projectPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.Android\\Quizz_PhysioUnited.Android.csproj",
+      "packagesPath": "C:\\Users\\ahant\\.nuget\\packages\\",
+      "outputPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\konne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ahant\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2317,8 +2318,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj": {
-              "projectPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj"
+            "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj": {
+              "projectPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj"
             }
           }
         }
