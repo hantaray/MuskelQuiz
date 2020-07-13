@@ -32,7 +32,10 @@ namespace Quizz_PhysioUnited
         {
             await Navigation.PushAsync(new DatabasePage());
         }
+        async void GoToBandDBPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new BandDBPage());
 
-
+        }
     }
 }
