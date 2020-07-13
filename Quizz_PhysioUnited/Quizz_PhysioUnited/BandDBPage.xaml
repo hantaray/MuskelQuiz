@@ -17,8 +17,7 @@
                Placeholder="Mitglieder eingeben" />
             <Button Text="Add to Database"
                 Clicked="OnAddButtonClicked" />
-            <ListView x:Name="listView"
-                      Header="Header">
+            <ListView x:Name="listView">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>

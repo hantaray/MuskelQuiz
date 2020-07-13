@@ -7,17 +7,17 @@
              x:Class="Quizz_PhysioUnited.GamePage"
              NavigationPage.HasNavigationBar="False">
     <!--<ContentPage.Content>-->
-        <Grid   x:Name="gridGamePage">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />                
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+    <Grid   x:Name="gridGamePage">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
-        
-    <!--Layout nested in grid and in column 1, containslabel for question and answerbuttons-->
+
+        <!--Layout nested in grid and in column 1, containslabel for question and answerbuttons-->
         <StackLayout>
 
             <Label Text="question"
@@ -33,7 +33,7 @@
                     x:Name="answerButton1"
                     TextColor="White"
                     BackgroundColor="DarkGray"
-                    Clicked="answerButton_Clicked">                
+                    Clicked="answerButton_Clicked">
             </Button>
 
             <Button Text="answerButton2"
@@ -60,7 +60,7 @@
 
         </StackLayout>
 
-    <!--Layout nested in grid and in column 2, contains endButton, level label, score label, timer, next button-->
+        <!--Layout nested in grid and in column 2, contains endButton, level label, score label, timer, next button-->
         <StackLayout Grid.Column="1">
 
             <Button Text="End Game"
@@ -110,14 +110,14 @@
 
         </StackLayout>
 
-        </Grid>
+    </Grid>
     <!--</ContentPage.Content>-->
 </ContentPage>
 
 
 
 
-            <!--<button text="start screen" 
+<!--<button text="start screen" 
                     x:name="gotostartscreen" 
                     clicked="gotostartscreen_clicked">
             </button>-->
