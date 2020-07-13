@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,36 +16,28 @@ namespace Quizz_PhysioUnited
             InitializeComponent();
         }
 
-        //protected override async void OnAppearing()
-        //{
-        //    base.OnAppearing();
-        //    listView.ItemsSource = await App.Database.GetFrageAsync();
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+            listView.ItemsSource = await App.Database.GetMuskelAsync();
+        }
+        async void OnAddButtonClicked(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(nameEntry.Text) && !string.IsNullOrWhiteSpace(ursprungEntry.Text)
+                && !string.IsNullOrWhiteSpace(ansastzEntry.Text) && !string.IsNullOrWhiteSpace(kategorieEntry.Text))
+            {
+                await App.Database.SaveMuskelAsync(new Muskel
+                {
+                    Name = nameEntry.Text,
+                    Ursprung = ursprungEntry.Text,
+                    Ansatz = ansastzEntry.Text,
+                    Kategorie = int.Parse(kategorieEntry.Text)
+                });
 
-        //    internetLabel.Text = $"Internetverbindung: {Connectivity.NetworkAccess}";
-        //}
-        //async void OnAddButtonClicked(object sender, EventArgs e)
-        //{
-        //    if (!string.IsNullOrWhiteSpace(frageEntry.Text) && !string.IsNullOrWhiteSpace(gruppeIDEntry.Text)
-        //        && !string.IsNullOrWhiteSpace(antwortEntry.Text))
-        //    {
-        //        int antwrtID = 0;
+                nameEntry.Text = ursprungEntry.Text = ansastzEntry.Text = kategorieEntry.Text = string.Empty;
 
-        //        antwrtID = await App.Database.SaveAntwortAsync(new Antwort
-        //        {
-        //            AntwortText = antwortEntry.Text,
-        //            GruppeID = int.Parse(gruppeIDEntry.Text)
-        //        });
-
-        //        await App.Database.SaveFrageAsync(new Frage
-        //        {
-        //            FrageText = frageEntry.Text,
-        //            AntwortID = antwrtID
-        //        });
-
-        //        frageEntry.Text = gruppeIDEntry.Text = antwortEntry.Text = string.Empty;
-
-        //        listView.ItemsSource = await App.Database.GetFrageAsync();
-        //    }
-        //}
+                listView.ItemsSource = await App.Database.GetMuskelAsync();
+            }
+        }
     }
 }

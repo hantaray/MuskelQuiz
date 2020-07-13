@@ -11,27 +11,17 @@ namespace Quizz_PhysioUnited
         public Database(string dbPath)
         {
             _database = new SQLiteAsyncConnection(dbPath);
-            _database.CreateTableAsync<Frage>().Wait();
-            _database.CreateTableAsync<Antwort>().Wait();
+            _database.CreateTableAsync<Muskel>().Wait();
         }
 
-        public Task<List<Frage>> GetFrageAsync()
+        public Task<List<Muskel>> GetMuskelAsync()
         {
-            return _database.Table<Frage>().ToListAsync();
-        }
-        public Task<List<Antwort>> GetAntwortAsync()
-        {
-            return _database.Table<Antwort>().ToListAsync();
+            return _database.Table<Muskel>().ToListAsync();
         }
 
-        public Task<int> SaveFrageAsync(Frage frage)
+        public Task<int> SaveMuskelAsync(Muskel muskel)
         {
-            return _database.InsertAsync(frage);
-        }
-
-        public Task<int> SaveAntwortAsync(Antwort antwort)
-        {
-            return _database.InsertAsync(antwort);
+            return _database.InsertAsync(muskel);
         }
     }
 }
