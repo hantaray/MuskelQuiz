@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,7 +11,7 @@ namespace Quizz_PhysioUnited
     {
 
 
-        static Dictionary<string, string[]> namesAndAnswers = new Dictionary<string, string[]>();
+        public Dictionary<string, string[]> namesAndAnswers = new Dictionary<string, string[]>();
 
         static List<Band> bandList = new List<Band>();
 
@@ -33,6 +34,8 @@ namespace Quizz_PhysioUnited
             GetDataFromDB();
             SetDicionary();
         }
+
+
 
 
 
@@ -67,7 +70,7 @@ namespace Quizz_PhysioUnited
             bandList = App.BandDB.GetBand();
         }
 
-        public static void SetDicionary()
+        public void SetDicionary()
         {
             foreach (Band band in bandList)
             {
@@ -76,7 +79,35 @@ namespace Quizz_PhysioUnited
             }
         }
 
+        public List<List<string>> getAllQuestionsAndAnswers(Dictionary<string, string[]> dic)
+        {
+            List<List<string>> questionsAndAnswers = new List<List<string>>();
+            int numberOfQuestions = questions.Length;
+            foreach (KeyValuePair<string, string[]> kvp in dic)
+            {                
+                string bandName = kvp.Key;
+                for (int i = 0; i < numberOfQuestions; i++)
+                {                    
+                    string rightAnswer = GetRightAnswer(bandName, i);
+                    if (string.IsNullOrEmpty(rightAnswer))
+                    {
+                        continue;
+                    }
+                    List<string> choices = GetChoices(i, rightAnswer);
+                    string question = GetQuestion(bandName, i);
 
+                    questionsAndAnswers.Add(new List<string> { question,
+                                                               choices[0],
+                                                               choices[1],
+                                                               choices[2],
+                                                               choices[3],
+                                                               rightAnswer
+                                                              });                    
+                }
+            }
+            return questionsAndAnswers;
+        }
+    
 
         public List<string> GetBandNames()
         {
@@ -96,7 +127,7 @@ namespace Quizz_PhysioUnited
 
         }
 
-        public static string GetRightAnswer(string bandName, int questionNumber)
+        public string GetRightAnswer(string bandName, int questionNumber)
         {
             string[] answers = namesAndAnswers[bandName];
             string rightAnswer = answers[questionNumber];
@@ -104,12 +135,12 @@ namespace Quizz_PhysioUnited
 
         }
 
-        public static List<string> GetChoices(int questionNumber, string rightAnswer)
+        public List<string> GetChoices(int questionNumber, string rightAnswer)
         {
             List<string> choices = SetChoices(namesAndAnswers, questionNumber, rightAnswer);
             FischerShuffle.ShuffleArray(choices);           //gives choices rnd positions in List
             return choices;
-                
+
         }
 
 
@@ -147,7 +178,7 @@ namespace Quizz_PhysioUnited
                     break;
                 }
             }
-            
+
             return choices;
         }
 

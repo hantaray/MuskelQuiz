@@ -27,8 +27,9 @@ namespace Quizz_PhysioUnited
         private async void ContinueGameButton_Clicked(object sender, EventArgs e)
         {
 
-            await Navigation.PushAsync(new GamePage(Int32.Parse(Settings.LastUsedQuestionNumber),
-                                                    Int32.Parse(Settings.LastUsedBandCounter),
+            await Navigation.PushAsync(new GamePage(
+                                                    //Int32.Parse(Settings.LastUsedQuestionNumber),
+                                                    //Int32.Parse(Settings.LastUsedBandCounter),
                                                     Int32.Parse(Settings.LastUsedQuestionCounter),
                                                     Int32.Parse(Settings.LastUsedScore)
                                                     ));

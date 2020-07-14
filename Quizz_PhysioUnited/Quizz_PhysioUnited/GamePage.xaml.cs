@@ -19,13 +19,13 @@ namespace Quizz_PhysioUnited
 
 
         //der next button zählt die questionNumber hoch und wenn größer als 2 dann auf null gesetzt und bandCounter geht eins hoch
-        int questionNumber = 0;
-        int bandCounter = 0;
+        //int questionNumber = 0;
+        //int bandCounter = 0;
         int questionCounter = 1;
-        List<string> bandNames;
-        string bandName;
+        List<List<string>> questionsAndAnswers;
+        //string bandName;
         int totalQuestions;
-        List<string> choices;
+        //List<string> choices;
         string rightAnswer;
         int score = 0;
         double gameTime = 30.0;
@@ -48,10 +48,10 @@ namespace Quizz_PhysioUnited
             SetTimer();
         }
 
-        public GamePage(int questionNumber, int bandCounter, int questionCounter, int score)
+        public GamePage(int questionCounter, int score)
         {
-            this.questionNumber = questionNumber;
-            this.bandCounter = bandCounter;
+            //this.questionNumber = questionNumber;
+            //this.bandCounter = bandCounter;
             this.questionCounter = questionCounter;
             this.score = score;
             InitializeComponent();
@@ -113,33 +113,32 @@ namespace Quizz_PhysioUnited
 
         public void SaveUserData()
         {
-            Settings.LastUsedQuestionNumber = questionNumber.ToString();
-            Settings.LastUsedBandCounter = bandCounter.ToString();
+            //Settings.LastUsedQuestionNumber = questionNumber.ToString();
+            //Settings.LastUsedBandCounter = bandCounter.ToString();
             Settings.LastUsedQuestionCounter = questionCounter.ToString();
             Settings.LastUsedScore = score.ToString();
         }
 
         public void SetQuestionAndAnswer()
         {
-            bandName = bandNames[bandCounter];
-            rightAnswer = Questions.GetRightAnswer(bandName, questionNumber);
-            choices = Questions.GetChoices(questionNumber, rightAnswer);
-            labelQuestion.Text = Questions.GetQuestion(bandName, questionNumber);
-            answerButton1.Text = choices[0];
-            answerButton2.Text = choices[1];
-            answerButton3.Text = choices[2];
-            answerButton4.Text = choices[3];
+            List<string> questionAndAnswer = questionsAndAnswers[(questionCounter - 1)];
+            rightAnswer = questionAndAnswer[5];
+            labelQuestion.Text = questionAndAnswer[0];
+            answerButton1.Text = questionAndAnswer[1];
+            answerButton2.Text = questionAndAnswer[2];
+            answerButton3.Text = questionAndAnswer[3];
+            answerButton4.Text = questionAndAnswer[4];
         }
 
         public void SetBandAndQuestionNumber()
         {
             questionCounter++;
-            questionNumber++;
-            if (questionNumber >= 3)
-            {
-                questionNumber = 0;
-                bandCounter++;
-            }
+            //questionNumber++;
+            //if (questionNumber >= 3)
+            //{
+            //    questionNumber = 0;
+            //    bandCounter++;
+            //}
         }
 
         public void SetLevel()
@@ -241,8 +240,9 @@ namespace Quizz_PhysioUnited
         public void InitializeGameData()
         {
             Questions questions = new Questions();
-            bandNames = questions.GetBandNames();
-            totalQuestions = bandNames.Count * 3;
+            questionsAndAnswers = questions.getAllQuestionsAndAnswers(questions.namesAndAnswers);
+            //bandNames = questions.GetBandNames();
+            totalQuestions = questionsAndAnswers.Count;
         }
 
 
