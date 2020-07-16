@@ -7,6 +7,11 @@
              x:Class="Quizz_PhysioUnited.GamePage"
              NavigationPage.HasNavigationBar="False">
     <!--<ContentPage.Content>-->
+    <!--<ContentPage.BindingContext>
+        <GamePage.xaml.cs/>
+    </ContentPage.BindingContext>-->
+    
+    
     <Grid   x:Name="gridGamePage">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -24,9 +29,19 @@
                    x:Name="labelQuestion"
                    FontSize="Large"
                    TextColor="Black"
-                   Padding="5"
+                   Padding="0, 20, 0, 0"
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand">
+            </Label>
+
+            <Label 
+                    Text="Timer "
+                    x:Name="labelTimer"
+                    FontSize="Large"
+                    TextColor="Red"
+                    Padding="0,0,0,10"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand">
             </Label>
 
             <Button Text="answerButton1"
@@ -88,18 +103,23 @@
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="CenterAndExpand">
             </Label>
-
-            <Label 
-                    Text="Timer "
-                    x:Name="labelTimer"
-                    FontSize="Medium"
+            
+            <Label Text="Gems 0"
+                   x:Name="labelGems"
+                   FontSize="Medium"
                     TextColor="Black"
                     HorizontalOptions="CenterAndExpand"
                     VerticalOptions="CenterAndExpand">
             </Label>
 
-
-
+            <Button Text="Joker"
+                    x:Name="jokerButton"
+                    Clicked="jokerButton_Clicked"
+                    VerticalOptions="CenterAndExpand"
+                    BackgroundColor="Black"
+                    TextColor="White"
+                    Margin="30,0,30,0"/>
+            
             <Button Text="Next"
                     x:Name="nextButton"
                     Clicked="nextButton_Clicked"

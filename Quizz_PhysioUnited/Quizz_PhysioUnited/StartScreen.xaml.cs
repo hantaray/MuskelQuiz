@@ -31,7 +31,8 @@ namespace Quizz_PhysioUnited
                                                     //Int32.Parse(Settings.LastUsedQuestionNumber),
                                                     //Int32.Parse(Settings.LastUsedBandCounter),
                                                     Int32.Parse(Settings.LastUsedQuestionCounter),
-                                                    Int32.Parse(Settings.LastUsedScore)
+                                                    Int32.Parse(Settings.LastUsedScore),
+                                                    Int32.Parse(Settings.LastUsedGems)
                                                     ));
         }
 

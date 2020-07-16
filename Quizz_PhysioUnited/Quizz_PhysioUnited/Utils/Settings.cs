@@ -21,40 +21,42 @@ namespace Quizz_PhysioUnited.Utils
 
         #region Setting Constants
 
-        private const string LastQuestionNumberSettings = "last_questionNumber_key";
+        //private const string LastQuestionNumberSettings = "last_questionNumber_key";
 
-        private const string LastBandCounterSettings = "last_bandCounter_key";
+        //private const string LastBandCounterSettings = "last_bandCounter_key";
         private const string LastQuestionCounterSettings = "last_questionCounter_key";
 
         private const string LastScoreSettings = "last_score_key";
+
+        private const string LastGemsSettings = "last_gems_key";
         private static readonly string SettingsDefault = string.Empty;
 
         #endregion
 
 
-        public static string LastUsedQuestionNumber
-        {
-            get
-            {
-                return AppSettings.GetValueOrDefault(LastQuestionNumberSettings, SettingsDefault);
-            }
-            set
-            {
-                AppSettings.AddOrUpdateValue(LastQuestionNumberSettings, value);
-            }
-        }
+        //public static string LastUsedQuestionNumber
+        //{
+        //    get
+        //    {
+        //        return AppSettings.GetValueOrDefault(LastQuestionNumberSettings, SettingsDefault);
+        //    }
+        //    set
+        //    {
+        //        AppSettings.AddOrUpdateValue(LastQuestionNumberSettings, value);
+        //    }
+        //}
 
-        public static string LastUsedBandCounter
-        {
-            get
-            {
-                return AppSettings.GetValueOrDefault(LastBandCounterSettings, SettingsDefault);
-            }
-            set
-            {
-                AppSettings.AddOrUpdateValue(LastBandCounterSettings, value);
-            }
-        }
+        //public static string LastUsedBandCounter
+        //{
+        //    get
+        //    {
+        //        return AppSettings.GetValueOrDefault(LastBandCounterSettings, SettingsDefault);
+        //    }
+        //    set
+        //    {
+        //        AppSettings.AddOrUpdateValue(LastBandCounterSettings, value);
+        //    }
+        //}
 
         public static string LastUsedQuestionCounter
         {
@@ -69,16 +71,28 @@ namespace Quizz_PhysioUnited.Utils
         }
 
         public static string LastUsedScore
-    {
-        get
         {
-            return AppSettings.GetValueOrDefault(LastScoreSettings, SettingsDefault);
+            get
+            {
+                return AppSettings.GetValueOrDefault(LastScoreSettings, SettingsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(LastScoreSettings, value);
+            }
         }
-        set
-        {
-            AppSettings.AddOrUpdateValue(LastScoreSettings, value);
-        }
-    }
 
-}
+        public static string LastUsedGems
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(LastGemsSettings, SettingsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(LastGemsSettings, value);
+            }
+        }
+
+    }
 }

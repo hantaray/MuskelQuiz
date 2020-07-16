@@ -28,11 +28,16 @@ namespace Quizz_PhysioUnited
         //List<string> choices;
         string rightAnswer;
         int score = 0;
+        int gems = 10;
         double gameTime = 30.0;
         double timerCounter;
         bool timerBool = true;
         bool answerButtonIsClicked = false;
+        int jokerCosts = 2;
+        bool jokerIsUsed = false;
 
+        
+        
 
 
 
@@ -40,25 +45,29 @@ namespace Quizz_PhysioUnited
         public GamePage()
         {
             InitializeComponent();
+            BindingContext = this;
             InitializeGameData();
             SetQuestionAndAnswer();
             SetLevel();
             SetScore();
+            SetGems();
             EnableButtons();
             SetTimer();
         }
 
-        public GamePage(int questionCounter, int score)
+        public GamePage(int questionCounter, int score, int gems)
         {
             //this.questionNumber = questionNumber;
             //this.bandCounter = bandCounter;
             this.questionCounter = questionCounter;
             this.score = score;
+            this.gems = gems;
             InitializeComponent();
             InitializeGameData();
             SetQuestionAndAnswer();
             SetLevel();
             SetScore();
+            SetGems();
             EnableButtons();
             SetTimer();
         }
@@ -66,12 +75,20 @@ namespace Quizz_PhysioUnited
 
         private void answerButton_Clicked(object sender, EventArgs e)
         {
-            answerButtonIsClicked = true;
-            CheckAnswer(sender);
-            DisableButtons();
-            StopTimer();
-            SetBandAndQuestionNumber();
-            SaveUserData();
+            if (jokerIsUsed)
+            {
+                CheckWithJoker(sender);
+                SaveUserData();
+            }
+            else
+            {
+                answerButtonIsClicked = true;
+                CheckAnswer(sender);
+                DisableButtons();
+                StopTimer();
+                SetBandAndQuestionNumber();
+                SaveUserData();
+            }
         }
 
         private async void endButton_Clicked(object sender, EventArgs e)
@@ -91,6 +108,12 @@ namespace Quizz_PhysioUnited
             }
         }
 
+
+        private void jokerButton_Clicked(object sender, EventArgs e)
+        {            
+            jokerUsed();
+        }
+
         private void nextButton_Clicked(object sender, EventArgs e)
         {
             //SetBandAndQuestionNumber();            
@@ -102,6 +125,7 @@ namespace Quizz_PhysioUnited
             else
             {
                 answerButtonIsClicked = false;
+                jokerCosts = 2;
                 SetQuestionAndAnswer();
                 SetLevel();
                 EnableButtons();
@@ -117,6 +141,7 @@ namespace Quizz_PhysioUnited
             //Settings.LastUsedBandCounter = bandCounter.ToString();
             Settings.LastUsedQuestionCounter = questionCounter.ToString();
             Settings.LastUsedScore = score.ToString();
+            Settings.LastUsedGems = gems.ToString();
         }
 
         public void SetQuestionAndAnswer()
@@ -151,6 +176,12 @@ namespace Quizz_PhysioUnited
         {
             labelScore.Text = "Score " + score;
         }
+
+        public void SetGems()
+        {
+            labelGems.Text = $"Gems {gems}";
+        }
+
 
         public void SetTimer()
         {
@@ -195,19 +226,66 @@ namespace Quizz_PhysioUnited
         }
 
         public void CheckAnswer(object sender)
-        {
-
+        {            
             Button clickedButton = (Button)sender;
             if (clickedButton.Text.Equals(rightAnswer))
             {
                 clickedButton.BackgroundColor = Color.FromHex("#00FF00");
                 score++;
+                gems++;
             }
             else
             {
                 clickedButton.BackgroundColor = Color.FromHex("#FF0000");
             }
             SetScore();
+            SetGems();
+        }
+
+
+        public void CheckWithJoker( object sender)
+        {
+            Button clickedButton = (Button)sender;
+            if (clickedButton.Text.Equals(rightAnswer))
+            {
+                clickedButton.BackgroundColor = Color.FromHex("#00FF00");
+                clickedButton.IsEnabled = false;
+                score++;
+                gems++;
+                SetScore();
+                SetGems();
+                DisableButtons();
+                StopTimer();
+                SetBandAndQuestionNumber();
+                SaveUserData();
+                score++;
+                gems++;
+            }
+            else
+            {
+                clickedButton.BackgroundColor = Color.FromHex("#7D0000");
+                clickedButton.IsEnabled = false;
+            }
+            jokerIsUsed = false;
+            jokerButton.BackgroundColor = Color.FromHex("#000000");
+        }
+
+
+
+        public void jokerUsed()
+        {
+            if (jokerCosts <= gems)
+            {
+                gems -= jokerCosts;
+                SetGems();
+                jokerCosts = jokerCosts * 2;
+                jokerIsUsed = true;
+                jokerButton.BackgroundColor = Color.FromHex("#FFFFFF");
+            }
+            else
+            {
+                AlertNotEnoughGems();
+            }
         }
 
         public void EnableButtons()
@@ -237,6 +315,11 @@ namespace Quizz_PhysioUnited
             await DisplayAlert("Congratulation!!!", "You have finished the game. Please end the game to restart", "OK");
         }
 
+        async private void AlertNotEnoughGems()
+        {
+            await DisplayAlert("Sorry!!!", "You do not have enough GEMS", "OK");
+        }
+
         public void InitializeGameData()
         {
             Questions questions = new Questions();
@@ -244,7 +327,6 @@ namespace Quizz_PhysioUnited
             //bandNames = questions.GetBandNames();
             totalQuestions = questionsAndAnswers.Count;
         }
-
 
 
     }
