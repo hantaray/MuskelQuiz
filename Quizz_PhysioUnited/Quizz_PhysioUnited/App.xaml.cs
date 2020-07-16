@@ -8,7 +8,7 @@ namespace Quizz_PhysioUnited
     public partial class App : Application
     {
         static Database database;
-        static BandDB bandDB;
+        //static BandDB bandDB;
 
         public static Database Database
         {
@@ -21,17 +21,17 @@ namespace Quizz_PhysioUnited
                 return database;
             }
         }
-        public static BandDB BandDB
-        {
-            get
-            {
-                if (bandDB == null)
-                {
-                    bandDB = new BandDB(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "bands.db3"));
-                }
-                return bandDB;
-            }
-        }
+        //public static BandDB BandDB
+        //{
+        //    get
+        //    {
+        //        if (bandDB == null)
+        //        {
+        //            bandDB = new BandDB(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "bands.db3"));
+        //        }
+        //        return bandDB;
+        //    }
+        //}
 
         public App()
         {

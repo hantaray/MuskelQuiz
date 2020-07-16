@@ -29,6 +29,7 @@
                    x:Name="labelQuestion"
                    FontSize="Large"
                    TextColor="Black"
+                   HorizontalTextAlignment="Center"
                    Padding="0, 20, 0, 0"
                    VerticalOptions="CenterAndExpand"
                    HorizontalOptions="CenterAndExpand">
@@ -44,10 +45,11 @@
                     VerticalOptions="CenterAndExpand">
             </Label>
 
-            <Button Text="answerButton1"
+            <Button Text="answerButton1"                    
                     x:Name="answerButton1"
                     TextColor="White"
                     BackgroundColor="DarkGray"
+                    Padding="5,0,5,0"
                     Clicked="answerButton_Clicked">
             </Button>
 
@@ -55,6 +57,7 @@
                     x:Name="answerButton2"
                     TextColor="White"
                     BackgroundColor="DarkGray"
+                    Padding="5,0,5,0"
                     Clicked="answerButton_Clicked">
             </Button>
 
@@ -62,6 +65,7 @@
                     x:Name="answerButton3"
                     TextColor="White"
                     BackgroundColor="DarkGray"
+                    Padding="5,0,5,0"
                     Clicked="answerButton_Clicked">
             </Button>
 
@@ -69,6 +73,7 @@
                     x:Name="answerButton4"
                     TextColor="White"
                     BackgroundColor="DarkGray"
+                    Padding="5,0,5,0"
                     Clicked="answerButton_Clicked"
                     Margin="0,0,0,15">
             </Button>

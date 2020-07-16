@@ -13,13 +13,15 @@ namespace Quizz_PhysioUnited
 
         public Dictionary<string, string[]> namesAndAnswers = new Dictionary<string, string[]>();
 
-        static List<Band> bandList = new List<Band>();
+        static List<Muskel> muskelList = new List<Muskel>();
+
+        //static List<Band> bandList = new List<Band>();
 
         static string[] questions =
         {
-                "When did * get founded? ",
-                "What is the name of *'s first album?",
-                "How many members does * have?"
+                "Was ist die Innervation des\n*? ",
+                "Was ist der Ursprung des\n*?",
+                "Was ist der Ansatz des\n*?"
             };
 
         //int score = 0;
@@ -31,7 +33,7 @@ namespace Quizz_PhysioUnited
         {
             //is there a better way to clear the dictionary, because if I dont clear, there's an exception
             namesAndAnswers.Clear();
-            GetDataFromDB();
+            muskelList = App.Database.GetMuskel();
             SetDicionary();
         }
 
@@ -65,17 +67,14 @@ namespace Quizz_PhysioUnited
         //    namesAndAnswers.Add("Dropkick Murphys", answersBand8);  
         //}
 
-        public void GetDataFromDB()
-        {
-            bandList = App.BandDB.GetBand();
-        }
+
 
         public void SetDicionary()
         {
-            foreach (Band band in bandList)
+            foreach (Muskel muskel in muskelList)
             {
-                string[] answersBand = { band.Founded.ToString(), band.FirstAlbumName, band.Members.ToString() };
-                namesAndAnswers.Add(band.Name, answersBand);
+                string[] answersMuskel = { muskel.Innervation, muskel.Ursprung, muskel.Ansatz};
+                namesAndAnswers.Add(muskel.Name, answersMuskel);
             }
         }
 

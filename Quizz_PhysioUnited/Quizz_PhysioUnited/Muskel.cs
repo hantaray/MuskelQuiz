@@ -10,9 +10,9 @@ namespace Quizz_PhysioUnited
         [PrimaryKey, AutoIncrement]
         public int ID { get; set; }
         public string Name { get; set; }
+        public string Innervation { get; set; }
         public string Ursprung { get; set; }
         public string Ansatz { get; set; }
-        public int Kategorie { get; set; }
 
     }
 }
