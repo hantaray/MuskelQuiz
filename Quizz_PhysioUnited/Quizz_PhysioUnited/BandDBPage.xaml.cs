@@ -19,7 +19,7 @@ namespace Quizz_PhysioUnited
         protected override async void OnAppearing()
         {
             base.OnAppearing();
-            listView.ItemsSource = App.BandDB.GetBand();
+            //listView.ItemsSource = App.BandDB.GetBand();
         }
         async void OnAddButtonClicked(object sender, EventArgs e)
         {

@@ -9,12 +9,12 @@
         <StackLayout>
             <Entry x:Name="nameEntry"
                Placeholder="Name eingeben" />
+            <Entry x:Name="innervationEntry"
+               Placeholder="Innervation eingeben" />
             <Entry x:Name="ursprungEntry"
                Placeholder="Ursprung eingeben" />
-            <Entry x:Name="ansastzEntry"
+            <Entry x:Name="ansatzEntry"
                Placeholder="Ansatz eingeben" />
-            <Entry x:Name="kategorieEntry"
-               Placeholder="Kategorie eingeben" />
             <Button Text="Add to Database"
                 Clicked="OnAddButtonClicked" />
             <ListView x:Name="listView">
@@ -23,9 +23,9 @@
                         <ViewCell>
                             <Grid>
                                 <Label Text="{Binding Name}" FontAttributes="Bold" />
-                                <Label Grid.Column="1" Text="{Binding Ursprung}" />
-                                <Label Grid.Column="2" Text="{Binding Ansatz}"/>
-                                <Label Grid.Column="3" Text="{Binding Kategorie}"/>
+                                <Label Grid.Column="1" Text="{Binding Innervation}" />
+                                <Label Grid.Column="2" Text="{Binding Ursprung}"/>
+                                <Label Grid.Column="3" Text="{Binding Ansatz}"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

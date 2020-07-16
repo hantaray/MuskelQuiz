@@ -16,27 +16,29 @@ namespace Quizz_PhysioUnited
             InitializeComponent();
         }
 
-        protected override async void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            listView.ItemsSource = await App.Database.GetMuskelAsync();
+            listView.ItemsSource = App.Database.GetMuskel();
         }
-        async void OnAddButtonClicked(object sender, EventArgs e)
+        void OnAddButtonClicked(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(nameEntry.Text) && !string.IsNullOrWhiteSpace(ursprungEntry.Text)
-                && !string.IsNullOrWhiteSpace(ansastzEntry.Text) && !string.IsNullOrWhiteSpace(kategorieEntry.Text))
+            if (!string.IsNullOrWhiteSpace(nameEntry.Text) 
+                && !string.IsNullOrWhiteSpace(innervationEntry.Text)
+                && !string.IsNullOrWhiteSpace(ursprungEntry.Text) 
+                && !string.IsNullOrWhiteSpace(ansatzEntry.Text))
             {
-                await App.Database.SaveMuskelAsync(new Muskel
+                 App.Database.SaveMuskel(new Muskel
                 {
                     Name = nameEntry.Text,
+                    Innervation = innervationEntry.Text,
                     Ursprung = ursprungEntry.Text,
-                    Ansatz = ansastzEntry.Text,
-                    Kategorie = int.Parse(kategorieEntry.Text)
+                    Ansatz = ansatzEntry.Text
                 });
 
-                nameEntry.Text = ursprungEntry.Text = ansastzEntry.Text = kategorieEntry.Text = string.Empty;
+                nameEntry.Text = innervationEntry.Text = ursprungEntry.Text = ansatzEntry.Text = string.Empty;
 
-                listView.ItemsSource = await App.Database.GetMuskelAsync();
+                listView.ItemsSource = App.Database.GetMuskel();
             }
         }
     }

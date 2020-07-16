@@ -28,7 +28,7 @@ namespace Quizz_PhysioUnited
         //List<string> choices;
         string rightAnswer;
         int score = 0;
-        int gems = 10;
+        int gems = 0;
         double gameTime = 30.0;
         double timerCounter;
         bool timerBool = true;
@@ -291,6 +291,7 @@ namespace Quizz_PhysioUnited
         public void EnableButtons()
         {
             nextButton.IsEnabled = false;
+            nextButton.BackgroundColor = Color.Gray;
             answerButton1.IsEnabled = true;
             answerButton2.IsEnabled = true;
             answerButton3.IsEnabled = true;
@@ -304,6 +305,7 @@ namespace Quizz_PhysioUnited
         public void DisableButtons()
         {
             nextButton.IsEnabled = true;
+            nextButton.BackgroundColor = Color.Black;
             answerButton1.IsEnabled = false;
             answerButton2.IsEnabled = false;
             answerButton3.IsEnabled = false;

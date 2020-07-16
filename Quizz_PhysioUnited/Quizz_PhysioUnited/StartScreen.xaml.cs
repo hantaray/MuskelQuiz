@@ -38,7 +38,9 @@ namespace Quizz_PhysioUnited
 
         async void openDataBase_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new BandDBPage());
+            //App.Database.SetDataToDBFromList();   //schreibt liste in database, liste befindet sich in Database.cs
+            await Navigation.PushAsync(new DatabasePage());
+
         }
     }
 }
