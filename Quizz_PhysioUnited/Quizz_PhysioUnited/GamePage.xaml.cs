@@ -18,21 +18,18 @@ namespace Quizz_PhysioUnited
         //if you reached the end of the game and press continue gamae after closing the app, theres a excetion
 
 
-        //der next button zählt die questionNumber hoch und wenn größer als 2 dann auf null gesetzt und bandCounter geht eins hoch
-        //int questionNumber = 0;
-        //int bandCounter = 0;
+        //der next button zählt den questionCounter hoch und wenn größer als totalQuestions dann Ende
+
         int questionCounter = 1;
         List<List<string>> questionsAndAnswers;
-        //string bandName;
         int totalQuestions;
-        //List<string> choices;
         string rightAnswer;
         int score = 0;
         int gems = 0;
         double gameTime = 30.0;
         double timerCounter;
         bool timerBool = true;
-        bool answerButtonIsClicked = false;
+        bool questionRoundIsFinished = false;         //checks if answerButton was used or timer ran out, if not it starts timer again after pausing the game
         int jokerCosts = 2;
         bool jokerIsUsed = false;
 
@@ -45,7 +42,6 @@ namespace Quizz_PhysioUnited
         public GamePage()
         {
             InitializeComponent();
-            BindingContext = this;
             InitializeGameData();
             SetQuestionAndAnswer();
             SetLevel();
@@ -57,8 +53,6 @@ namespace Quizz_PhysioUnited
 
         public GamePage(int questionCounter, int score, int gems)
         {
-            //this.questionNumber = questionNumber;
-            //this.bandCounter = bandCounter;
             this.questionCounter = questionCounter;
             this.score = score;
             this.gems = gems;
@@ -82,11 +76,11 @@ namespace Quizz_PhysioUnited
             }
             else
             {
-                answerButtonIsClicked = true;
+                questionRoundIsFinished = true;
                 CheckAnswer(sender);
                 DisableButtons();
                 StopTimer();
-                SetBandAndQuestionNumber();
+                QuestionCounterPlus();
                 SaveUserData();
             }
         }
@@ -101,7 +95,7 @@ namespace Quizz_PhysioUnited
             }
             else
             {
-                if (!answerButtonIsClicked)
+                if (!questionRoundIsFinished)
                 {
                     StartTimerAgain();
                 };
@@ -115,16 +109,14 @@ namespace Quizz_PhysioUnited
         }
 
         private void nextButton_Clicked(object sender, EventArgs e)
-        {
-            //SetBandAndQuestionNumber();            
+        {            
             if (questionCounter > totalQuestions)
             {
                 AlertGameEnd();
-                //return;
             }
             else
             {
-                answerButtonIsClicked = false;
+                questionRoundIsFinished = false;
                 jokerCosts = 2;
                 SetQuestionAndAnswer();
                 SetLevel();
@@ -133,12 +125,9 @@ namespace Quizz_PhysioUnited
             }
 
         }
-        //work with xaml elements: e.g. answerButton1.Text = "dick"; answerButton1.IsEnabled = false;
 
         public void SaveUserData()
         {
-            //Settings.LastUsedQuestionNumber = questionNumber.ToString();
-            //Settings.LastUsedBandCounter = bandCounter.ToString();
             Settings.LastUsedQuestionCounter = questionCounter.ToString();
             Settings.LastUsedScore = score.ToString();
             Settings.LastUsedGems = gems.ToString();
@@ -155,15 +144,9 @@ namespace Quizz_PhysioUnited
             answerButton4.Text = questionAndAnswer[4];
         }
 
-        public void SetBandAndQuestionNumber()
+        public void QuestionCounterPlus()
         {
-            questionCounter++;
-            //questionNumber++;
-            //if (questionNumber >= 3)
-            //{
-            //    questionNumber = 0;
-            //    bandCounter++;
-            //}
+            questionCounter++;            
         }
 
         public void SetLevel()
@@ -187,19 +170,7 @@ namespace Quizz_PhysioUnited
         {
             timerBool = true;
             timerCounter = gameTime;
-            Device.StartTimer(new TimeSpan(0, 0, 0, 0, 100), () =>
-            {
-                // do something every 1 seconds
-                timerCounter = Math.Round(timerCounter, 1) - 0.1;
-                if (timerCounter == 0.0)
-                {
-                    timerBool = false;
-                    DisableButtons();
-
-                }
-                labelTimer.Text = timerCounter.ToString("0.0");
-                return timerBool; // runs again, or false to stop
-            });
+            GameTimer();
         }
 
         public void StopTimer()
@@ -210,18 +181,24 @@ namespace Quizz_PhysioUnited
         public void StartTimerAgain()
         {
             timerBool = true;
+            GameTimer();
+        }
+
+        private void GameTimer()
+        {
             Device.StartTimer(new TimeSpan(0, 0, 0, 0, 100), () =>
             {
-                // do something every 1 seconds
+                // do something every 0.1 seconds
                 timerCounter = Math.Round(timerCounter, 1) - 0.1;
                 if (timerCounter == 0.0)
                 {
                     timerBool = false;
                     DisableButtons();
+                    questionRoundIsFinished = true;
 
                 }
                 labelTimer.Text = timerCounter.ToString("0.0");
-                return timerBool; // runs again, or false to stop
+                return timerBool; // true => runs again, false => stops
             });
         }
 
@@ -256,7 +233,7 @@ namespace Quizz_PhysioUnited
                 SetGems();
                 DisableButtons();
                 StopTimer();
-                SetBandAndQuestionNumber();
+                QuestionCounterPlus();
                 SaveUserData();
                 score++;
                 gems++;
@@ -326,7 +303,6 @@ namespace Quizz_PhysioUnited
         {
             Questions questions = new Questions();
             questionsAndAnswers = questions.getAllQuestionsAndAnswers(questions.namesAndAnswers);
-            //bandNames = questions.GetBandNames();
             totalQuestions = questionsAndAnswers.Count;
         }
 
