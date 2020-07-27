@@ -13,6 +13,7 @@ namespace Quizz_PhysioUnited
         public string Innervation { get; set; }
         public string Ursprung { get; set; }
         public string Ansatz { get; set; }
+        public int Kategorie { get; set; } 
 
     }
 }

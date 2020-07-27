@@ -11,7 +11,10 @@ namespace Quizz_PhysioUnited
     {
 
 
-        public Dictionary<string, string[]> namesAndAnswers = new Dictionary<string, string[]>();
+        public Dictionary<string, string[]> namesAndAnswersKatOne = new Dictionary<string, string[]>();
+        public Dictionary<string, string[]> namesAndAnswersKatTwo = new Dictionary<string, string[]>();
+        public Dictionary<string, string[]> namesAndAnswersKatThree = new Dictionary<string, string[]>();
+        public Dictionary<string, string[]> namesAndAnswersKatFour = new Dictionary<string, string[]>();
 
         static List<Muskel> muskelList = new List<Muskel>();
 
@@ -32,9 +35,12 @@ namespace Quizz_PhysioUnited
         public Questions()
         {
             //is there a better way to clear the dictionary, because if I dont clear, there's an exception
-            namesAndAnswers.Clear();
+            namesAndAnswersKatOne.Clear();
+            namesAndAnswersKatTwo.Clear();
+            namesAndAnswersKatThree.Clear();
+            namesAndAnswersKatFour.Clear();
             muskelList = App.Database.GetMuskel();
-            SetDicionary();
+            SetDicionaries();
         }
 
 
@@ -69,13 +75,29 @@ namespace Quizz_PhysioUnited
 
 
 
-        public void SetDicionary()
+        public void SetDicionaries()
         {
             foreach (Muskel muskel in muskelList)
             {
                 string[] answersMuskel = { muskel.Innervation, muskel.Ursprung, muskel.Ansatz};
-                namesAndAnswers.Add(muskel.Name, answersMuskel);
+                if (muskel.Kategorie == 1) 
+                {
+                    namesAndAnswersKatOne.Add(muskel.Name, answersMuskel);
+                } 
+                else if (muskel.Kategorie == 2)
+                {
+                    namesAndAnswersKatTwo.Add(muskel.Name, answersMuskel);
+                }
+                else if (muskel.Kategorie == 3)
+                {
+                    namesAndAnswersKatThree.Add(muskel.Name, answersMuskel);
+                }
+                else if (muskel.Kategorie == 4)
+                {
+                    namesAndAnswersKatFour.Add(muskel.Name, answersMuskel);
+                }
             }
+
         }
 
         public List<List<string>> getAllQuestionsAndAnswers(Dictionary<string, string[]> dic)
@@ -87,12 +109,12 @@ namespace Quizz_PhysioUnited
                 string bandName = kvp.Key;
                 for (int i = 0; i < numberOfQuestions; i++)
                 {                    
-                    string rightAnswer = GetRightAnswer(bandName, i);
+                    string rightAnswer = GetRightAnswer(dic, bandName, i);
                     if (string.IsNullOrEmpty(rightAnswer))
                     {
                         continue;
                     }
-                    List<string> choices = GetChoices(i, rightAnswer);
+                    List<string> choices = GetChoices(dic, i, rightAnswer);
                     string question = GetQuestion(bandName, i);
 
                     questionsAndAnswers.Add(new List<string> { question,
@@ -108,7 +130,7 @@ namespace Quizz_PhysioUnited
         }
     
 
-        public List<string> GetBandNames()
+        public List<string> GetBandNames(Dictionary<string, string[]> namesAndAnswers)
         {
             List<string> bandNames = new List<string>();
             foreach (KeyValuePair<string, string[]> kvp in namesAndAnswers)
@@ -126,7 +148,7 @@ namespace Quizz_PhysioUnited
 
         }
 
-        public string GetRightAnswer(string bandName, int questionNumber)
+        public string GetRightAnswer(Dictionary<string, string[]> namesAndAnswers, string bandName, int questionNumber)
         {
             string[] answers = namesAndAnswers[bandName];
             string rightAnswer = answers[questionNumber];
@@ -134,7 +156,7 @@ namespace Quizz_PhysioUnited
 
         }
 
-        public List<string> GetChoices(int questionNumber, string rightAnswer)
+        public List<string> GetChoices(Dictionary<string, string[]> namesAndAnswers, int questionNumber, string rightAnswer)
         {
             List<string> choices = SetChoices(namesAndAnswers, questionNumber, rightAnswer);
             FischerShuffle.ShuffleArray(choices);           //gives choices rnd positions in List

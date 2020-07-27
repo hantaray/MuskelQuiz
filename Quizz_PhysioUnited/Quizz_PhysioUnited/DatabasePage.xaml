@@ -26,6 +26,7 @@
                                 <Label Grid.Column="1" Text="{Binding Innervation}" />
                                 <Label Grid.Column="2" Text="{Binding Ursprung}"/>
                                 <Label Grid.Column="3" Text="{Binding Ansatz}"/>
+                                <Label Grid.Column="4" Text="{Binding Kategorie}"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

@@ -21,7 +21,24 @@ namespace Quizz_PhysioUnited
 
         async void GoToGamePage(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new GamePage());
+            Button clickedButton = (Button) sender;
+            if (clickedButton.ClassId.Equals("ButtonKatOne"))
+            {
+                await Navigation.PushAsync(new GamePage(App.QAListKatOne));
+            }
+            else if (clickedButton.ClassId.Equals("ButtonKatTwo"))
+            {
+                await Navigation.PushAsync(new GamePage(App.QAListKatTwo));
+            }
+            else if (clickedButton.ClassId.Equals("ButtonKatThree"))
+            {
+                await Navigation.PushAsync(new GamePage(App.QAListKatThree));
+            }
+            else if (clickedButton.ClassId.Equals("ButtonKatFour"))
+            {
+                await Navigation.PushAsync(new GamePage(App.QAListKatFour));
+            }
+
         }
 
         private async void ContinueGameButton_Clicked(object sender, EventArgs e)
