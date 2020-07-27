@@ -39,8 +39,9 @@ namespace Quizz_PhysioUnited
 
 
 
-        public GamePage()
+        public GamePage(List<List<string>> questionsAndAnswers)
         {
+            this.questionsAndAnswers = questionsAndAnswers;
             InitializeComponent();
             InitializeGameData();
             SetQuestionAndAnswer();
@@ -300,9 +301,7 @@ namespace Quizz_PhysioUnited
         }
 
         public void InitializeGameData()
-        {
-            Questions questions = new Questions();
-            questionsAndAnswers = questions.getAllQuestionsAndAnswers(questions.namesAndAnswers);
+        {            
             totalQuestions = questionsAndAnswers.Count;
         }
 

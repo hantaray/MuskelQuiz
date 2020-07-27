@@ -15,9 +15,10 @@
                 HorizontalOptions="Center"
                 VerticalOptions="CenterAndExpand" />
 
-        <Button Text="Start Game" 
+        <Button Text="Start Kategorie 1" 
                 Clicked="GoToGamePage" 
-        
+                x:Name="ButtonKatOne"
+                ClassId="ButtonKatOne"
                 VerticalOptions="CenterAndExpand" 
                 />
 
@@ -25,6 +26,27 @@
                 x:Name="ContinueGameButton"
                 Clicked="ContinueGameButton_Clicked"
                 VerticalOptions="CenterAndExpand"/>
+
+        <Button Text="Start Kategorie 2" 
+                Clicked="GoToGamePage" 
+                x:Name="ButtonKatTwo"
+                ClassId="ButtonKatTwo"
+                VerticalOptions="CenterAndExpand" 
+                />
+
+        <Button Text="Start Kategorie 3" 
+                Clicked="GoToGamePage" 
+                x:Name="ButtonKatThree"
+                ClassId="ButtonKatThree"
+                VerticalOptions="CenterAndExpand" 
+                />
+        
+        <Button Text="Start Kategorie 4" 
+                Clicked="GoToGamePage" 
+                x:Name="ButtonKatFour"
+                ClassId="ButtonKatFour"
+                VerticalOptions="CenterAndExpand" 
+                />
 
         <Button Text="open Database"
                 x:Name="openDataBase"
