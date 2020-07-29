@@ -10,38 +10,30 @@
     <StackLayout>
         <!-- Place new controls here -->
 
-        <Label  x:Name="testname" 
-                Text="Welcome to our quizz game!" 
-                HorizontalOptions="Center"
-                VerticalOptions="CenterAndExpand" />
 
-        <Button Text="Start Kategorie 1" 
+
+        <Button Text="Kategorie 1" 
                 Clicked="GoToGamePage" 
                 x:Name="ButtonKatOne"
                 ClassId="ButtonKatOne"
                 VerticalOptions="CenterAndExpand" 
                 />
 
-        <Button Text="Continue Game"
-                x:Name="ContinueGameButton"
-                Clicked="ContinueGameButton_Clicked"
-                VerticalOptions="CenterAndExpand"/>
-
-        <Button Text="Start Kategorie 2" 
+        <Button Text="Kategorie 2" 
                 Clicked="GoToGamePage" 
                 x:Name="ButtonKatTwo"
                 ClassId="ButtonKatTwo"
                 VerticalOptions="CenterAndExpand" 
                 />
 
-        <Button Text="Start Kategorie 3" 
+        <Button Text="Kategorie 3" 
                 Clicked="GoToGamePage" 
                 x:Name="ButtonKatThree"
                 ClassId="ButtonKatThree"
                 VerticalOptions="CenterAndExpand" 
                 />
         
-        <Button Text="Start Kategorie 4" 
+        <Button Text="Kategorie 4" 
                 Clicked="GoToGamePage" 
                 x:Name="ButtonKatFour"
                 ClassId="ButtonKatFour"

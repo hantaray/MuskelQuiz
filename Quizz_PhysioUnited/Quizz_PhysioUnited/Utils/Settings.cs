@@ -20,77 +20,148 @@ namespace Quizz_PhysioUnited.Utils
         }
 
         #region Setting Constants
+        private const string QuestionCounterKatOneSettings = "questionCounter_katOne_key";
 
-        //private const string LastQuestionNumberSettings = "last_questionNumber_key";
+        private const string ScoreKatOneSettings = "score_katOne_key";
 
-        //private const string LastBandCounterSettings = "last_bandCounter_key";
-        private const string LastQuestionCounterSettings = "last_questionCounter_key";
+        private const string QuestionCounterKatTwoSettings = "questionCounter_katTwo_key";
 
-        private const string LastScoreSettings = "last_score_key";
+        private const string ScoreKatTwoSettings = "score_katTwo_key";
 
-        private const string LastGemsSettings = "last_gems_key";
-        private static readonly string SettingsDefault = string.Empty;
+        private const string QuestionCounterKatThreeSettings = "questionCounter_katThree_key";
+
+        private const string ScoreKatThreeSettings = "score_katThree_key";
+
+        private const string QuestionCounterKatFourSettings = "questionCounter_katFour_key";
+
+        private const string ScoreKatFourSettings = "score_katFour_key";
+
+        private const string GemsSettings = "last_gems_key";
+
+        private static readonly string OneAsDefault = "1";
+
+        private static readonly string ZeroAsDefault = "0";
+
+        //private static readonly string SettingsDefault = string.Empty;
 
         #endregion
 
 
-        //public static string LastUsedQuestionNumber
-        //{
-        //    get
-        //    {
-        //        return AppSettings.GetValueOrDefault(LastQuestionNumberSettings, SettingsDefault);
-        //    }
-        //    set
-        //    {
-        //        AppSettings.AddOrUpdateValue(LastQuestionNumberSettings, value);
-        //    }
-        //}
 
-        //public static string LastUsedBandCounter
-        //{
-        //    get
-        //    {
-        //        return AppSettings.GetValueOrDefault(LastBandCounterSettings, SettingsDefault);
-        //    }
-        //    set
-        //    {
-        //        AppSettings.AddOrUpdateValue(LastBandCounterSettings, value);
-        //    }
-        //}
-
-        public static string LastUsedQuestionCounter
+        //Kategorie 1
+        public static string QuestionCounterKatOne
         {
             get
             {
-                return AppSettings.GetValueOrDefault(LastQuestionCounterSettings, SettingsDefault);
+                return AppSettings.GetValueOrDefault(QuestionCounterKatOneSettings, OneAsDefault);
             }
             set
             {
-                AppSettings.AddOrUpdateValue(LastQuestionCounterSettings, value);
+                AppSettings.AddOrUpdateValue(QuestionCounterKatOneSettings, value);
             }
         }
 
-        public static string LastUsedScore
+        public static string ScoreKatOne
         {
             get
             {
-                return AppSettings.GetValueOrDefault(LastScoreSettings, SettingsDefault);
+                return AppSettings.GetValueOrDefault(ScoreKatOneSettings, ZeroAsDefault);
             }
             set
             {
-                AppSettings.AddOrUpdateValue(LastScoreSettings, value);
+                AppSettings.AddOrUpdateValue(ScoreKatOneSettings, value);
             }
         }
 
-        public static string LastUsedGems
+        //Kategorie 2
+        public static string QuestionCounterKatTwo
         {
             get
             {
-                return AppSettings.GetValueOrDefault(LastGemsSettings, SettingsDefault);
+                return AppSettings.GetValueOrDefault(QuestionCounterKatTwoSettings, OneAsDefault);
             }
             set
             {
-                AppSettings.AddOrUpdateValue(LastGemsSettings, value);
+                AppSettings.AddOrUpdateValue(QuestionCounterKatTwoSettings, value);
+            }
+        }
+
+        public static string ScoreKatTwo
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(ScoreKatTwoSettings, ZeroAsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(ScoreKatTwoSettings, value);
+            }
+        }
+
+        //Kategorie 3
+        public static string QuestionCounterKatThree
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(QuestionCounterKatThreeSettings, OneAsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(QuestionCounterKatThreeSettings, value);
+            }
+        }
+
+        public static string ScoreKatThree
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(ScoreKatThreeSettings, ZeroAsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(ScoreKatThreeSettings, value);
+            }
+        }
+
+
+        //Kategorie 4
+        public static string QuestionCounterKatFour
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(QuestionCounterKatFourSettings, OneAsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(QuestionCounterKatFourSettings, value);
+            }
+        }
+
+        public static string ScoreKatFour
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(ScoreKatFourSettings, ZeroAsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(ScoreKatFourSettings, value);
+            }
+        }
+
+
+
+
+
+        public static string Gems
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(GemsSettings, ZeroAsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(GemsSettings, value);
             }
         }
 
