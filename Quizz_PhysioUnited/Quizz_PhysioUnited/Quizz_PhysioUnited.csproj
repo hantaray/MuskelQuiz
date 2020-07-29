@@ -24,10 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="BandDBPage.xaml">
+    <EmbeddedResource Update="GamePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="GamePage.xaml">
+    <EmbeddedResource Update="StartAndContinuePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

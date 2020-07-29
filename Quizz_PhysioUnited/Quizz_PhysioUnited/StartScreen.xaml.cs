@@ -11,9 +11,11 @@ namespace Quizz_PhysioUnited
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
-    [DesignTimeVisible(false)]
+    [DesignTimeVisible(true)]
     public partial class StartScreen : ContentPage
     {
+        public static int Kategorie;
+        
         public StartScreen()
         {
             InitializeComponent();
@@ -24,34 +26,44 @@ namespace Quizz_PhysioUnited
             Button clickedButton = (Button) sender;
             if (clickedButton.ClassId.Equals("ButtonKatOne"))
             {
-                await Navigation.PushAsync(new GamePage(App.QAListKatOne));
+                Kategorie = 1;
+                await Navigation.PushAsync(new GamePage(App.QAListKatOne,               //startet gamepage mit passende QaA Liste und übergibt attribute aus settings
+                                                    Int32.Parse(Settings.QuestionCounterKatOne),
+                                                    Int32.Parse(Settings.ScoreKatOne),
+                                                    Int32.Parse(Settings.Gems)
+                                                    ));
             }
             else if (clickedButton.ClassId.Equals("ButtonKatTwo"))
             {
-                await Navigation.PushAsync(new GamePage(App.QAListKatTwo));
+                Kategorie = 2;
+                await Navigation.PushAsync(new GamePage(App.QAListKatTwo,               //startet gamepage mit passende QaA Liste und übergibt attribute aus settings
+                                                    Int32.Parse(Settings.QuestionCounterKatTwo),
+                                                    Int32.Parse(Settings.ScoreKatTwo),
+                                                    Int32.Parse(Settings.Gems)
+                                                    ));
             }
             else if (clickedButton.ClassId.Equals("ButtonKatThree"))
             {
-                await Navigation.PushAsync(new GamePage(App.QAListKatThree));
+                Kategorie = 3;
+                await Navigation.PushAsync(new GamePage(App.QAListKatThree,               //startet gamepage mit passende QaA Liste und übergibt attribute aus settings
+                                                    Int32.Parse(Settings.QuestionCounterKatThree),
+                                                    Int32.Parse(Settings.ScoreKatThree),
+                                                    Int32.Parse(Settings.Gems)
+                                                    ));
             }
             else if (clickedButton.ClassId.Equals("ButtonKatFour"))
             {
-                await Navigation.PushAsync(new GamePage(App.QAListKatFour));
+                Kategorie = 4;
+                await Navigation.PushAsync(new GamePage(App.QAListKatFour,               //startet gamepage mit passende QaA Liste und übergibt attribute aus settings
+                                                    Int32.Parse(Settings.QuestionCounterKatFour),
+                                                    Int32.Parse(Settings.ScoreKatFour),
+                                                    Int32.Parse(Settings.Gems)
+                                                    ));
             }
 
         }
 
-        private async void ContinueGameButton_Clicked(object sender, EventArgs e)
-        {
 
-            await Navigation.PushAsync(new GamePage(
-                                                    //Int32.Parse(Settings.LastUsedQuestionNumber),
-                                                    //Int32.Parse(Settings.LastUsedBandCounter),
-                                                    Int32.Parse(Settings.LastUsedQuestionCounter),
-                                                    Int32.Parse(Settings.LastUsedScore),
-                                                    Int32.Parse(Settings.LastUsedGems)
-                                                    ));
-        }
 
         async void openDataBase_Clicked(object sender, EventArgs e)
         {

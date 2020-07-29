@@ -20,12 +20,12 @@ namespace Quizz_PhysioUnited
 
         //der next button zählt den questionCounter hoch und wenn größer als totalQuestions dann Ende
 
-        int questionCounter = 1;
+        int questionCounter;
         List<List<string>> questionsAndAnswers;
         int totalQuestions;
         string rightAnswer;
-        int score = 0;
-        int gems = 0;
+        int score;
+        int gems;
         double gameTime = 30.0;
         double timerCounter;
         bool timerBool = true;
@@ -52,8 +52,9 @@ namespace Quizz_PhysioUnited
             SetTimer();
         }
 
-        public GamePage(int questionCounter, int score, int gems)
+        public GamePage(List<List<string>> questionsAndAnswers, int questionCounter, int score, int gems)
         {
+            this.questionsAndAnswers = questionsAndAnswers;
             this.questionCounter = questionCounter;
             this.score = score;
             this.gems = gems;
@@ -129,9 +130,26 @@ namespace Quizz_PhysioUnited
 
         public void SaveUserData()
         {
-            Settings.LastUsedQuestionCounter = questionCounter.ToString();
-            Settings.LastUsedScore = score.ToString();
-            Settings.LastUsedGems = gems.ToString();
+            int kat = StartScreen.Kategorie;
+            if (kat == 1)
+            {
+                Settings.QuestionCounterKatOne = questionCounter.ToString();
+                Settings.ScoreKatOne = score.ToString();
+            } 
+            else if (kat == 2)
+            {
+                Settings.QuestionCounterKatTwo = questionCounter.ToString();
+                Settings.ScoreKatTwo = score.ToString();
+            } else if (kat == 3)
+            {
+                Settings.QuestionCounterKatThree = questionCounter.ToString();
+                Settings.ScoreKatThree = score.ToString();
+            } else if (kat == 4)
+            {
+                Settings.QuestionCounterKatFour = questionCounter.ToString();
+                Settings.ScoreKatFour = score.ToString();
+            }
+            Settings.Gems = gems.ToString();
         }
 
         public void SetQuestionAndAnswer()
