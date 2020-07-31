@@ -27,11 +27,12 @@ namespace Quizz_PhysioUnited
         int score;
         int gems;
         double gameTime = 30.0;
-        double timerCounter;
+        public double timerCounter;
         bool timerBool = true;
-        bool questionRoundIsFinished = false;         //checks if answerButton was used or timer ran out, if not it starts timer again after pausing the game
+        public bool questionRoundIsFinished = false;         //checks if answerButton was used or timer ran out, if not it starts timer again after pausing the game
         int jokerCosts = 2;
         bool jokerIsUsed = false;
+        bool TimerRestarts = false;
 
         
         
@@ -39,33 +40,34 @@ namespace Quizz_PhysioUnited
 
 
 
-        public GamePage(List<List<string>> questionsAndAnswers)
-        {
-            this.questionsAndAnswers = questionsAndAnswers;
-            InitializeComponent();
-            InitializeGameData();
-            SetQuestionAndAnswer();
-            SetLevel();
-            SetScore();
-            SetGems();
-            EnableButtons();
-            SetTimer();
-        }
+        //public GamePage(List<List<string>> questionsAndAnswers)
+        //{
+        //    this.questionsAndAnswers = questionsAndAnswers;
+        //    InitializeComponent();
+        //    InitializeGameData();
+        //    SetQuestionAndAnswer();
+        //    SetLevel();
+        //    SetScore();
+        //    SetGems();
+        //    EnableButtons();
+        //    SetTimer();
+        //}
 
-        public GamePage(List<List<string>> questionsAndAnswers, int questionCounter, int score, int gems)
-        {
+        public GamePage(List<List<string>> questionsAndAnswers, int questionCounter, int score, int gems, double timerCounter)
+        {            
             this.questionsAndAnswers = questionsAndAnswers;
             this.questionCounter = questionCounter;
             this.score = score;
             this.gems = gems;
+            this.timerCounter = timerCounter;
             InitializeComponent();
-            InitializeGameData();
+            InitializeGameData();            
             SetQuestionAndAnswer();
             SetLevel();
             SetScore();
             SetGems();
             EnableButtons();
-            SetTimer();
+            StartTimerAgain();
         }
 
 
@@ -82,12 +84,19 @@ namespace Quizz_PhysioUnited
                 CheckAnswer(sender);
                 DisableButtons();
                 StopTimer();
+                TimerRestarts = true;
                 QuestionCounterPlus();
                 SaveUserData();
             }
         }
 
-        private async void endButton_Clicked(object sender, EventArgs e)
+        private void endButton_Clicked(object sender, EventArgs e)
+        {
+            SaveTimerValue(timerCounter);
+            endBack();
+        }
+
+        public async void endBack()
         {
             StopTimer();
             bool answer = await DisplayAlert("Sure?", "Would you like to end the game?", "Yes", "No");
@@ -152,6 +161,27 @@ namespace Quizz_PhysioUnited
             Settings.Gems = gems.ToString();
         }
 
+        public void SaveTimerValue(double timerCounter)
+        {
+            int kat = StartScreen.Kategorie;
+            if (kat == 1)
+            {
+                Settings.TimerValueKatOne = timerCounter.ToString();                
+            }
+            else if (kat == 2)
+            {
+                Settings.TimerValueKatTwo = timerCounter.ToString();
+            }
+            else if (kat == 3)
+            {
+                Settings.TimerValueKatThree = timerCounter.ToString();
+            }
+            else if (kat == 4)
+            {
+                Settings.TimerValueKatFour = timerCounter.ToString();
+            }
+        }
+
         public void SetQuestionAndAnswer()
         {
             List<string> questionAndAnswer = questionsAndAnswers[(questionCounter - 1)];
@@ -189,6 +219,7 @@ namespace Quizz_PhysioUnited
         {
             timerBool = true;
             timerCounter = gameTime;
+            TimerRestarts = false;
             GameTimer();
         }
 
@@ -200,6 +231,7 @@ namespace Quizz_PhysioUnited
         public void StartTimerAgain()
         {
             timerBool = true;
+            TimerRestarts = false;
             GameTimer();
         }
 
@@ -209,14 +241,22 @@ namespace Quizz_PhysioUnited
             {
                 // do something every 0.1 seconds
                 timerCounter = Math.Round(timerCounter, 1) - 0.1;
-                if (timerCounter == 0.0)
+                if (timerCounter < 0.00000)
                 {
                     timerBool = false;
                     DisableButtons();
                     questionRoundIsFinished = true;
 
+                    labelTimer.Text = "0,0";
                 }
-                labelTimer.Text = timerCounter.ToString("0.0");
+                else
+                {
+                    labelTimer.Text = timerCounter.ToString("0.0");
+                }
+                if (TimerRestarts)
+                {
+                    timerCounter = gameTime;
+                }
                 return timerBool; // true => runs again, false => stops
             });
         }
@@ -252,6 +292,7 @@ namespace Quizz_PhysioUnited
                 SetGems();
                 DisableButtons();
                 StopTimer();
+                TimerRestarts = true;
                 QuestionCounterPlus();
                 SaveUserData();
                 score++;
@@ -321,6 +362,14 @@ namespace Quizz_PhysioUnited
         public void InitializeGameData()
         {            
             totalQuestions = questionsAndAnswers.Count;
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            SaveTimerValue(timerCounter);
+            endBack();
+            //return base.OnBackButtonPressed();
+            return true;
         }
 
 
