@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,6 +14,10 @@ namespace Quizz_PhysioUnited
         public static List<List<string>> QAListKatTwo;
         public static List<List<string>> QAListKatThree;
         public static List<List<string>> QAListKatFour;
+        public static int QCountKatOne;
+        public static int QCountKatTwo;
+        public static int QCountKatThree;
+        public static int QCountKatFour;
 
         public static Database Database
         {
@@ -21,25 +26,11 @@ namespace Quizz_PhysioUnited
                 if (database == null)
                 {
                     database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "datenbank.db3"));
-                    //database.SetDataToDBFromList("1");
-                    //database.SetDataToDBFromList("2");
-                    //database.SetDataToDBFromList("3");
-                    //database.SetDataToDBFromList("4");
                 }
                 return database;
             }
         }
-        //public static BandDB BandDB
-        //{
-        //    get
-        //    {
-        //        if (bandDB == null)
-        //        {
-        //            bandDB = new BandDB(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "bands.db3"));
-        //        }
-        //        return bandDB;
-        //    }
-        //}
+        
 
         public App()
         {
@@ -55,14 +46,52 @@ namespace Quizz_PhysioUnited
             QAListKatTwo = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatTwo);
             QAListKatThree = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatThree);
             QAListKatFour = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatFour);
-    }
+            QCountKatOne = getListCount(QAListKatOne);
+            QCountKatTwo = getListCount(QAListKatOne);
+            QCountKatThree = getListCount(QAListKatOne);
+            QCountKatFour = getListCount(QAListKatOne);
+        }
 
         protected override void OnSleep()
         {
+            stopTimerOnSleep();
         }
 
         protected override void OnResume()
         {
+
+            startTimerOnResume();
+        }
+
+
+        private int getListCount(List<List<string>> list)
+        {
+            return list.Count;
+        }
+
+
+        private void stopTimerOnSleep()
+        {
+            Page currPage = MainPage.Navigation.NavigationStack.LastOrDefault();            
+            if (currPage is GamePage && currPage != null)
+            {
+                GamePage gamePage = currPage as GamePage;
+                gamePage.SaveTimerValue(gamePage.timerCounter);
+                gamePage.StopTimer();
+            }
+        }
+
+        private void startTimerOnResume()
+        {
+            Page currPage = MainPage.Navigation.NavigationStack.LastOrDefault();
+            if (currPage is GamePage && currPage != null)
+            {
+                GamePage gamePage = currPage as GamePage;
+                if (gamePage.questionRoundIsFinished != true)
+                {
+                    gamePage.StartTimerAgain();
+                }
+            }
         }
     }
 }

@@ -36,7 +36,7 @@
             </Label>
 
             <Label 
-                    Text="Timer "
+                    Text="0.0 "
                     x:Name="labelTimer"
                     FontSize="Large"
                     TextColor="Red"

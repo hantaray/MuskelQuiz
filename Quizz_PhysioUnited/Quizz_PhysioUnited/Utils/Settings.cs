@@ -24,19 +24,33 @@ namespace Quizz_PhysioUnited.Utils
 
         private const string ScoreKatOneSettings = "score_katOne_key";
 
+        private const string TimerValueKatOneSetting = "timerValue_katOne_Key";
+
+
         private const string QuestionCounterKatTwoSettings = "questionCounter_katTwo_key";
 
         private const string ScoreKatTwoSettings = "score_katTwo_key";
+
+        private const string TimerValueKatTwoSetting = "timerValue_kat_Key";
+
 
         private const string QuestionCounterKatThreeSettings = "questionCounter_katThree_key";
 
         private const string ScoreKatThreeSettings = "score_katThree_key";
 
+        private const string TimerValueKatThreeSetting = "timerValue_katThree_Key";
+
+
         private const string QuestionCounterKatFourSettings = "questionCounter_katFour_key";
 
         private const string ScoreKatFourSettings = "score_katFour_key";
 
+        private const string TimerValueKatFourSetting = "timerValue_katFour_Key";
+
+
         private const string GemsSettings = "last_gems_key";
+
+        private static readonly string ThirtyAsDefault = "30";
 
         private static readonly string OneAsDefault = "1";
 
@@ -73,6 +87,19 @@ namespace Quizz_PhysioUnited.Utils
             }
         }
 
+        public static string TimerValueKatOne
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(TimerValueKatOneSetting, ThirtyAsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(TimerValueKatOneSetting, value);
+            }
+        }
+
+
         //Kategorie 2
         public static string QuestionCounterKatTwo
         {
@@ -98,6 +125,18 @@ namespace Quizz_PhysioUnited.Utils
             }
         }
 
+        public static string TimerValueKatTwo
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(TimerValueKatTwoSetting, ThirtyAsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(TimerValueKatTwoSetting, value);
+            }
+        }
+
         //Kategorie 3
         public static string QuestionCounterKatThree
         {
@@ -120,6 +159,18 @@ namespace Quizz_PhysioUnited.Utils
             set
             {
                 AppSettings.AddOrUpdateValue(ScoreKatThreeSettings, value);
+            }
+        }
+
+        public static string TimerValueKatThree
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(TimerValueKatThreeSetting, ThirtyAsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(TimerValueKatThreeSetting, value);
             }
         }
 
@@ -149,10 +200,19 @@ namespace Quizz_PhysioUnited.Utils
             }
         }
 
+        public static string TimerValueKatFour
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(TimerValueKatFourSetting, ThirtyAsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(TimerValueKatFourSetting, value);
+            }
+        }
 
-
-
-
+        //Gems
         public static string Gems
         {
             get
