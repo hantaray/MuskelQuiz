@@ -45,18 +45,7 @@ namespace Quizz_PhysioUnited
         }
 
         protected override void OnStart()
-        {
-            //App.Database.GetDataFromServer();
-
-            Questions questions = new Questions();
-            QAListKatOne = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatOne);
-            QAListKatTwo = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatTwo);
-            QAListKatThree = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatThree);
-            QAListKatFour = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatFour);
-            QCountKatOne = getListCount(QAListKatOne);
-            QCountKatTwo = getListCount(QAListKatOne);
-            QCountKatThree = getListCount(QAListKatOne);
-            QCountKatFour = getListCount(QAListKatOne);
+        {            
         }
 
         protected override void OnSleep()
@@ -71,7 +60,7 @@ namespace Quizz_PhysioUnited
         }
 
 
-        private int getListCount(List<List<string>> list)
+        private static int getListCount(List<List<string>> list)
         {
             return list.Count;
         }
@@ -100,5 +89,19 @@ namespace Quizz_PhysioUnited
                 }
             }
         }
+
+        public static void setQALists()
+        {
+            Questions questions = new Questions();
+            QAListKatOne = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatOne);
+            QAListKatTwo = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatTwo);
+            QAListKatThree = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatThree);
+            QAListKatFour = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatFour);
+            QCountKatOne = getListCount(QAListKatOne);
+            QCountKatTwo = getListCount(QAListKatOne);
+            QCountKatThree = getListCount(QAListKatOne);
+            QCountKatFour = getListCount(QAListKatOne);
+        }
+
     }
 }
