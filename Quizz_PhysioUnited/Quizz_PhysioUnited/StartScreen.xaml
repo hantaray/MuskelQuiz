@@ -40,10 +40,10 @@
                 VerticalOptions="CenterAndExpand" 
                 />
 
-        <Button Text="open Database"
+        <!--Button Text="open Database"
                 x:Name="openDataBase"
                 Clicked="openDataBase_Clicked"
-                VerticalOptions="CenterAndExpand"/>
+                VerticalOptions="CenterAndExpand"/>-->
 
     </StackLayout>
 
