@@ -1,7 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Json;
+using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -41,6 +46,8 @@ namespace Quizz_PhysioUnited
 
         protected override void OnStart()
         {
+            //App.Database.GetDataFromServer();
+
             Questions questions = new Questions();
             QAListKatOne = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatOne);
             QAListKatTwo = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatTwo);

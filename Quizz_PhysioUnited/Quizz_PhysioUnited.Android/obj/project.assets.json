@@ -2,6 +2,15 @@
   "version": 3,
   "targets": {
     "MonoAndroid,Version=v9.0": {
+      "Newtonsoft.Json/12.0.3": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {}
+        }
+      },
       "sqlite-net-pcl/1.7.335": {
         "type": "package",
         "dependencies": {
@@ -71,6 +80,18 @@
         },
         "runtime": {
           "lib/netstandard2.0/System.Buffers.dll": {}
+        }
+      },
+      "System.Json/4.7.1": {
+        "type": "package",
+        "frameworkAssemblies": [
+          "System.Json"
+        ],
+        "compile": {
+          "ref/monoandroid10/_._": {}
+        },
+        "runtime": {
+          "lib/monoandroid10/_._": {}
         }
       },
       "System.Memory/4.5.3": {
@@ -908,6 +929,8 @@
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "Newtonsoft.Json": "12.0.3",
+          "System.Json": "4.7.1",
           "Xam.Plugins.Settings": "3.1.1",
           "Xamarin.Essentials": "1.3.1",
           "Xamarin.Forms": "4.5.0.495",
@@ -923,6 +946,37 @@
     }
   },
   "libraries": {
+    "Newtonsoft.Json/12.0.3": {
+      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "type": "package",
+      "path": "newtonsoft.json/12.0.3",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE.md",
+        "lib/net20/Newtonsoft.Json.dll",
+        "lib/net20/Newtonsoft.Json.xml",
+        "lib/net35/Newtonsoft.Json.dll",
+        "lib/net35/Newtonsoft.Json.xml",
+        "lib/net40/Newtonsoft.Json.dll",
+        "lib/net40/Newtonsoft.Json.xml",
+        "lib/net45/Newtonsoft.Json.dll",
+        "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
+        "lib/netstandard1.3/Newtonsoft.Json.dll",
+        "lib/netstandard1.3/Newtonsoft.Json.xml",
+        "lib/netstandard2.0/Newtonsoft.Json.dll",
+        "lib/netstandard2.0/Newtonsoft.Json.xml",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
+        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.nuspec",
+        "packageIcon.png"
+      ]
+    },
     "sqlite-net-pcl/1.7.335": {
       "sha512": "0A9YNPbp66aB+Sitxmh9lq1KDtD4+EBPfdtnYN8WenvQqh5dNgMxUV7kaEG6EXYTi4zBxcsDKpyYJzbViWJXtw==",
       "type": "package",
@@ -1013,6 +1067,40 @@
         "ref/netstandard2.0/System.Buffers.xml",
         "system.buffers.4.4.0.nupkg.sha512",
         "system.buffers.nuspec",
+        "useSharedDesignerContext.txt",
+        "version.txt"
+      ]
+    },
+    "System.Json/4.7.1": {
+      "sha512": "XymImdgljgVEkd9trFSKWlNJac1Hr+L9lwFLQSUUQfFMkm88AHI6DINAMhpoiUWQIPLIqEjR702eydUb4Qb3Ng==",
+      "type": "package",
+      "path": "system.json/4.7.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/Xamarinmac20/_._",
+        "lib/monoandroid10/_._",
+        "lib/monotouch10/_._",
+        "lib/net461/System.Json.dll",
+        "lib/net461/System.Json.xml",
+        "lib/netstandard1.0/System.Json.dll",
+        "lib/netstandard1.0/System.Json.xml",
+        "lib/netstandard2.0/System.Json.dll",
+        "lib/netstandard2.0/System.Json.xml",
+        "lib/xamarinios10/_._",
+        "lib/xamarintvos10/_._",
+        "lib/xamarinwatchos10/_._",
+        "ref/Xamarinmac20/_._",
+        "ref/monoandroid10/_._",
+        "ref/monotouch10/_._",
+        "ref/xamarinios10/_._",
+        "ref/xamarintvos10/_._",
+        "ref/xamarinwatchos10/_._",
+        "system.json.4.7.1.nupkg.sha512",
+        "system.json.nuspec",
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
@@ -2287,24 +2375,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\konne\\.nuget\\packages\\": {},
+    "C:\\Users\\ahant\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.Android\\Quizz_PhysioUnited.Android.csproj",
+      "projectUniqueName": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.Android\\Quizz_PhysioUnited.Android.csproj",
       "projectName": "Quizz_PhysioUnited.Android",
-      "projectPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.Android\\Quizz_PhysioUnited.Android.csproj",
-      "packagesPath": "C:\\Users\\konne\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.Android\\obj\\",
+      "projectPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.Android\\Quizz_PhysioUnited.Android.csproj",
+      "packagesPath": "C:\\Users\\ahant\\.nuget\\packages\\",
+      "outputPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.Android\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\konne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ahant\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -2318,8 +2406,8 @@
       "frameworks": {
         "monoandroid90": {
           "projectReferences": {
-            "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj": {
-              "projectPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj"
+            "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj": {
+              "projectPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj"
             }
           }
         }
