@@ -157,6 +157,7 @@ namespace Quizz_PhysioUnited
 
         async void openDataBase_Clicked(object sender, EventArgs e)
         {
+            await App.Database.GetDataFromServer();
             //App.Database.SetDataToDBFromList();   //schreibt liste in database, liste befindet sich in Database.cs
             await Navigation.PushAsync(new DatabasePage());
 

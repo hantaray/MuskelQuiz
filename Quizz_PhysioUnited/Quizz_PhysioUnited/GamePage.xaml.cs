@@ -34,8 +34,8 @@ namespace Quizz_PhysioUnited
         bool jokerIsUsed = false;
         bool TimerRestarts = false;
 
-        
-        
+
+        public static string responseBody;
 
 
 

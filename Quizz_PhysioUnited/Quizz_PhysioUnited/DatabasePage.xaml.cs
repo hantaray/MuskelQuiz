@@ -11,6 +11,7 @@ namespace Quizz_PhysioUnited
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DatabasePage : ContentPage
     {
+        public string bla = "";
         public DatabasePage()
         {
             InitializeComponent();
@@ -20,26 +21,15 @@ namespace Quizz_PhysioUnited
         {
             base.OnAppearing();
             listView.ItemsSource = App.Database.GetMuskel();
-        }
-        void OnAddButtonClicked(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(nameEntry.Text) 
-                && !string.IsNullOrWhiteSpace(innervationEntry.Text)
-                && !string.IsNullOrWhiteSpace(ursprungEntry.Text) 
-                && !string.IsNullOrWhiteSpace(ansatzEntry.Text))
+
+            Page currPage = Navigation.NavigationStack.LastOrDefault();
+
+            if (currPage is DatabasePage)
             {
-                 App.Database.SaveMuskel(new Muskel
-                {
-                    Name = nameEntry.Text,
-                    Innervation = innervationEntry.Text,
-                    Ursprung = ursprungEntry.Text,
-                    Ansatz = ansatzEntry.Text
-                });
-
-                nameEntry.Text = innervationEntry.Text = ursprungEntry.Text = ansatzEntry.Text = string.Empty;
-
-                listView.ItemsSource = App.Database.GetMuskel();
+                (currPage as DatabasePage).bla = "kh";
             }
+
+            string st = "";
         }
     }
 }
