@@ -264,7 +264,8 @@ namespace Quizz_PhysioUnited
         public void CheckAnswer(object sender)
         {            
             Button clickedButton = (Button)sender;
-            if (clickedButton.Text.Equals(rightAnswer))
+            string buttonNumber = clickedButton.ClassId.Last().ToString();
+            if (buttonNumber.Equals(rightAnswer))
             {
                 clickedButton.BackgroundColor = Color.FromHex("#00FF00");
                 score++;
@@ -282,7 +283,8 @@ namespace Quizz_PhysioUnited
         public void CheckWithJoker( object sender)
         {
             Button clickedButton = (Button)sender;
-            if (clickedButton.Text.Equals(rightAnswer))
+            string buttonNumber = clickedButton.ClassId.Last().ToString();
+            if (buttonNumber.Equals(rightAnswer))
             {
                 clickedButton.BackgroundColor = Color.FromHex("#00FF00");
                 clickedButton.IsEnabled = false;

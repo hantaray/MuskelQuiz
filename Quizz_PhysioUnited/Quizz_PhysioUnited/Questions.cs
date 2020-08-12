@@ -122,7 +122,7 @@ namespace Quizz_PhysioUnited
                                                                choices[1],
                                                                choices[2],
                                                                choices[3],
-                                                               rightAnswer
+                                                               choices[4]
                                                               });                    
                 }
             }
@@ -159,9 +159,16 @@ namespace Quizz_PhysioUnited
         public List<string> GetChoices(Dictionary<string, string[]> namesAndAnswers, int questionNumber, string rightAnswer)
         {
             List<string> choices = SetChoices(namesAndAnswers, questionNumber, rightAnswer);
-            FischerShuffle.ShuffleArray(choices);           //gives choices rnd positions in List
+            //FischerShuffle.ShuffleArray(choices);           //gives choices rnd positions in List
+            Random rnd = new Random();
+            int rightAnswerPos = rnd.Next(4);
+            choices.Add(rightAnswer);
+            choices.Insert(rightAnswerPos, rightAnswer);
+            choices.RemoveAt(choices.Count - 1);
+            //bis dahin löschen und fisher shuffle nicht mehr als Kommentar
+            rightAnswerPos += 1;
+            choices.Add(rightAnswerPos.ToString());
             return choices;
-
         }
 
 
@@ -175,31 +182,21 @@ namespace Quizz_PhysioUnited
             List<string> choices = new List<string>();
             List<string> answerPool = new List<string>();
             Random r = new Random();
-
-
             //maybe make an seperate funcion for answer pool, so it doesnt run every time
             foreach (KeyValuePair<string, string[]> kvp in dic)
             {
                 string[] answers = kvp.Value;
                 answerPool.Add(answers[questionNumber]);
             }
-
-            choices.Add(rightAnswer);
-
-            while (true)
+            while (choices.Count < 3)
             {
                 int rndNumber = r.Next((answerPool.Count));
                 string currChoice = answerPool[rndNumber];
-                if (!choices.Contains(currChoice))
+                if (!choices.Contains(currChoice)&&!currChoice.Equals(rightAnswer))
                 {
                     choices.Add(currChoice);
                 }
-                if (choices.Count == 4)
-                {
-                    break;
-                }
             }
-
             return choices;
         }
 
