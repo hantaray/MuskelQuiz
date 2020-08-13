@@ -68,6 +68,7 @@ namespace Quizz_PhysioUnited
             SetGems();
             EnableButtons();
             StartTimerAgain();
+            
         }
 
 
