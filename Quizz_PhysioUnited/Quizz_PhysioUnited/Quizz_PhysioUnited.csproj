@@ -11,6 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="bg.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
     <PackageReference Include="System.Json" Version="4.7.1" />
@@ -36,5 +40,9 @@
 
   <ItemGroup>
     <Folder Include="Pictures\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="bg.jpg" />
   </ItemGroup>
 </Project>

@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Quizz_PhysioUnited.GamePage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             >
     <!--<ContentPage.Content>-->
     <!--<ContentPage.BindingContext>
         <GamePage.xaml.cs/>
@@ -24,6 +25,7 @@
 
         <!--Layout nested in grid and in column 1, containslabel for question and answerbuttons-->
         <StackLayout>
+            
 
             <Label Text="question"
                    x:Name="labelQuestion"

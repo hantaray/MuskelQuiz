@@ -16,6 +16,9 @@ namespace Quizz_PhysioUnited
         public StartAndContinuePage()
         {
             InitializeComponent();
+            //var image = new Image { Source = "Button_lang.jpg" };
+
+
             //soll den continue button freigeben, wenn eine frage beantwortet wurde
             if (Int32.Parse(Settings.QuestionCounterKatOne) == 1 &&  //funktioniert nur bei load, nicht bei back per pop
                 Int32.Parse(Settings.QuestionCounterKatTwo) == 1 &&

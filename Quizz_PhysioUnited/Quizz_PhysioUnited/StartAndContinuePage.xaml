@@ -7,19 +7,39 @@
              x:Class="Quizz_PhysioUnited.StartAndContinuePage"
              NavigationPage.HasNavigationBar="False">
     
+
     <ContentPage.Content>
-        <StackLayout>
+        <RelativeLayout>
 
-            <Button Text="New Game"
-                    x:Name="NewGameButton"
-                    Clicked="NewGameButton_Clicked"
-                    VerticalOptions="CenterAndExpand"/>
+            <Image Source="bg_klein.jpg" 
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+                   ></Image>
 
-            <Button Text="Continue"
-                    x:Name="ContinueGameButton"
-                    Clicked="ContinueGameButton_Clicked"
-                    VerticalOptions="CenterAndExpand"/>
+            <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                  RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
 
-        </StackLayout>
+
+                <StackLayout>
+                <Button Text="New Game"
+                        x:Name="NewGameButton"
+                        Clicked="NewGameButton_Clicked"
+                        VerticalOptions="CenterAndExpand"/>
+
+
+                <Button Text="Continue"
+                        x:Name="ContinueGameButton"
+                        Clicked="ContinueGameButton_Clicked"
+                        VerticalOptions="CenterAndExpand"/>               
+
+                </StackLayout>
+
+
+            </Grid>
+
+        </RelativeLayout>
     </ContentPage.Content>
 </ContentPage>
