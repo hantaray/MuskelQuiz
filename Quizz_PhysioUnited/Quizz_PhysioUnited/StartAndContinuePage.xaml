@@ -24,16 +24,26 @@
 
 
                 <StackLayout>
-                <Button Text="New Game"
-                        x:Name="NewGameButton"
-                        Clicked="NewGameButton_Clicked"
-                        VerticalOptions="CenterAndExpand"/>
+                    <Button Text="New Game"
+                            x:Name="NewGameButton"
+                            Clicked="NewGameButton_Clicked"
+                            VerticalOptions="CenterAndExpand"/>
 
 
-                <Button Text="Continue"
-                        x:Name="ContinueGameButton"
-                        Clicked="ContinueGameButton_Clicked"
-                        VerticalOptions="CenterAndExpand"/>               
+                    <Button Text="Continue"
+                            x:Name="ContinueGameButton"
+                            Clicked="ContinueGameButton_Clicked"
+                            VerticalOptions="CenterAndExpand"
+                            />
+
+                    <!--<ImageButton Source="Button_lang_ohneBg2.jpg"
+                                 HorizontalOptions="Start"
+                                 VerticalOptions="CenterAndExpand"
+                                 BackgroundColor="Transparent"
+                                 Margin="20,0,20,0"
+                                 />-->
+                    
+                    
 
                 </StackLayout>
 

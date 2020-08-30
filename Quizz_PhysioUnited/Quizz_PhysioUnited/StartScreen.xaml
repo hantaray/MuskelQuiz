@@ -7,44 +7,57 @@
              x:Class="Quizz_PhysioUnited.StartScreen"
              NavigationPage.HasNavigationBar="False">
 
-    <StackLayout>
-        <!-- Place new controls here -->
+    <RelativeLayout>
+
+        <Image Source="bg_klein.jpg" 
+                   RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+                   ></Image>
+
+        <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                  RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
 
 
+            <StackLayout>
+                
+                <Button Text="Obere Extremitäten" 
+                        Clicked="GoToGamePage" 
+                        x:Name="ButtonKatOne"
+                        ClassId="ButtonKatOne"
+                        VerticalOptions="CenterAndExpand" 
+                        />
 
-        <Button Text="Kategorie 1" 
-                Clicked="GoToGamePage" 
-                x:Name="ButtonKatOne"
-                ClassId="ButtonKatOne"
-                VerticalOptions="CenterAndExpand" 
-                />
+                <Button Text="Untere Extremitäten" 
+                        Clicked="GoToGamePage" 
+                        x:Name="ButtonKatTwo"
+                        ClassId="ButtonKatTwo"
+                        VerticalOptions="CenterAndExpand" 
+                        />
 
-        <Button Text="Kategorie 2" 
-                Clicked="GoToGamePage" 
-                x:Name="ButtonKatTwo"
-                ClassId="ButtonKatTwo"
-                VerticalOptions="CenterAndExpand" 
-                />
+                <Button Text="Rumpf" 
+                        Clicked="GoToGamePage" 
+                        x:Name="ButtonKatThree"
+                        ClassId="ButtonKatThree"
+                        VerticalOptions="CenterAndExpand" 
+                        />
 
-        <Button Text="Kategorie 3" 
-                Clicked="GoToGamePage" 
-                x:Name="ButtonKatThree"
-                ClassId="ButtonKatThree"
-                VerticalOptions="CenterAndExpand" 
-                />
-        
-        <Button Text="Kategorie 4" 
-                Clicked="GoToGamePage" 
-                x:Name="ButtonKatFour"
-                ClassId="ButtonKatFour"
-                VerticalOptions="CenterAndExpand" 
-                />
+                <Button Text="Kopf" 
+                        Clicked="GoToGamePage" 
+                        x:Name="ButtonKatFour"
+                        ClassId="ButtonKatFour"
+                        VerticalOptions="CenterAndExpand" 
+                        />
 
-        <!--Button Text="open Database"
-                x:Name="openDataBase"
-                Clicked="openDataBase_Clicked"
-                VerticalOptions="CenterAndExpand"/>-->
+                <!--Button Text="open Database"
+                        x:Name="openDataBase"
+                        Clicked="openDataBase_Clicked"
+                        VerticalOptions="CenterAndExpand"/>-->
 
-    </StackLayout>
+            </StackLayout>
 
+        </Grid>
+    </RelativeLayout>
 </ContentPage>

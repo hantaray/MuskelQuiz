@@ -62,11 +62,11 @@
             },
             "Xamarin.Essentials": {
               "target": "Package",
-              "version": "[1.3.1, )"
+              "version": "[1.5.3.2, )"
             },
             "Xamarin.Forms": {
               "target": "Package",
-              "version": "[4.5.0.495, )"
+              "version": "[4.8.0.1269, )"
             },
             "sqlite-net-pcl": {
               "target": "Package",
@@ -83,7 +83,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
