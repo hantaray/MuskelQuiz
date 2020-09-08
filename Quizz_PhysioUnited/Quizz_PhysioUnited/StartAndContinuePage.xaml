@@ -36,14 +36,41 @@
                             VerticalOptions="CenterAndExpand"
                             />
 
-                    <!--<ImageButton Source="Button_lang_ohneBg2.jpg"
-                                 HorizontalOptions="Start"
-                                 VerticalOptions="CenterAndExpand"
-                                 BackgroundColor="Transparent"
-                                 Margin="20,0,20,0"
-                                 />-->
-                    
-                    
+                    <Grid HorizontalOptions="Center"
+                          VerticalOptions="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions> 
+
+
+                        <Image Source="Button_lang.gif"
+                                         x:Name="ImageButton1"
+                                         HorizontalOptions="Start"
+                                         VerticalOptions="CenterAndExpand"
+                                         Margin="100,0,100,0"                                         
+                                         Grid.Row="0"
+                                         >
+                            <!--<Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Tapped="ImageButton_Clicked"
+                                    />
+                            </Image.GestureRecognizers>-->
+                        </Image>
+
+                        <Button x:Name="label"
+                                Clicked="ImageButton_Clicked"
+                                Pressed="label_Pressed"
+                                Released="label_Released"
+                                Text="0 ImageButton clicks"
+                                FontSize="Small"
+                                Margin="123,0,130,0"
+                                VerticalOptions="CenterAndExpand"  
+                                TextColor="White"
+                                BackgroundColor="Transparent"
+                                Grid.Row="0"                                    
+                            >
+                        </Button>
+                    </Grid>
 
                 </StackLayout>
 

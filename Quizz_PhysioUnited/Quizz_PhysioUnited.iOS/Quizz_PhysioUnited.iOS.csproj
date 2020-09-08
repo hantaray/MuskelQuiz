@@ -142,7 +142,4 @@
   <ItemGroup>
     <BundleResource Include="Resources\bg_klein.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <BundleResource Include="Resources\bg_gross.jpg" />
-  </ItemGroup>
 </Project>
