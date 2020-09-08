@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "+4vlRDa2r/Kki051zoU+g1kp6gXwvWHHxJlhB7jp/jOfTl2OSD3rEE5AvAX8373IHPZyjC2EsC9jKeElHGUeIQ==",
+  "dgSpecHash": "VJ+CTXKAx/IEQxLRPFQIjEoNvYfnGNbPElQJLJHy6PV6EsqkXRmnyG3YrJfwg6G/n33cPYFVy6XpQy0ro9XTew==",
   "success": true,
   "projectFilePath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\konne\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\konne\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",
     "C:\\Users\\konne\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
+    "C:\\Users\\konne\\.nuget\\packages\\rg.plugins.popup\\2.0.0.5\\rg.plugins.popup.2.0.0.5.nupkg.sha512",
     "C:\\Users\\konne\\.nuget\\packages\\sqlite-net-pcl\\1.7.335\\sqlite-net-pcl.1.7.335.nupkg.sha512",
     "C:\\Users\\konne\\.nuget\\packages\\sqlitepclraw.bundle_green\\2.0.3\\sqlitepclraw.bundle_green.2.0.3.nupkg.sha512",
     "C:\\Users\\konne\\.nuget\\packages\\sqlitepclraw.core\\2.0.3\\sqlitepclraw.core.2.0.3.nupkg.sha512",

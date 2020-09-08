@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,12 +25,13 @@ namespace Quizz_PhysioUnited
 
         async void GoToGamePage(object sender, EventArgs e)
         {
+            
             Button clickedButton = (Button)sender;
             if (clickedButton.ClassId.Equals("ButtonKatOne"))
             {                
                 if (App.QCountKatOne < Int32.Parse(Settings.QuestionCounterKatOne))
                 {
-                    bool answer = await DisplayAlert("You finnished the category!!!", "Would you like to restart the category?", "Yes", "No");
+                    bool answer = await DisplayAlert("You finnished the category!!!", "Would you like to restart the category?", "Yes", "No");                    
                     if (answer)
                     {
                         Settings.QuestionCounterKatOne = "1";
