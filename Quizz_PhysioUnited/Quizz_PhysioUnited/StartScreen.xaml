@@ -20,8 +20,8 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-
-            <StackLayout>
+    <!--<AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
+    <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
                 
                 <Button Text="Obere Extremitäten" 
                         Clicked="GoToGamePage" 
@@ -55,9 +55,35 @@
                         x:Name="openDataBase"
                         Clicked="openDataBase_Clicked"
                         VerticalOptions="CenterAndExpand"/>-->
+                        
 
             </StackLayout>
 
         </Grid>
+
+
+        <ContentView x:Name="popUpRestart"
+                    BackgroundColor="#C0808080"
+                    IsVisible="false"
+                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+                     >
+
+            <StackLayout VerticalOptions="Center"
+                        HorizontalOptions="Center">
+
+                <StackLayout Orientation="Vertical" HeightRequest="200" WidthRequest="300" BackgroundColor="White">
+                    <Label Text="Alles Fertig hier! Weiter oder neu?"></Label>
+                    <Button Margin="20,0,20,0" Text="Login"></Button>
+                </StackLayout>
+            </StackLayout>
+        </ContentView>
+
     </RelativeLayout>
+
+
+    <!--popUpRestart.IsVisible = true;-->
+
+
+    <!--</AbsoluteLayout>-->
 </ContentPage>
