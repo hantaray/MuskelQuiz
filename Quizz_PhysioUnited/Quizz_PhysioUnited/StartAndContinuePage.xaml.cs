@@ -13,6 +13,10 @@ namespace Quizz_PhysioUnited
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StartAndContinuePage : ContentPage
     {
+
+        int clickTotal;
+
+
         public StartAndContinuePage()
         {
             InitializeComponent();
@@ -85,9 +89,24 @@ namespace Quizz_PhysioUnited
             App.setQALists();
             await Navigation.PushAsync(new StartScreen());
         }
-        
 
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            clickTotal += 1;
+            label.Text = $"{clickTotal} ImageButton click{(clickTotal == 1 ? "" : "s")}";
+            //ImageButton.Source = "Button_lang.gif";
+        }
 
+         private void label_Pressed(object sender, EventArgs e)
+        {
+            //Image img = ImageButton2;
+            //await img.FadeTo(0, 100);
+            ImageButton1.Source = "Button_lang_pres.gif";
+        }
 
+        private void label_Released(object sender, EventArgs e)
+        {
+            ImageButton1.Source = "Button_lang.gif";
+        }
     }
 }
