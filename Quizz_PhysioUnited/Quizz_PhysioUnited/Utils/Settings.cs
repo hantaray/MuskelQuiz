@@ -1,6 +1,7 @@
 ﻿// Helpers/Settings.cs
 using Plugin.Settings;
 using Plugin.Settings.Abstractions;
+using System.Collections.Generic;
 
 namespace Quizz_PhysioUnited.Utils
 {
@@ -48,6 +49,7 @@ namespace Quizz_PhysioUnited.Utils
         private const string TimerValueKatFourSetting = "timerValue_katFour_Key";
 
 
+        
         private const string GemsSettings = "last_gems_key";
 
         private static readonly string ThirtyAsDefault = "30";
@@ -56,9 +58,11 @@ namespace Quizz_PhysioUnited.Utils
 
         private static readonly string ZeroAsDefault = "0";
 
-        //private static readonly string SettingsDefault = string.Empty;
+        private static readonly string SettingsDefault = string.Empty;
 
-        #endregion
+
+        #endregion        
+
 
 
 

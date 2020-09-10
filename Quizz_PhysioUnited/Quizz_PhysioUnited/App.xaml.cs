@@ -15,16 +15,16 @@ namespace Quizz_PhysioUnited
     public partial class App : Application
     {
         static Database database;
-        public static List<List<string>> QAListKatOne;
-        public static List<List<string>> QAListKatTwo;
-        public static List<List<string>> QAListKatThree;
-        public static List<List<string>> QAListKatFour;
+        public static List<Question> QAListKatOne;
+        public static List<Question> QAListKatTwo;
+        public static List<Question> QAListKatThree;
+        public static List<Question> QAListKatFour;
         public static int QCountKatOne;
         public static int QCountKatTwo;
         public static int QCountKatThree;
         public static int QCountKatFour;
 
-        public static Database Database
+        public static Database DatabaseAll
         {
             get
             {
@@ -60,7 +60,7 @@ namespace Quizz_PhysioUnited
         }
 
 
-        private static int getListCount(List<List<string>> list)
+        private static int getListCount(List<Question> list)
         {
             return list.Count;
         }
@@ -92,11 +92,15 @@ namespace Quizz_PhysioUnited
 
         public static void setQALists()
         {
-            Questions questions = new Questions();
-            QAListKatOne = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatOne);
-            QAListKatTwo = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatTwo);
-            QAListKatThree = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatThree);
-            QAListKatFour = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatFour);
+            //nur für Test
+            //QuestionsData.UpdateCurrentWithOriginal();
+            //
+
+
+            QAListKatOne = QuestionsData.GetCurrentQuestionsList(1);   //GetCurrentQuestionsList(kategorie1)
+            QAListKatTwo = QuestionsData.GetCurrentQuestionsList(2);    //GetCurrentQuestionsList(kategorie2)
+            QAListKatThree = QuestionsData.GetCurrentQuestionsList(3);    //GetCurrentQuestionsList(kategorie3)
+            QAListKatFour = QuestionsData.GetCurrentQuestionsList(4);      //GetCurrentQuestionsList(kategorie4)
             QCountKatOne = getListCount(QAListKatOne);
             QCountKatTwo = getListCount(QAListKatOne);
             QCountKatThree = getListCount(QAListKatOne);

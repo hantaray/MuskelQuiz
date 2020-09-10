@@ -39,7 +39,7 @@ namespace Quizz_PhysioUnited
             namesAndAnswersKatTwo.Clear();
             namesAndAnswersKatThree.Clear();
             namesAndAnswersKatFour.Clear();
-            muskelList = App.Database.GetMuskel();
+            muskelList = App.DatabaseAll.GetMuskel();
             SetDicionaries();
         }
 
@@ -199,7 +199,5 @@ namespace Quizz_PhysioUnited
             }
             return choices;
         }
-
-
     }
 }

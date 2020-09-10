@@ -70,7 +70,7 @@ namespace Quizz_PhysioUnited
             Settings.Gems = "0";
             SetTimerValues("30");
 
-            await App.Database.GetDataFromServer();
+            await App.DatabaseAll.GetDataFromServer();
             App.setQALists();
             await Navigation.PushAsync(new StartScreen());
         }
@@ -85,7 +85,7 @@ namespace Quizz_PhysioUnited
 
         private async void ContinueGameButton_Clicked(object sender, EventArgs e)
         {
-            await App.Database.GetDataFromServer();
+            await App.DatabaseAll.GetDataFromServer();
             App.setQALists();
             await Navigation.PushAsync(new StartScreen());
         }
