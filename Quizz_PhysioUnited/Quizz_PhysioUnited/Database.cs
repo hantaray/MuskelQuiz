@@ -2,6 +2,7 @@
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -15,6 +16,7 @@ namespace Quizz_PhysioUnited
         {
             _database = new SQLiteConnection(dbPath);
             _database.CreateTable<Muskel>();
+            _database.CreateTable<Question>();
         }
 
         public List<Muskel> GetMuskel()
@@ -26,6 +28,57 @@ namespace Quizz_PhysioUnited
         {
             _database.Insert(muskel);
         }
+
+
+        public List<Question> GetQuestions(int category)
+        {
+            return _database.Query<Question>("SELECT * FROM [Question] WHERE [Category] = " + category).ToList();
+        }
+
+        public void FilterOnlyNextQuestionsInDB()
+        {
+            _database.Execute("Delete From [Question] WHERE [Next] = false");
+        }
+
+        public void SaveQuestion(Question question)
+        {
+            _database.Insert(question);
+        }
+
+        public void SetQuestionAsNext(Question question)
+        {
+            question.Next = true;
+            if (question.ID != 0)
+            {
+                _database.Update(question);
+            }
+        }
+
+
+        public void ResetQuestionDB()
+        {
+            _database.DropTable<Question>();
+            _database.CreateTable<Question>();
+        }
+
+
+
+
+        public bool IsQuestionDBEmpty()
+        {
+            //int count2 = _database.Query<Question>("SELECT * FROM[Question]").Count;
+            int count = _database.ExecuteScalar<int>("SELECT count(*) FROM [Question]");
+            if (count == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
 
         //Es wird die ganze SQLite-DB ausgetauscht - vielleicht besser nur die Daten zu ziehen, die geändert wurden?
         public async Task<RootMuskel> GetDataFromServer()
@@ -48,7 +101,7 @@ namespace Quizz_PhysioUnited
 
                 foreach (Muskel muskel in muskelList.Muskeln)
                 {
-                    App.Database.SaveMuskel(new Muskel
+                    App.DatabaseAll.SaveMuskel(new Muskel
                     {
                         ID = muskel.ID,
                         Name = muskel.Name,

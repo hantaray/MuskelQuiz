@@ -34,6 +34,10 @@ namespace Quizz_PhysioUnited
                     bool answer = await DisplayAlert("You finnished the category!!!", "Would you like to restart the category?", "Yes", "No");                    
                     if (answer)
                     {
+                        //Test es muss noch das PopUp mit Replay und Chnace eingefügt werden. Replay kriegt UpdateCurrentWithOriginal(), Chance kriegt UpdateCurrentWithNext();
+                        QuestionsData.UpdateCurrentWithNext();
+                        App.QAListKatOne = QuestionsData.GetCurrentQuestionsList(1);
+                        //
                         Settings.QuestionCounterKatOne = "1";
                         Settings.ScoreKatOne = "0";
                         Settings.TimerValueKatOne = "30";
@@ -157,9 +161,16 @@ namespace Quizz_PhysioUnited
 
 
 
+
         async void openDataBase_Clicked(object sender, EventArgs e)
         {            
             await Navigation.PushAsync(new DatabasePage());
         }
+
+
+        //wenn chance dann wird next zu current in database und App.QAListKatFour = getCurrent
+        //wenn replay delete current database 
+
+
     }
 }

@@ -21,9 +21,10 @@ namespace Quizz_PhysioUnited
         //der next button zählt den questionCounter hoch und wenn größer als totalQuestions dann Ende
 
         int questionCounter;
-        List<List<string>> questionsAndAnswers;
+        List<Question> questionsAndAnswers;
+        Question questionAndAnswer;
         int totalQuestions;
-        string rightAnswer;
+        int rightAnswer;
         int score;
         int gems;
         double gameTime = 30.0;
@@ -53,7 +54,7 @@ namespace Quizz_PhysioUnited
         //    SetTimer();
         //}
 
-        public GamePage(List<List<string>> questionsAndAnswers, int questionCounter, int score, int gems, double timerCounter)
+        public GamePage(List<Question> questionsAndAnswers, int questionCounter, int score, int gems, double timerCounter)
         {            
             this.questionsAndAnswers = questionsAndAnswers;
             this.questionCounter = questionCounter;
@@ -67,8 +68,7 @@ namespace Quizz_PhysioUnited
             SetScore();
             SetGems();
             EnableButtons();
-            StartTimerAgain();
-            
+            StartTimerAgain();            
         }
 
 
@@ -185,13 +185,13 @@ namespace Quizz_PhysioUnited
 
         public void SetQuestionAndAnswer()
         {
-            List<string> questionAndAnswer = questionsAndAnswers[(questionCounter - 1)];
-            rightAnswer = questionAndAnswer[5];
-            labelQuestion.Text = questionAndAnswer[0];
-            answerButton1.Text = questionAndAnswer[1];
-            answerButton2.Text = questionAndAnswer[2];
-            answerButton3.Text = questionAndAnswer[3];
-            answerButton4.Text = questionAndAnswer[4];
+            questionAndAnswer = questionsAndAnswers[(questionCounter - 1)];
+            rightAnswer = questionAndAnswer.RightAnwerPosition;
+            labelQuestion.Text = questionAndAnswer.QuestionText;
+            answerButton1.Text = questionAndAnswer.Choice1;
+            answerButton2.Text = questionAndAnswer.Choice2;
+            answerButton3.Text = questionAndAnswer.Choice3;
+            answerButton4.Text = questionAndAnswer.Choice4;
         }
 
         public void QuestionCounterPlus()
@@ -263,10 +263,11 @@ namespace Quizz_PhysioUnited
         }
 
         public void CheckAnswer(object sender)
+
         {            
             Button clickedButton = (Button)sender;
-            string buttonNumber = clickedButton.ClassId.Last().ToString();
-            if (buttonNumber.Equals(rightAnswer))
+            int buttonNumber = (int)Char.GetNumericValue(clickedButton.ClassId.Last());
+            if (buttonNumber == rightAnswer)
             {
                 clickedButton.BackgroundColor = Color.FromHex("#00FF00");
                 score++;
@@ -275,6 +276,9 @@ namespace Quizz_PhysioUnited
             else
             {
                 clickedButton.BackgroundColor = Color.FromHex("#FF0000");
+
+                //add question to NextQuestionsList database
+                App.DatabaseAll.SetQuestionAsNext(questionAndAnswer);
             }
             SetScore();
             SetGems();
@@ -284,8 +288,8 @@ namespace Quizz_PhysioUnited
         public void CheckWithJoker( object sender)
         {
             Button clickedButton = (Button)sender;
-            string buttonNumber = clickedButton.ClassId.Last().ToString();
-            if (buttonNumber.Equals(rightAnswer))
+            int buttonNumber = (int)Char.GetNumericValue(clickedButton.ClassId.Last());
+            if (buttonNumber == rightAnswer)
             {
                 clickedButton.BackgroundColor = Color.FromHex("#00FF00");
                 clickedButton.IsEnabled = false;
@@ -374,6 +378,8 @@ namespace Quizz_PhysioUnited
             //return base.OnBackButtonPressed();
             return true;
         }
+
+        //public void AddQuestionToNextDatabase() { }
 
 
     }
