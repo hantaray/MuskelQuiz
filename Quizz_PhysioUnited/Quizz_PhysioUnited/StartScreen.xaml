@@ -72,16 +72,32 @@
             <StackLayout VerticalOptions="Center"
                         HorizontalOptions="Center">
 
-                <StackLayout Orientation="Vertical" HeightRequest="200" WidthRequest="300" BackgroundColor="White">
-                    <Label Text="Alles Fertig hier! Weiter oder neu?"></Label>
-                    <Button Margin="20,0,20,0" Text="Login"></Button>
+                <StackLayout Orientation="Vertical" 
+                             BackgroundColor="White"
+                             Margin="40,40,40,40"
+                             >
+                    <Label  HorizontalTextAlignment="Center"
+                            Text="Alle Fragen dieser Kategorie wurden beantwortet!"
+                            FontSize="Medium"></Label>
+                    <Label  HorizontalTextAlignment="Center"
+                            Text="Mit Restart können alle Fragen noch einmal beantwortet werden."/>
+                    <Button Margin="150,0,150,0" 
+                            Text="Restart"
+                            x:Name="RestartCategoryButton"
+                            Clicked="RestartCategoryButton_Clicked"/>
+                    <Label  HorizontalTextAlignment="Center"
+                            Text="Mit Chance werden nur die falsch beantworteten Fragen nochmal gestellt und der bisherige Score kann erhöht werden."/>
+                    <Button Margin="150,0,150,15" 
+                            Text="Chance"
+                            x:Name="ChanceCategoryButton"
+                            Clicked="ChanceCategoryButton_Clicked"/>
                 </StackLayout>
             </StackLayout>
         </ContentView>
 
     </RelativeLayout>
 
-
+    <!--HeightRequest="200" WidthRequest="300"-->
     <!--popUpRestart.IsVisible = true;-->
 
 

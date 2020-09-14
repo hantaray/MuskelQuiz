@@ -36,6 +36,36 @@ namespace Quizz_PhysioUnited
             AddQuestionListToDB(QAListKatFour, 4);
         }
 
+        public static void UpdateCurrentWithOriginalByCat(int category)
+        {
+            Questions questions = new Questions();
+            //bei Fehler testen ob dicionaries gebaut werden
+            if (category == 1)
+            {
+                App.DatabaseAll.DeleteQuestionsByCategoryInDB(category);
+                List<List<string>> QAListKatOne = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatOne);
+                AddQuestionListToDB(QAListKatOne, 1);
+            } 
+            else if (category == 2)
+            {
+                App.DatabaseAll.DeleteQuestionsByCategoryInDB(category);
+                List<List<string>> QAListKatTwo = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatTwo);
+                AddQuestionListToDB(QAListKatTwo, 2);
+            }
+            else if (category == 3)
+            {
+                App.DatabaseAll.DeleteQuestionsByCategoryInDB(category);
+                List<List<string>> QAListKatThree = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatThree);
+                AddQuestionListToDB(QAListKatThree, 3);
+            } 
+            else if (category == 4)
+            {
+                App.DatabaseAll.DeleteQuestionsByCategoryInDB(category);
+                List<List<string>> QAListKatFour = questions.getAllQuestionsAndAnswers(questions.namesAndAnswersKatFour);
+                AddQuestionListToDB(QAListKatFour, 4);
+            }
+        }
+
         static void AddQuestionListToDB(List<List<string>> questionList, int category)
         {
             foreach (List<string> question in questionList)
@@ -49,19 +79,19 @@ namespace Quizz_PhysioUnited
                     Choice4 = question[4],
                     RightAnwerPosition = Int32.Parse(question[5]),
                     Category = category,
-                    Next = false
+                    Next = true
                 };
                 App.DatabaseAll.SaveQuestion(questionNew);
             }
         }
 
 
-        public static void UpdateCurrentWithNext()
+        public static void UpdateCurrentWithNext(int category)
         {
-            App.DatabaseAll.FilterOnlyNextQuestionsInDB();
+            App.DatabaseAll.FilterOnlyNextQuestionsInDB(category);
         }
 
-             
+
 
     }
 }

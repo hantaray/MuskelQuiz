@@ -102,9 +102,9 @@ namespace Quizz_PhysioUnited
             QAListKatThree = QuestionsData.GetCurrentQuestionsList(3);    //GetCurrentQuestionsList(kategorie3)
             QAListKatFour = QuestionsData.GetCurrentQuestionsList(4);      //GetCurrentQuestionsList(kategorie4)
             QCountKatOne = getListCount(QAListKatOne);
-            QCountKatTwo = getListCount(QAListKatOne);
-            QCountKatThree = getListCount(QAListKatOne);
-            QCountKatFour = getListCount(QAListKatOne);
+            QCountKatTwo = getListCount(QAListKatTwo);
+            QCountKatThree = getListCount(QAListKatThree);
+            QCountKatFour = getListCount(QAListKatFour);
         }
 
     }
