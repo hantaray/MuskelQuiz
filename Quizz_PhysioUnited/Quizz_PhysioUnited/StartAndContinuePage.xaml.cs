@@ -71,6 +71,7 @@ namespace Quizz_PhysioUnited
             SetTimerValues("30");
 
             await App.DatabaseAll.GetDataFromServer();
+            QuestionsData.UpdateCurrentWithOriginal();
             App.setQALists();
             await Navigation.PushAsync(new StartScreen());
         }

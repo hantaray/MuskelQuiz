@@ -35,9 +35,19 @@ namespace Quizz_PhysioUnited
             return _database.Query<Question>("SELECT * FROM [Question] WHERE [Category] = " + category).ToList();
         }
 
-        public void FilterOnlyNextQuestionsInDB()
+        public void FilterOnlyNextQuestionsInDB(int category)
         {
-            _database.Execute("Delete From [Question] WHERE [Next] = false");
+            _database.Execute("Delete From [Question] WHERE [Next] = false AND [Category] = " + category);
+        }
+
+        public List<Question> GetQuestionsByCatAndNextFalse(int category)
+        {
+            return _database.Query<Question>("SELECT * FROM [Question] WHERE [Next] = true AND [Category] = " + category).ToList();
+        }
+
+        public void DeleteQuestionsByCategoryInDB(int category)
+        {
+            _database.Execute("Delete From [Question] WHERE [Category] = " + category);
         }
 
         public void SaveQuestion(Question question)
@@ -45,9 +55,9 @@ namespace Quizz_PhysioUnited
             _database.Insert(question);
         }
 
-        public void SetQuestionAsNext(Question question)
+        public void SetQuestionAsNextFalse(Question question)
         {
-            question.Next = true;
+            question.Next = false;
             if (question.ID != 0)
             {
                 _database.Update(question);

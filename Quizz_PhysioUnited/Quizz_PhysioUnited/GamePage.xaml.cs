@@ -272,13 +272,12 @@ namespace Quizz_PhysioUnited
                 clickedButton.BackgroundColor = Color.FromHex("#00FF00");
                 score++;
                 gems++;
+                //remove question from NextQuestionsList database by setting next attribue to false
+                App.DatabaseAll.SetQuestionAsNextFalse(questionAndAnswer);
             }
             else
             {
                 clickedButton.BackgroundColor = Color.FromHex("#FF0000");
-
-                //add question to NextQuestionsList database
-                App.DatabaseAll.SetQuestionAsNext(questionAndAnswer);
             }
             SetScore();
             SetGems();
@@ -295,6 +294,8 @@ namespace Quizz_PhysioUnited
                 clickedButton.IsEnabled = false;
                 score++;
                 gems++;
+                //remove question from NextQuestionsList database by setting next attribue to false
+                App.DatabaseAll.SetQuestionAsNextFalse(questionAndAnswer);
                 SetScore();
                 SetGems();
                 DisableButtons();

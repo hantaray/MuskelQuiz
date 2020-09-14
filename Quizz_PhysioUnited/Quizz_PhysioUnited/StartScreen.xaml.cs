@@ -21,100 +21,84 @@ namespace Quizz_PhysioUnited
         public StartScreen()
         {
             InitializeComponent();
-        }        
+        }
 
-        async void GoToGamePage(object sender, EventArgs e)
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            popUpRestart.IsVisible = false;
+            ChanceCategoryButton.IsEnabled = true;
+        }
+
+        void GoToGamePage(object sender, EventArgs e)
         {
             
             Button clickedButton = (Button)sender;
             if (clickedButton.ClassId.Equals("ButtonKatOne"))
-            {                
+            {
+                Kategorie = 1;
                 if (App.QCountKatOne < Int32.Parse(Settings.QuestionCounterKatOne))
                 {
-                    bool answer = await DisplayAlert("You finnished the category!!!", "Would you like to restart the category?", "Yes", "No");                    
-                    if (answer)
-                    {
-                        //Test es muss noch das PopUp mit Replay und Chnace eingefügt werden. Replay kriegt UpdateCurrentWithOriginal(), Chance kriegt UpdateCurrentWithNext();
-                        QuestionsData.UpdateCurrentWithNext();
-                        App.QAListKatOne = QuestionsData.GetCurrentQuestionsList(1);
-                        //
-                        Settings.QuestionCounterKatOne = "1";
-                        Settings.ScoreKatOne = "0";
-                        Settings.TimerValueKatOne = "30";
-                        Kategorie = 1;
-                        PageKatOne();
-                    }
+                    DisableChanceIfNoQuestions(Kategorie);
+                    popUpRestart.IsVisible = true;
                 } 
                 else
                 {
-                    Kategorie = 1;
                     PageKatOne();
                 }
             }
             else if (clickedButton.ClassId.Equals("ButtonKatTwo"))
             {
+                Kategorie = 2;
                 if (App.QCountKatTwo < Int32.Parse(Settings.QuestionCounterKatTwo))
                 {
-                    bool answer = await DisplayAlert("You finnished the category!!!", "Would you like to restart the category?", "Yes", "No");
-                    if (answer)
-                    {
-                        Settings.QuestionCounterKatTwo = "1";
-                        Settings.ScoreKatTwo = "0";
-                        Settings.TimerValueKatTwo = "30";
-                        Kategorie = 2;
-                        PageKatTwo();
-                    }
+                    DisableChanceIfNoQuestions(Kategorie);
+                    popUpRestart.IsVisible = true;
                 }
                 else
                 {
-                    Kategorie = 2;
                     PageKatTwo();
                 }
-
             }
             else if (clickedButton.ClassId.Equals("ButtonKatThree"))
             {
+                Kategorie = 3;
                 if (App.QCountKatThree < Int32.Parse(Settings.QuestionCounterKatThree))
                 {
-                    bool answer = await DisplayAlert("You finnished the category!!!", "Would you like to restart the category?", "Yes", "No");
-                    if (answer)
-                    {
-                        Settings.QuestionCounterKatThree = "1";
-                        Settings.ScoreKatThree = "0";
-                        Settings.TimerValueKatThree = "30";
-                        Kategorie = 3;
-                        PageKatThree();
-                    }
+                    DisableChanceIfNoQuestions(Kategorie);
+                    popUpRestart.IsVisible = true;
                 }
                 else
                 {
-                    Kategorie = 3;
                     PageKatThree();
                 }
 
             }
             else if (clickedButton.ClassId.Equals("ButtonKatFour"))
             {
+                Kategorie = 4;
                 if (App.QCountKatFour < Int32.Parse(Settings.QuestionCounterKatFour))
                 {
-                    bool answer = await DisplayAlert("You finnished the category!!!", "Would you like to restart the category?", "Yes", "No");
-                    if (answer)
-                    {
-                        Settings.QuestionCounterKatFour = "1";
-                        Settings.ScoreKatFour = "0";
-                        Settings.TimerValueKatFour = "30";
-                        Kategorie = 4;
-                        PageKatFour();
-                    }
+                    DisableChanceIfNoQuestions(Kategorie);
+                    popUpRestart.IsVisible = true;
                 }
                 else
                 {
-                    Kategorie = 4;
                     PageKatFour();
                 }
 
             }
 
+        }
+
+        void DisableChanceIfNoQuestions(int category)
+        {
+            List<Question> testList = new List<Question>();
+            testList = App.DatabaseAll.GetQuestionsByCatAndNextFalse(category);
+            if (testList.Count == 0)
+            {
+                ChanceCategoryButton.IsEnabled = false;
+            }
         }
 
 
@@ -165,6 +149,91 @@ namespace Quizz_PhysioUnited
         async void openDataBase_Clicked(object sender, EventArgs e)
         {            
             await Navigation.PushAsync(new DatabasePage());
+        }
+
+        private void RestartCategoryButton_Clicked(object sender, EventArgs e)
+        {
+            if (Kategorie == 1)
+            {
+                QuestionsData.UpdateCurrentWithOriginalByCat(Kategorie);
+                App.QAListKatOne = QuestionsData.GetCurrentQuestionsList(Kategorie);
+                App.QCountKatOne = App.QAListKatOne.Count;
+                Settings.QuestionCounterKatOne = "1";
+                Settings.ScoreKatOne = "0";
+                Settings.TimerValueKatOne = "30";
+                PageKatOne();
+            }
+            else if (Kategorie == 2)
+            {
+                QuestionsData.UpdateCurrentWithOriginalByCat(Kategorie);
+                App.QAListKatTwo = QuestionsData.GetCurrentQuestionsList(Kategorie);
+                App.QCountKatTwo = App.QAListKatTwo.Count;
+                Settings.QuestionCounterKatTwo = "1";
+                Settings.ScoreKatTwo = "0";
+                Settings.TimerValueKatTwo = "30";
+                PageKatTwo();
+            }
+            else if (Kategorie == 3)
+            {
+                QuestionsData.UpdateCurrentWithOriginalByCat(Kategorie);
+                App.QAListKatThree = QuestionsData.GetCurrentQuestionsList(Kategorie);
+                App.QCountKatThree = App.QAListKatThree.Count;
+                Settings.QuestionCounterKatThree = "1";
+                Settings.ScoreKatThree = "0";
+                Settings.TimerValueKatThree = "30";
+                PageKatThree();
+            }
+            else if (Kategorie == 4)
+            {
+                QuestionsData.UpdateCurrentWithOriginalByCat(Kategorie);
+                App.QAListKatFour = QuestionsData.GetCurrentQuestionsList(Kategorie);
+                App.QCountKatFour = App.QAListKatFour.Count;
+                Settings.QuestionCounterKatFour = "1";
+                Settings.ScoreKatFour = "0";
+                Settings.TimerValueKatFour = "30";
+                PageKatFour();
+            }
+           
+        }
+
+        private void ChanceCategoryButton_Clicked(object sender, EventArgs e)
+        {
+            if (Kategorie == 1)
+            {
+                QuestionsData.UpdateCurrentWithNext(Kategorie);
+                App.QAListKatOne = QuestionsData.GetCurrentQuestionsList(Kategorie);
+                App.QCountKatOne = App.QAListKatOne.Count;
+                Settings.QuestionCounterKatOne = "1";
+                Settings.TimerValueKatOne = "30";
+                PageKatOne();
+            }
+            else if (Kategorie == 2)
+            {
+                QuestionsData.UpdateCurrentWithNext(Kategorie);
+                App.QAListKatTwo = QuestionsData.GetCurrentQuestionsList(Kategorie);
+                App.QCountKatTwo = App.QAListKatTwo.Count;
+                Settings.QuestionCounterKatTwo = "1";
+                Settings.TimerValueKatTwo = "30";
+                PageKatTwo();
+            }
+            else if (Kategorie == 3)
+            {
+                QuestionsData.UpdateCurrentWithNext(Kategorie);
+                App.QAListKatThree = QuestionsData.GetCurrentQuestionsList(Kategorie);
+                App.QCountKatThree = App.QAListKatThree.Count;
+                Settings.QuestionCounterKatThree = "1";
+                Settings.TimerValueKatThree = "30";
+                PageKatThree();
+            }
+            else if (Kategorie == 4)
+            {
+                QuestionsData.UpdateCurrentWithNext(Kategorie);
+                App.QAListKatFour = QuestionsData.GetCurrentQuestionsList(Kategorie);
+                App.QCountKatFour = App.QAListKatFour.Count;
+                Settings.QuestionCounterKatFour = "1";
+                Settings.TimerValueKatFour = "30";
+                PageKatFour();
+            }
         }
 
 
