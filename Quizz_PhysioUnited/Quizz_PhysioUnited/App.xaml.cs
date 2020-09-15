@@ -91,12 +91,7 @@ namespace Quizz_PhysioUnited
         }
 
         public static void setQALists()
-        {
-            //nur für Test
-            //QuestionsData.UpdateCurrentWithOriginal();
-            //
-
-
+        {            
             QAListKatOne = QuestionsData.GetCurrentQuestionsList(1);   //GetCurrentQuestionsList(kategorie1)
             QAListKatTwo = QuestionsData.GetCurrentQuestionsList(2);    //GetCurrentQuestionsList(kategorie2)
             QAListKatThree = QuestionsData.GetCurrentQuestionsList(3);    //GetCurrentQuestionsList(kategorie3)

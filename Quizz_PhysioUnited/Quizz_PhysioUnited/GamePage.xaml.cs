@@ -26,6 +26,7 @@ namespace Quizz_PhysioUnited
         int totalQuestions;
         int rightAnswer;
         int score;
+        int allQuestionsNr;
         int gems;
         double gameTime = 30.0;
         public double timerCounter;
@@ -36,7 +37,7 @@ namespace Quizz_PhysioUnited
         bool TimerRestarts = false;
 
 
-        public static string responseBody;
+        public static string responseBody; //was is das?
 
 
 
@@ -54,11 +55,12 @@ namespace Quizz_PhysioUnited
         //    SetTimer();
         //}
 
-        public GamePage(List<Question> questionsAndAnswers, int questionCounter, int score, int gems, double timerCounter)
+        public GamePage(List<Question> questionsAndAnswers, int questionCounter, int score, int allQuestionsNr, int gems, double timerCounter)
         {            
             this.questionsAndAnswers = questionsAndAnswers;
             this.questionCounter = questionCounter;
             this.score = score;
+            this.allQuestionsNr = allQuestionsNr;
             this.gems = gems;
             this.timerCounter = timerCounter;
             InitializeComponent();
@@ -202,12 +204,13 @@ namespace Quizz_PhysioUnited
         public void SetLevel()
         {
             labelLevel.Text = "Lvl " + questionCounter + "/" + totalQuestions;
-
         }
 
         public void SetScore()
         {
-            labelScore.Text = "Score " + score;
+            double scoreProcent = (((double)score * 100) / (double)allQuestionsNr);
+            scoreProcent = Math.Round(scoreProcent, 1);
+            labelScore.Text = "Score " + scoreProcent + "%";
         }
 
         public void SetGems()
