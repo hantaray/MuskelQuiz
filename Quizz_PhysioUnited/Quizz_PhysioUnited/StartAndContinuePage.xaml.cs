@@ -55,24 +55,33 @@ namespace Quizz_PhysioUnited
 
         private async void NewGameButton_Clicked(object sender, EventArgs e)
         {
-            Settings.QuestionCounterKatOne = "1";
-            Settings.ScoreKatOne = "0";
-            
-            Settings.QuestionCounterKatTwo = "1";
-            Settings.ScoreKatTwo = "0";
-            
-            Settings.QuestionCounterKatThree = "1";
-            Settings.ScoreKatThree = "0";
-            
-            Settings.QuestionCounterKatFour = "1";
-            Settings.ScoreKatFour = "0";
-            
-            Settings.Gems = "0";
-            SetTimerValues("30");
-
             await App.DatabaseAll.GetDataFromServer();
             QuestionsData.UpdateCurrentWithOriginal();
             App.setQALists();
+
+            Settings.QuestionCounterKatOne = "1";
+            Settings.ScoreKatOne = "0";
+            Settings.AllQuestionsNrKatOne = App.QCountKatOne.ToString();
+            Settings.ChanceBoolKatOne = "True";
+            
+            Settings.QuestionCounterKatTwo = "1";
+            Settings.ScoreKatTwo = "0";
+            Settings.AllQuestionsNrKatTwo = App.QCountKatTwo.ToString();
+            Settings.ChanceBoolKatTwo = "True";
+
+            Settings.QuestionCounterKatThree = "1";
+            Settings.ScoreKatThree = "0";
+            Settings.AllQuestionsNrKatThree = App.QCountKatThree.ToString();
+            Settings.ChanceBoolKatThree = "True";
+
+            Settings.QuestionCounterKatFour = "1";
+            Settings.ScoreKatFour = "0";
+            Settings.AllQuestionsNrKatFour = App.QCountKatFour.ToString();
+            Settings.ChanceBoolKatFour = "True";
+
+            Settings.Gems = "0";
+            SetTimerValues("30");            
+
             await Navigation.PushAsync(new StartScreen());
         }
 

@@ -86,11 +86,15 @@
                             x:Name="RestartCategoryButton"
                             Clicked="RestartCategoryButton_Clicked"/>
                     <Label  HorizontalTextAlignment="Center"
-                            Text="Mit Chance werden nur die falsch beantworteten Fragen nochmal gestellt und der bisherige Score kann erhöht werden."/>
+                            Text="Mit Chance werden einmalig die falsch beantworteten Fragen nochmal gestellt und der bisherige Score kann erhöht werden."/>
                     <Button Margin="150,0,150,15" 
                             Text="Chance"
                             x:Name="ChanceCategoryButton"
                             Clicked="ChanceCategoryButton_Clicked"/>
+                    <Button Margin="150,0,150,15"
+                            Text="abbrechen"
+                            x:Name="CancelPopUpChance"
+                            Clicked="CancelPopUpChance_Clicked"/>
                 </StackLayout>
             </StackLayout>
         </ContentView>
