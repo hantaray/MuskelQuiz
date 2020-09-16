@@ -93,8 +93,8 @@ namespace Quizz_PhysioUnited
 
         void DisableChanceIfNoQuestions(int category)
         {
-            List<Question> testList = new List<Question>();
-            testList = App.DatabaseAll.GetQuestionsByCatAndNextFalse(category);
+            //List<Question> testList = new List<Question>();
+            List<Question> testList = App.DatabaseAll.GetQuestionsByCatAndNextFalse(category);
             bool chanceAllowed = GetChanceBool(category);
             if (testList.Count == 0 || !chanceAllowed)
             {
@@ -276,6 +276,46 @@ namespace Quizz_PhysioUnited
         private void CancelPopUpChance_Clicked(object sender, EventArgs e)
         {
             popUpRestart.IsVisible = false;
+        }
+
+        private void ButtonKatOne_Pressed(object sender, EventArgs e)
+        {
+            KatOneImage.Source = "Button_lang_pres.gif";
+        }
+
+        private void ButtonKatOne_Released(object sender, EventArgs e)
+        {
+            KatOneImage.Source = "Button_lang.gif";
+        }
+
+        private void ButtonKatTwo_Pressed(object sender, EventArgs e)
+        {
+            KatTwoImage.Source = "Button_lang_pres.gif";
+        }
+
+        private void ButtonKatTwo_Released(object sender, EventArgs e)
+        {
+            KatTwoImage.Source = "Button_lang.gif";
+        }
+
+        private void ButtonKatThree_Pressed(object sender, EventArgs e)
+        {
+            KatThreeImage.Source = "Button_lang_pres.gif";
+        }
+
+        private void ButtonKatThree_Released(object sender, EventArgs e)
+        {
+            KatThreeImage.Source = "Button_lang.gif";
+        }
+
+        private void ButtonKatFour_Pressed(object sender, EventArgs e)
+        {
+            KatFourImage.Source = "Button_lang_pres.gif";
+        }
+
+        private void ButtonKatFour_Released(object sender, EventArgs e)
+        {
+            KatFourImage.Source = "Button_lang.gif";
         }
 
 

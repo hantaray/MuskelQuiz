@@ -24,40 +24,58 @@
 
 
                 <StackLayout>
-                    <Button Text="New Game"
-                            x:Name="NewGameButton"
-                            Clicked="NewGameButton_Clicked"
-                            VerticalOptions="CenterAndExpand"/>
-
-
-                    <Button Text="Continue"
-                            x:Name="ContinueGameButton"
-                            Clicked="ContinueGameButton_Clicked"
-                            VerticalOptions="CenterAndExpand"
-                            />
-
                     <Grid HorizontalOptions="Center"
-                          VerticalOptions="Center">
+                          VerticalOptions="CenterAndExpand">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions> 
+                        </Grid.RowDefinitions>
+
+                        <Image  Source="Button_lang.gif"
+                                x:Name="NewGameImage"
+                                VerticalOptions="CenterAndExpand"
+                                Margin="100,0,100,0"                                         
+                                Grid.Row="0"
+                                />
+
+                        <Button Text="New Game"
+                                x:Name="NewGameButton"
+                                Clicked="NewGameButton_Clicked"
+                                Pressed="NewGameButton_Pressed"                                
+                                Released="NewGameButton_Released"                                                                
+                                Margin="123,0,130,0"
+                                VerticalOptions="CenterAndExpand"  
+                                TextColor="White"
+                                FontSize="Medium"
+                                BackgroundColor="Transparent"
+                                Grid.Row="0" />
+
+                        <!--Pressed="NewGameButton_Pressed"-->
 
 
-                        <Image Source="Button_lang.gif"
-                                         x:Name="ImageButton1"
-                                         HorizontalOptions="Start"
-                                         VerticalOptions="CenterAndExpand"
-                                         Margin="100,0,100,0"                                         
-                                         Grid.Row="0"
-                                         >
-                            <!--<Image.GestureRecognizers>
-                                <TapGestureRecognizer
-                                    Tapped="ImageButton_Clicked"
-                                    />
-                            </Image.GestureRecognizers>-->
-                        </Image>
+                        <Image  Source="Button_lang.gif"
+                                x:Name="ContinueImage"
+                                VerticalOptions="CenterAndExpand"
+                                Margin="100,0,100,0"                                         
+                                Grid.Row="1"
+                                />
 
-                        <Button x:Name="label"
+
+                        <Button Text="Continue"
+                                x:Name="ContinueGameButton"
+                                Clicked="ContinueGameButton_Clicked"
+                                Pressed="ContinueGameButton_Pressed"
+                                Released="ContinueGameButton_Released"
+                                Margin="123,0,130,0"
+                                VerticalOptions="CenterAndExpand"  
+                                TextColor="White"
+                                FontSize="Medium"
+                                BackgroundColor="Transparent"
+                                Grid.Row="1"
+                                />
+
+
+
+                        <!--<Button x:Name="label"
                                 Clicked="ImageButton_Clicked"
                                 Pressed="label_Pressed"
                                 Released="label_Released"
@@ -69,7 +87,7 @@
                                 BackgroundColor="Transparent"
                                 Grid.Row="0"                                    
                             >
-                        </Button>
+                        </Button>-->
                     </Grid>
 
                 </StackLayout>
