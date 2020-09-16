@@ -20,43 +20,125 @@
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-    <!--<AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
-    <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
-                
-                <Button Text="Obere Extremitäten" 
-                        Clicked="GoToGamePage" 
-                        x:Name="ButtonKatOne"
-                        ClassId="ButtonKatOne"
-                        VerticalOptions="CenterAndExpand" 
-                        />
+            <!--<AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
+            <!--AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"-->
+            <StackLayout>
 
-                <Button Text="Untere Extremitäten" 
-                        Clicked="GoToGamePage" 
-                        x:Name="ButtonKatTwo"
-                        ClassId="ButtonKatTwo"
-                        VerticalOptions="CenterAndExpand" 
-                        />
+                <Grid HorizontalOptions="Center"
+                          VerticalOptions="CenterAndExpand">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
 
-                <Button Text="Rumpf" 
-                        Clicked="GoToGamePage" 
-                        x:Name="ButtonKatThree"
-                        ClassId="ButtonKatThree"
-                        VerticalOptions="CenterAndExpand" 
-                        />
+                    <!--<Image  Source="Button_lang.gif"
+                                x:Name="KatOneImage"
+                                VerticalOptions="CenterAndExpand"
+                                Margin="100,0,100,0"                                         
+                                Grid.Row="1"
+                                />
 
-                <Button Text="Kopf" 
-                        Clicked="GoToGamePage" 
-                        x:Name="ButtonKatFour"
-                        ClassId="ButtonKatFour"
-                        VerticalOptions="CenterAndExpand" 
-                        />
+                        <Button Text="New Game"
+                                x:Name="NewGameButton"
+                                Pressed="NewGameButton_Pressed"
+                                Clicked="NewGameButton_Clicked"
+                                Released="NewGameButton_Released"                                                                
+                                Margin="123,0,130,0"
+                                VerticalOptions="CenterAndExpand"  
+                                TextColor="White"
+                                FontSize="Medium"
+                                BackgroundColor="Transparent"
+                                Grid.Row="1" />-->
 
-                <!--Button Text="open Database"
-                        x:Name="openDataBase"
-                        Clicked="openDataBase_Clicked"
-                        VerticalOptions="CenterAndExpand"/>-->
-                        
+                    <Image  Source="Button_lang.gif"
+                                x:Name="KatOneImage"
+                                VerticalOptions="CenterAndExpand"
+                                Margin="100,0,100,0"                                         
+                                Grid.Row="0"
+                                />
 
+                    <Button Text="Obere Extremitäten" 
+                            Clicked="GoToGamePage"
+                            Pressed="ButtonKatOne_Pressed"
+                            Released="ButtonKatOne_Released"
+                            x:Name="ButtonKatOne"
+                            ClassId="ButtonKatOne"
+                            VerticalOptions="CenterAndExpand"
+                            Margin="123,0,130,0"
+                            TextColor="White"
+                            FontSize="Medium"
+                            BackgroundColor="Transparent"
+                            Grid.Row="0"
+                            />
+
+                    <Image  Source="Button_lang.gif"
+                            x:Name="KatTwoImage"
+                            VerticalOptions="CenterAndExpand"
+                            Margin="100,0,100,0"                                         
+                            Grid.Row="1"
+                            />           
+                    
+                    <Button Text="Untere Extremitäten" 
+                            Clicked="GoToGamePage"
+                            Pressed="ButtonKatTwo_Pressed"
+                            Released="ButtonKatTwo_Released"
+                            x:Name="ButtonKatTwo"
+                            ClassId="ButtonKatTwo"
+                            VerticalOptions="CenterAndExpand"
+                            Margin="123,0,130,0"
+                            TextColor="White"
+                            FontSize="Medium"
+                            BackgroundColor="Transparent"
+                            Grid.Row="1"
+                            />
+
+                    <Image  Source="Button_lang.gif"
+                            x:Name="KatThreeImage"
+                            VerticalOptions="CenterAndExpand"
+                            Margin="100,0,100,0"                                         
+                            Grid.Row="2"
+                            />
+
+                    <Button Text="Rumpf" 
+                            Clicked="GoToGamePage"
+                            Pressed="ButtonKatThree_Pressed"
+                            Released="ButtonKatThree_Released"
+                            x:Name="ButtonKatThree"
+                            ClassId="ButtonKatThree"
+                            VerticalOptions="CenterAndExpand"
+                            Margin="123,0,130,0"
+                            TextColor="White"
+                            FontSize="Medium"
+                            BackgroundColor="Transparent"
+                            Grid.Row="2"
+                            />
+
+                    <Image  Source="Button_lang.gif"
+                            x:Name="KatFourImage"
+                            VerticalOptions="CenterAndExpand"
+                            Margin="100,0,100,0"                                         
+                            Grid.Row="3"
+                            />
+                    
+                    <Button Text="Kopf" 
+                            Clicked="GoToGamePage"
+                            Pressed="ButtonKatFour_Pressed"
+                            Released="ButtonKatFour_Released"
+                            x:Name="ButtonKatFour"
+                            ClassId="ButtonKatFour"
+                            VerticalOptions="CenterAndExpand"
+                            Margin="123,0,130,0"
+                            TextColor="White"
+                            FontSize="Medium"
+                            BackgroundColor="Transparent"
+                            Grid.Row="3"
+                            />
+
+                    <!--Button Text="open Database"
+                                x:Name="openDataBase"
+                                Clicked="openDataBase_Clicked"
+                                VerticalOptions="CenterAndExpand"/>-->
+
+                </Grid>
             </StackLayout>
 
         </Grid>

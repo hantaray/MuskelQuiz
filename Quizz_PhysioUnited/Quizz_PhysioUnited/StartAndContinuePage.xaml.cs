@@ -13,10 +13,6 @@ namespace Quizz_PhysioUnited
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StartAndContinuePage : ContentPage
     {
-
-        int clickTotal;
-
-
         public StartAndContinuePage()
         {
             InitializeComponent();
@@ -63,7 +59,7 @@ namespace Quizz_PhysioUnited
             Settings.ScoreKatOne = "0";
             Settings.AllQuestionsNrKatOne = App.QCountKatOne.ToString();
             Settings.ChanceBoolKatOne = "True";
-            
+
             Settings.QuestionCounterKatTwo = "1";
             Settings.ScoreKatTwo = "0";
             Settings.AllQuestionsNrKatTwo = App.QCountKatTwo.ToString();
@@ -80,7 +76,7 @@ namespace Quizz_PhysioUnited
             Settings.ChanceBoolKatFour = "True";
 
             Settings.Gems = "0";
-            SetTimerValues("30");            
+            SetTimerValues("30");
 
             await Navigation.PushAsync(new StartScreen());
         }
@@ -100,23 +96,25 @@ namespace Quizz_PhysioUnited
             await Navigation.PushAsync(new StartScreen());
         }
 
-        private void ImageButton_Clicked(object sender, EventArgs e)
+
+        private void NewGameButton_Pressed(object sender, EventArgs e)
         {
-            clickTotal += 1;
-            label.Text = $"{clickTotal} ImageButton click{(clickTotal == 1 ? "" : "s")}";
-            //ImageButton.Source = "Button_lang.gif";
+            NewGameImage.Source = "Button_lang_pres.gif";
         }
 
-         private void label_Pressed(object sender, EventArgs e)
+        private void NewGameButton_Released(object sender, EventArgs e)
         {
-            //Image img = ImageButton2;
-            //await img.FadeTo(0, 100);
-            ImageButton1.Source = "Button_lang_pres.gif";
+            NewGameImage.Source = "Button_lang.gif";
         }
 
-        private void label_Released(object sender, EventArgs e)
+        private void ContinueGameButton_Pressed(object sender, EventArgs e)
         {
-            ImageButton1.Source = "Button_lang.gif";
+            ContinueImage.Source = "Button_lang_pres.gif";
+        }
+
+        private void ContinueGameButton_Released(object sender, EventArgs e)
+        {
+            ContinueImage.Source = "Button_lang.gif";
         }
     }
 }
