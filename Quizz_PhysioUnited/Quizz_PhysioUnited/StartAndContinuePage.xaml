@@ -5,16 +5,17 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Quizz_PhysioUnited.StartAndContinuePage"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="bg_klein.jpg">
     
 
     <ContentPage.Content>
         <RelativeLayout>
 
-            <Image Source="bg_klein.jpg" 
+            <!--<Image Source="bg_klein.jpg" 
                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
-                   ></Image>
+                   ></Image>-->
 
             <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
@@ -60,7 +61,7 @@
                                 />
 
 
-                        <Button Text="Continue"
+                        <Button Text=""
                                 x:Name="ContinueGameButton"
                                 Clicked="ContinueGameButton_Clicked"
                                 Pressed="ContinueGameButton_Pressed"
@@ -72,6 +73,18 @@
                                 BackgroundColor="Transparent"
                                 Grid.Row="1"
                                 />
+                        
+                        <Label Text="CONTINUE" 
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="Center"
+                               Margin="123,0,130,0"
+                               InputTransparent="True"
+                                TextColor="White"
+                                FontSize="Medium"
+                                BackgroundColor="Transparent"
+                                Grid.Row="1"
+                                />
+                               
 
 
 

@@ -5,14 +5,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Quizz_PhysioUnited.StartScreen"
-             NavigationPage.HasNavigationBar="False">
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="bg_klein.jpg">
 
     <RelativeLayout>
 
-        <Image Source="bg_klein.jpg" 
+        <!--<Image Source="bg_klein.jpg" 
                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
-                   ></Image>
+                   ></Image>-->
 
         <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
@@ -29,25 +30,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-
-                    <!--<Image  Source="Button_lang.gif"
-                                x:Name="KatOneImage"
-                                VerticalOptions="CenterAndExpand"
-                                Margin="100,0,100,0"                                         
-                                Grid.Row="1"
-                                />
-
-                        <Button Text="New Game"
-                                x:Name="NewGameButton"
-                                Pressed="NewGameButton_Pressed"
-                                Clicked="NewGameButton_Clicked"
-                                Released="NewGameButton_Released"                                                                
-                                Margin="123,0,130,0"
-                                VerticalOptions="CenterAndExpand"  
-                                TextColor="White"
-                                FontSize="Medium"
-                                BackgroundColor="Transparent"
-                                Grid.Row="1" />-->
+                    
 
                     <Image  Source="Button_lang.gif"
                                 x:Name="KatOneImage"

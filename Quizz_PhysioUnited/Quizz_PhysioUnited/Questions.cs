@@ -22,9 +22,9 @@ namespace Quizz_PhysioUnited
 
         static string[] questions =
         {
-                "Was ist die Innervation des\n*? ",
-                "Was ist der Ursprung des\n*?",
-                "Was ist der Ansatz des\n*?"
+                "Was ist die Innervation des *? ",
+                "Was ist der Ursprung des *?",
+                "Was ist der Ansatz des *?"
             };
 
         //int score = 0;

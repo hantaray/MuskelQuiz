@@ -209,13 +209,13 @@ namespace Quizz_PhysioUnited
         public void SetScore()
         {
             double scoreProcent = (((double)score * 100) / (double)allQuestionsNr);
-            scoreProcent = Math.Round(scoreProcent, 1);
+            scoreProcent = Math.Round(scoreProcent, 0);
             labelScore.Text = "Score " + scoreProcent + "%";
         }
 
         public void SetGems()
         {
-            labelGems.Text = $"Gems {gems}";
+            jokerButton.Text = $"{gems}";
         }
 
 
@@ -250,8 +250,10 @@ namespace Quizz_PhysioUnited
                     timerBool = false;
                     DisableButtons();
                     questionRoundIsFinished = true;
-
                     labelTimer.Text = "0,0";
+                    QuestionCounterPlus();
+                    timerCounter = gameTime;
+                    SaveUserData();
                 }
                 else
                 {
@@ -272,7 +274,8 @@ namespace Quizz_PhysioUnited
             int buttonNumber = (int)Char.GetNumericValue(clickedButton.ClassId.Last());
             if (buttonNumber == rightAnswer)
             {
-                clickedButton.BackgroundColor = Color.FromHex("#00FF00");
+                //clickedButton.BackgroundColor = Color.FromHex("#00FF00");
+                SetImageForCorrectAnswer(buttonNumber);
                 score++;
                 gems++;
                 //remove question from NextQuestionsList database by setting next attribue to false
@@ -280,7 +283,8 @@ namespace Quizz_PhysioUnited
             }
             else
             {
-                clickedButton.BackgroundColor = Color.FromHex("#FF0000");
+                //clickedButton.BackgroundColor = Color.FromHex("#FF0000");
+                SetImageForWrongAnswer(buttonNumber);
             }
             SetScore();
             SetGems();
@@ -293,8 +297,8 @@ namespace Quizz_PhysioUnited
             int buttonNumber = (int)Char.GetNumericValue(clickedButton.ClassId.Last());
             if (buttonNumber == rightAnswer)
             {
-                clickedButton.BackgroundColor = Color.FromHex("#00FF00");
-                clickedButton.IsEnabled = false;
+                //clickedButton.BackgroundColor = Color.FromHex("#00FF00");
+                SetImageForCorrectAnswer(buttonNumber);
                 score++;
                 gems++;
                 //remove question from NextQuestionsList database by setting next attribue to false
@@ -311,11 +315,13 @@ namespace Quizz_PhysioUnited
             }
             else
             {
-                clickedButton.BackgroundColor = Color.FromHex("#7D0000");
+                //clickedButton.BackgroundColor = Color.FromHex("#7D0000");
+                SetImageForWrongAnswer(buttonNumber);
                 clickedButton.IsEnabled = false;
+
             }
             jokerIsUsed = false;
-            jokerButton.BackgroundColor = Color.FromHex("#000000");
+            //jokerButton.BackgroundColor = Color.FromHex("#000000");
         }
 
 
@@ -328,7 +334,7 @@ namespace Quizz_PhysioUnited
                 SetGems();
                 jokerCosts = jokerCosts * 2;
                 jokerIsUsed = true;
-                jokerButton.BackgroundColor = Color.FromHex("#FFFFFF");
+                //jokerButton.BackgroundColor = Color.FromHex("#FFFFFF");
             }
             else
             {
@@ -338,26 +344,39 @@ namespace Quizz_PhysioUnited
 
         public void EnableButtons()
         {
+            double opacity = 1.0;
             nextButton.IsEnabled = false;
-            nextButton.BackgroundColor = Color.Gray;
-            answerButton1.IsEnabled = true;
-            answerButton2.IsEnabled = true;
-            answerButton3.IsEnabled = true;
-            answerButton4.IsEnabled = true;
-            answerButton1.BackgroundColor = Color.DarkGray;
-            answerButton2.BackgroundColor = Color.DarkGray;
-            answerButton3.BackgroundColor = Color.DarkGray;
-            answerButton4.BackgroundColor = Color.DarkGray;
+            NextImage.Opacity = 0.45;
+            AnswerOneImage.Opacity = opacity;
+            AnswerTwoImage.Opacity = opacity;
+            AnswerThreeImage.Opacity = opacity;
+            AnswerFourImage.Opacity = opacity;
+            answerButton1.InputTransparent = false;
+            answerButton2.InputTransparent = false;
+            answerButton3.InputTransparent = false;
+            answerButton4.InputTransparent = false;
+            //answerButton1.BackgroundColor = Color.Transparent;
+            //answerButton2.BackgroundColor = Color.DarkGray;
+            //answerButton3.BackgroundColor = Color.DarkGray;
+            //answerButton4.BackgroundColor = Color.DarkGray;
+            AnswerOneImage.Source = "Button_lang.gif";
+            AnswerTwoImage.Source = "Button_lang.gif";
+            AnswerThreeImage.Source = "Button_lang.gif";
+            AnswerFourImage.Source = "Button_lang.gif";
         }
 
         public void DisableButtons()
         {
             nextButton.IsEnabled = true;
-            nextButton.BackgroundColor = Color.Black;
-            answerButton1.IsEnabled = false;
-            answerButton2.IsEnabled = false;
-            answerButton3.IsEnabled = false;
-            answerButton4.IsEnabled = false;
+            NextImage.Opacity = 1.0;
+            //answerButton1.IsEnabled = false;
+            //answerButton2.IsEnabled = false;
+            //answerButton3.IsEnabled = false;
+            //answerButton4.IsEnabled = false;
+            answerButton1.InputTransparent = true;
+            answerButton2.InputTransparent = true;
+            answerButton3.InputTransparent = true;
+            answerButton4.InputTransparent = true;
         }
 
         async private void AlertGameEnd()
@@ -383,8 +402,100 @@ namespace Quizz_PhysioUnited
             return true;
         }
 
-        //public void AddQuestionToNextDatabase() { }
+        void SetImageForCorrectAnswer(int buttonNumber)
+        {
+            double opacity = 0.6;
+            if (buttonNumber == 1)
+            {
+                AnswerOneImage.Source = "Button_lang_gruen_pres.gif";
+                AnswerTwoImage.Opacity = opacity;
+                AnswerThreeImage.Opacity = opacity;
+                AnswerFourImage.Opacity = opacity;
+            }
+            if (buttonNumber == 2)
+            {
+                AnswerTwoImage.Source = "Button_lang_gruen_pres.gif";
+                AnswerOneImage.Opacity = opacity;
+                AnswerThreeImage.Opacity = opacity;
+                AnswerFourImage.Opacity = opacity;
+            }
+            if (buttonNumber == 3)
+            {
+                AnswerThreeImage.Source = "Button_lang_gruen_pres.gif";
+                AnswerOneImage.Opacity = opacity;
+                AnswerTwoImage.Opacity = opacity;
+                AnswerFourImage.Opacity = opacity;
+            }
+            if (buttonNumber == 4)
+            {
+                AnswerFourImage.Source = "Button_lang_gruen_pres.gif";
+                AnswerOneImage.Opacity = opacity;
+                AnswerTwoImage.Opacity = opacity;
+                AnswerThreeImage.Opacity = opacity;
+            }
+        }
 
+        void SetImageForWrongAnswer(int buttonNumber)
+        {
+            double opacity = 0.6;
+            if (buttonNumber == 1)
+            {
+                AnswerOneImage.Source = "Button_lang_rot_pres.gif";
+                AnswerTwoImage.Opacity = opacity;
+                AnswerThreeImage.Opacity = opacity;
+                AnswerFourImage.Opacity = opacity;
+            }
+            if (buttonNumber == 2)
+            {
+                AnswerTwoImage.Source = "Button_lang_rot_pres.gif";
+                AnswerOneImage.Opacity = opacity;
+                AnswerThreeImage.Opacity = opacity;
+                AnswerFourImage.Opacity = opacity;
+            }
+            if (buttonNumber == 3)
+            {                
+                AnswerThreeImage.Source = "Button_lang_rot_pres.gif";
+                AnswerOneImage.Opacity = opacity;
+                AnswerTwoImage.Opacity = opacity;
+                AnswerFourImage.Opacity = opacity;
+            }
+            if (buttonNumber == 4)
+            {
+                AnswerFourImage.Source = "Button_lang_rot_pres.gif";
+                AnswerOneImage.Opacity = opacity;
+                AnswerTwoImage.Opacity = opacity;
+                AnswerThreeImage.Opacity = opacity;
+            }
+        }
 
+        private void endButton_Pressed(object sender, EventArgs e)
+        {
+            MenueImage.Source = "Button_menue_pres.gif";
+        }
+
+        private void endButton_Released(object sender, EventArgs e)
+        {
+            MenueImage.Source = "Button_menue.gif";
+        }
+
+        private void jokerButton_Pressed(object sender, EventArgs e)
+        {
+            JokerImage.Source = "Button_Klein_GEM_pres.gif";
+        }
+
+        private void jokerButton_Released(object sender, EventArgs e)
+        {
+            JokerImage.Source = "Button_Klein_GEM.gif";
+        }
+
+        private void nextButton_Pressed(object sender, EventArgs e)
+        {
+            NextImage.Source = "Button_Klein_NEXT_pres.gif";
+        }
+
+        private void nextButton_Released(object sender, EventArgs e)
+        {
+            NextImage.Source = "Button_Klein_NEXT.gif";
+        }
     }
 }
