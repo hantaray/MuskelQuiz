@@ -16,140 +16,323 @@
 
     <!--<RelativeLayout>-->
 
-        <!--<Image Source="bg_klein.jpg" 
+    <!--<Image Source="bg_klein.jpg" 
                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
                    ></Image>-->
 
-        <Grid   x:Name="gridGamePage">
+
+    <Grid Grid.Row="0"
+            Grid.Column="0"
+          x:Name="PageGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid   Grid.Row="0"
+              Grid.Column="0"
+            x:Name="GridAnswerButtons">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="1.5*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-
             <!--Layout nested in grid and in column 1, containslabel for question and answerbuttons-->
-            <StackLayout>
+            <!--<StackLayout>-->
+            <Grid Grid.Row="0"
+              Grid.Column="0"
+              x:Name="TimerQuestionGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height = "*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3.5*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+
 
 
                 <Label Text="question"
-                   x:Name="labelQuestion"
-                   FontSize="Large"
-                   TextColor="White"
-                   HorizontalTextAlignment="Center"
-                   Padding="0, 20, 0, 0"
-                   VerticalOptions="CenterAndExpand"
-                   HorizontalOptions="CenterAndExpand">
-                </Label>
+                x:Name="labelQuestion"
+                FontSize="Large"
+                TextColor="White"
+                HorizontalTextAlignment="Center"
+                VerticalTextAlignment="Center"
+                Margin="5, 0, 5, 0"                
+                Grid.Column="0"
+                Grid.Row="0"
+                />
 
-                <Label 
-                    Text="0.0 "
-                    x:Name="labelTimer"
-                    FontSize="Large"
-                    TextColor="Red"
-                    Padding="0,0,0,10"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="CenterAndExpand">
-                </Label>
+                <Label  Text="0.0 "
+                x:Name="labelTimer"
+                FontSize="Title"
+                TextColor="Red"
+                BackgroundColor="Transparent"
+                Margin="0,10,0,0"
+                HorizontalOptions="Start"
+                VerticalOptions="Center"
+                Grid.Column="1"
+                Grid.Row="0"/>
 
-                <Button Text="answerButton1"                    
-                    x:Name="answerButton1"
-                    ClassId="answerButton1"
-                    TextColor="White"
-                    BackgroundColor="DarkGray"
-                    Padding="5,0,5,0"
-                    Clicked="answerButton_Clicked">
-                </Button>
 
-                <Button Text="answerButton2"
-                    x:Name="answerButton2"
-                    ClassId="answerButton2"
-                    TextColor="White"
-                    BackgroundColor="DarkGray"
-                    Padding="5,0,5,0"
-                    Clicked="answerButton_Clicked">
-                </Button>
 
-                <Button Text="answerButton3"
-                    x:Name="answerButton3"
-                    ClassId="answerButton3"
-                    TextColor="White"
-                    BackgroundColor="DarkGray"
-                    Padding="5,0,5,0"
-                    Clicked="answerButton_Clicked">
-                </Button>
 
-                <Button Text="answerButton4"
-                    x:Name="answerButton4"
-                    ClassId="answerButton4"
-                    TextColor="White"
-                    BackgroundColor="DarkGray"
-                    Padding="5,0,5,0"
-                    Clicked="answerButton_Clicked"
-                    Margin="0,0,0,15">
-                </Button>
+            </Grid>
 
-            </StackLayout>
+
+
+            <!--<
+                HorizontalOptions="Center"
+                          VerticalOptions="CenterAndExpand"
+                Image  Source="Button_lang.gif"
+                                x:Name="KatOneImage"
+                                VerticalOptions="CenterAndExpand"
+                                Margin="100,0,100,0"                                         
+                                Grid.Row="0"
+                                />
+
+                    <Button Text="Obere Extremitäten" 
+                            Clicked="GoToGamePage"
+                            Pressed="ButtonKatOne_Pressed"
+                            Released="ButtonKatOne_Released"
+                            x:Name="ButtonKatOne"
+                            ClassId="ButtonKatOne"
+                            VerticalOptions="CenterAndExpand"
+                            Margin="123,0,130,0"
+                            TextColor="White"
+                            FontSize="Medium"
+                            BackgroundColor="Transparent"
+                            Grid.Row="0"
+                            VerticalOptions="Fill"
+                            HorizontalOptions="Fill"
+                            />-->
+
+            <Image  Source="Button_lang.gif"
+                x:Name="AnswerOneImage"
+                Aspect="Fill"
+                Margin="0,0,0,0"                                         
+                Grid.Column="0"
+                Grid.Row="1"/>
+
+
+            <Button Text="answerButton1"                    
+                x:Name="answerButton1"
+                ClassId="answerButton1"
+                Clicked="answerButton_Clicked"
+                VerticalOptions="CenterAndExpand"
+                Margin="30,0,35,0"
+                TextColor="White"
+                BackgroundColor="Transparent"
+                Grid.Column="0"
+                Grid.Row="1"/>
+
+
+            <Image  Source="Button_lang.gif"
+                x:Name="AnswerTwoImage"
+                Aspect="Fill"
+                Margin="0,0,0,0"                                         
+                Grid.Column="0"
+                Grid.Row="2"/>
+
+            <Button Text="answerButton2"
+                x:Name="answerButton2"
+                ClassId="answerButton2"                
+                Clicked="answerButton_Clicked"
+                VerticalOptions="CenterAndExpand"
+                Margin="30,0,35,0"
+                TextColor="White"
+                BackgroundColor="Transparent"
+                Grid.Column="0"
+                Grid.Row="2"/>
+
+
+            <Image  Source="Button_lang.gif"
+                x:Name="AnswerThreeImage"
+                Aspect="Fill"
+                Margin="0,0,0,0"                                         
+                Grid.Column="0"
+                Grid.Row="3"/>
+
+
+            <Button Text="answerButton3"
+                x:Name="answerButton3"
+                ClassId="answerButton3"
+                Clicked="answerButton_Clicked"
+                VerticalOptions="CenterAndExpand"
+                Margin="30,0,35,0"
+                TextColor="White"
+                BackgroundColor="Transparent"
+                Grid.Column="0"
+                Grid.Row="3"/>
+
+            <Image  Source="Button_lang.gif"
+                x:Name="AnswerFourImage"
+                Aspect="Fill"
+                Margin="0,0,0,0"                                         
+                Grid.Column="0"
+                Grid.Row="4"/>
+
+
+            <Button Text="answerButton4"
+                x:Name="answerButton4"
+                ClassId="answerButton4"
+                Clicked="answerButton_Clicked"
+                VerticalOptions="CenterAndExpand"
+                Margin="30,0,35,0"
+                TextColor="White"
+                BackgroundColor="Transparent"
+                Grid.Column="0"
+                Grid.Row="4"/>
+
+
+        </Grid> <!--closes Answer button grid-->
+
+
+        <!--</StackLayout>-->
 
             <!--Layout nested in grid and in column 2, contains endButton, level label, score label, timer, next button-->
-            <StackLayout Grid.Column="1">
+            <!--<StackLayout Grid.Column="1">-->
 
-                <Button Text="End Game"
-                    x:Name="endButton"
-                    Clicked="endButton_Clicked"
-                    VerticalOptions="CenterAndExpand"
-                    BackgroundColor="Black"
-                    TextColor="White"
-                    Margin="30,0,30,0"/>
+        <Grid   Grid.Row="0"
+              Grid.Column="1"
+            x:Name="GameButtonsGrid"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
 
-                <Label 
-                    Text="Lvl "
-                    x:Name="labelLevel"
-                    FontSize="Medium"
-                    TextColor="White"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="CenterAndExpand">
-                </Label>
+            <Image Source="Button_menue.gif"
+                   x:Name="MenueImage"
+                   Aspect="Fill"
+                   Grid.Row="0"
+                   Grid.Column="0"/>
 
-                <Label 
-                    Text="Score "
-                    x:Name="labelScore"
-                    FontSize="Medium"
-                    TextColor="White"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="CenterAndExpand">
-                </Label>
+            <Button Text=""
+                x:Name="endButton"
+                Clicked="endButton_Clicked"
+                Pressed="endButton_Pressed"
+                Released="endButton_Released"
+                VerticalOptions="CenterAndExpand"
+                BackgroundColor="Transparent"
+                TextColor="White"
+                Margin="15,5,15,5"                
+                Grid.Row="0"
+                Grid.Column="0"/>
 
-                <Label Text="Gems 0"
-                   x:Name="labelGems"
-                   FontSize="Medium"
-                    TextColor="White"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="CenterAndExpand">
-                </Label>
+            <Image Source="Button_Klein_free.gif"
+                   x:Name="LevelImage"
+                   Aspect="Fill"
+                   Grid.Row="1"
+                   Grid.Column="0"/>
 
-                <Button Text="Joker"
-                    x:Name="jokerButton"
-                    Clicked="jokerButton_Clicked"
-                    VerticalOptions="CenterAndExpand"
-                    BackgroundColor="Black"
-                    TextColor="White"
-                    Margin="30,0,30,0"/>
 
-                <Button Text="Next"
-                    x:Name="nextButton"
-                    Clicked="nextButton_Clicked"
-                    VerticalOptions="CenterAndExpand"
-                    BackgroundColor="Black"
-                    TextColor="White"
-                    Margin="30,0,30,0"/>
+            <Label  Text="Lvl "
+                x:Name="labelLevel"
+                FontSize="Medium"
+                TextColor="White"
+                BackgroundColor="Transparent"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"                
+                Grid.Row="1"
+                Grid.Column="0"/>
 
-            </StackLayout>
+            <Image Source="Button_Klein_free.gif"
+                   x:Name="ScoreImage"
+                   Aspect="Fill"
+                   Grid.Row="2"
+                   Grid.Column="0"/>
 
-        </Grid>
+
+            <Label  Text="Score "
+                x:Name="labelScore"
+                FontSize="Medium"
+                TextColor="White"
+                BackgroundColor="Transparent"
+                Margin="10,0,10,0"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"                
+                Grid.Row="2"
+                Grid.Column="0"/>
+
+
+            <!--<Label  Text="Gems 0"
+                x:Name="labelGems"
+                FontSize="Medium"
+                TextColor="White"
+                HorizontalOptions="CenterAndExpand"
+                VerticalOptions="CenterAndExpand"
+                Grid.Row="3"
+                Grid.Column="0"
+                />-->
+
+            <Image Source="Button_Klein_GEM.gif"
+                   x:Name="JokerImage"
+                   Aspect="Fill"
+                   Grid.Row="3"            
+                   Grid.Column="0"/>
+
+            <Button Text="0"
+                x:Name="jokerButton"
+                Clicked="jokerButton_Clicked"
+                Pressed="jokerButton_Pressed"
+                Released="jokerButton_Released"
+                VerticalOptions="CenterAndExpand"
+                TextColor="Black"
+                FontSize="Medium"
+                BackgroundColor="Transparent"
+                Margin="15,5,15,5"                
+                Grid.Row="3"
+                Grid.Column="0"/>
+
+
+            <Image Source="Button_Klein_NEXT.gif"
+                   x:Name="NextImage"
+                   Aspect="Fill"
+                   Grid.Row="5"            
+                   Grid.Column="0"/>
+
+
+
+            <Button Text=""
+                x:Name="nextButton"
+                Clicked="nextButton_Clicked"
+                Pressed="nextButton_Pressed"
+                Released="nextButton_Released"
+                VerticalOptions="CenterAndExpand"
+                TextColor="White"
+                FontSize="Medium"
+                BackgroundColor="Transparent"
+                Margin="15,5,15,5"                
+                Grid.Row="5"
+                Grid.Column="0"
+                />
+
+            <!--</StackLayout>-->
+
+        </Grid> <!--closes game button grid-->
+    
+    
+    </Grid>  <!--closes Page grid-->
 
     <!--</RelativeLayout>-->
     <!--</ContentPage.Content>-->

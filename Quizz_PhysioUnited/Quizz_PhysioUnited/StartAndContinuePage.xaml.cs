@@ -15,21 +15,7 @@ namespace Quizz_PhysioUnited
     {
         public StartAndContinuePage()
         {
-            InitializeComponent();
-            //var image = new Image { Source = "Button_lang.jpg" };
-
-
-            //soll den continue button freigeben, wenn eine frage beantwortet wurde
-            if (Int32.Parse(Settings.QuestionCounterKatOne) == 1 &&  //funktioniert nur bei load, nicht bei back per pop
-                Int32.Parse(Settings.QuestionCounterKatTwo) == 1 &&
-                Int32.Parse(Settings.QuestionCounterKatThree) == 1 &&
-                Int32.Parse(Settings.QuestionCounterKatFour) == 1 )
-            {
-                ContinueGameButton.IsEnabled = false;
-            } else
-            {
-                ContinueGameButton.IsEnabled = true;
-            }
+            InitializeComponent();           
         }
 
         protected override void OnAppearing()
@@ -41,11 +27,16 @@ namespace Quizz_PhysioUnited
                 Int32.Parse(Settings.QuestionCounterKatThree) == 1 &&
                 Int32.Parse(Settings.QuestionCounterKatFour) == 1)
             {
+                //ContinueGameButton.Pressed -= ContinueGameButton_Pressed;
                 ContinueGameButton.IsEnabled = false;
+                ContinueImage.Opacity = 0.6;
             }
             else
             {
                 ContinueGameButton.IsEnabled = true;
+                //ContinueGameButton.Pressed += ContinueGameButton_Pressed;
+                ContinueImage.Opacity = 1.0;
+
             }
         }
 
