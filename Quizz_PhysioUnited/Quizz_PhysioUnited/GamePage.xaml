@@ -6,7 +6,7 @@
              mc:Ignorable="d"
              x:Class="Quizz_PhysioUnited.GamePage"
              NavigationPage.HasNavigationBar="False"
-             BackgroundImageSource="bg_klein.jpg"
+             BackgroundImageSource="BG.png"
              >
     <!--<ContentPage.Content>-->
     <!--<ContentPage.BindingContext>
@@ -16,7 +16,7 @@
 
     <!--<RelativeLayout>-->
 
-    <!--<Image Source="bg_klein.jpg" 
+    <!--<Image Source="BG.png" 
                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
                    ></Image>-->
@@ -74,13 +74,22 @@
                 Grid.Row="0"
                 />
 
-                <Label  Text="0.0 "
+
+                <Image Source="button_free.png"
+                       Grid.Column="1"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       Aspect="Fill"
+                       Margin="10,18,10,10"/>
+                        
+
+                <Label  Text="0.0"
                 x:Name="labelTimer"
                 FontSize="Title"
                 TextColor="Red"
                 BackgroundColor="Transparent"
                 Margin="0,10,0,0"
-                HorizontalOptions="Start"
+                HorizontalOptions="Center"
                 VerticalOptions="Center"
                 Grid.Column="1"
                 Grid.Row="0"/>
@@ -95,7 +104,7 @@
             <!--<
                 HorizontalOptions="Center"
                           VerticalOptions="CenterAndExpand"
-                Image  Source="Button_lang.gif"
+                Image  Source="button_lang.png"
                                 x:Name="KatOneImage"
                                 VerticalOptions="CenterAndExpand"
                                 Margin="100,0,100,0"                                         
@@ -118,10 +127,10 @@
                             HorizontalOptions="Fill"
                             />-->
 
-            <Image  Source="Button_lang.gif"
+            <Image  Source="button_lang.png"
                 x:Name="AnswerOneImage"
                 Aspect="Fill"
-                Margin="0,0,0,0"                                         
+                Margin="10,5,10,5"                                         
                 Grid.Column="0"
                 Grid.Row="1"/>
 
@@ -138,10 +147,10 @@
                 Grid.Row="1"/>
 
 
-            <Image  Source="Button_lang.gif"
+            <Image  Source="button_lang.png"
                 x:Name="AnswerTwoImage"
                 Aspect="Fill"
-                Margin="0,0,0,0"                                         
+                Margin="10,5,10,5"                                         
                 Grid.Column="0"
                 Grid.Row="2"/>
 
@@ -157,10 +166,10 @@
                 Grid.Row="2"/>
 
 
-            <Image  Source="Button_lang.gif"
+            <Image  Source="button_lang.png"
                 x:Name="AnswerThreeImage"
                 Aspect="Fill"
-                Margin="0,0,0,0"                                         
+                Margin="10,5,10,5"                                         
                 Grid.Column="0"
                 Grid.Row="3"/>
 
@@ -176,10 +185,10 @@
                 Grid.Column="0"
                 Grid.Row="3"/>
 
-            <Image  Source="Button_lang.gif"
+            <Image  Source="button_lang.png"
                 x:Name="AnswerFourImage"
                 Aspect="Fill"
-                Margin="0,0,0,0"                                         
+                Margin="10,5,10,5"                                         
                 Grid.Column="0"
                 Grid.Row="4"/>
 
@@ -206,6 +215,7 @@
 
         <Grid   Grid.Row="0"
               Grid.Column="1"
+                Margin="0,5,10,5"
             x:Name="GameButtonsGrid"
             HorizontalOptions="Center"
             VerticalOptions="CenterAndExpand">
@@ -220,9 +230,17 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-
-            <Image Source="Button_menue.gif"
+            
+            <!--MenueButton-->
+            <Image Source="menue.png"
                    x:Name="MenueImage"
+                   Aspect="Fill"
+                   Grid.Row="0"
+                   Grid.Column="0"/>
+
+            <Image Source="menue_press.png"
+                   x:Name="MenueImage_press"
+                   IsVisible="false"
                    Aspect="Fill"
                    Grid.Row="0"
                    Grid.Column="0"/>
@@ -239,13 +257,14 @@
                 Grid.Row="0"
                 Grid.Column="0"/>
 
-            <Image Source="Button_Klein_free.gif"
+            <Image Source="button_free.png"
                    x:Name="LevelImage"
                    Aspect="Fill"
                    Grid.Row="1"
                    Grid.Column="0"/>
-
-
+            
+            
+            <!--Level Label-->
             <Label  Text="Lvl "
                 x:Name="labelLevel"
                 FontSize="Medium"
@@ -256,13 +275,14 @@
                 Grid.Row="1"
                 Grid.Column="0"/>
 
-            <Image Source="Button_Klein_free.gif"
+            <Image Source="button_free.png"
                    x:Name="ScoreImage"
                    Aspect="Fill"
                    Grid.Row="2"
                    Grid.Column="0"/>
 
 
+            <!--Score Label-->
             <Label  Text="Score "
                 x:Name="labelScore"
                 FontSize="Medium"
@@ -275,18 +295,17 @@
                 Grid.Column="0"/>
 
 
-            <!--<Label  Text="Gems 0"
-                x:Name="labelGems"
-                FontSize="Medium"
-                TextColor="White"
-                HorizontalOptions="CenterAndExpand"
-                VerticalOptions="CenterAndExpand"
-                Grid.Row="3"
-                Grid.Column="0"
-                />-->
-
-            <Image Source="Button_Klein_GEM.gif"
+           
+            <!--gems und Joker button-->
+            <Image Source="gem.png"
                    x:Name="JokerImage"
+                   Aspect="Fill"
+                   Grid.Row="3"            
+                   Grid.Column="0"/>
+
+            <Image Source="gem_press.png"
+                   x:Name="JokerImage_press"
+                   IsVisible="false"
                    Aspect="Fill"
                    Grid.Row="3"            
                    Grid.Column="0"/>
@@ -299,18 +318,26 @@
                 VerticalOptions="CenterAndExpand"
                 TextColor="Black"
                 FontSize="Medium"
+                FontAttributes="Bold"
                 BackgroundColor="Transparent"
                 Margin="15,5,15,5"                
                 Grid.Row="3"
                 Grid.Column="0"/>
 
 
-            <Image Source="Button_Klein_NEXT.gif"
+            <!--NextButton-->
+            <Image Source="next.png"
                    x:Name="NextImage"
                    Aspect="Fill"
                    Grid.Row="5"            
                    Grid.Column="0"/>
 
+            <Image Source="next_press.png"
+                   x:Name="NextImage_press"
+                   IsVisible="false"
+                   Aspect="Fill"
+                   Grid.Row="5"            
+                   Grid.Column="0"/>
 
 
             <Button Text=""
