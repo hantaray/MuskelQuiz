@@ -6,13 +6,13 @@
              mc:Ignorable="d"
              x:Class="Quizz_PhysioUnited.StartAndContinuePage"
              NavigationPage.HasNavigationBar="False"
-             BackgroundImageSource="bg_klein.jpg">
+             BackgroundImageSource="BG.png">
     
 
     <ContentPage.Content>
         <RelativeLayout>
 
-            <!--<Image Source="bg_klein.jpg" 
+            <!--<Image Source="BG.png" 
                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
                    ></Image>-->
@@ -31,10 +31,18 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <Image  Source="Button_lang.gif"
+                        <Image  Source="button_lang.png"
                                 x:Name="NewGameImage"
                                 VerticalOptions="CenterAndExpand"
-                                Margin="100,0,100,0"                                         
+                                Margin="180,10,180,10"                                         
+                                Grid.Row="0"
+                                />
+
+                        <Image  Source="button_lang_press.png"
+                                x:Name="NewGameImage_press"
+                                IsVisible="false"
+                                VerticalOptions="CenterAndExpand"
+                                Margin="180,10,180,10"                                         
                                 Grid.Row="0"
                                 />
 
@@ -53,10 +61,18 @@
                         <!--Pressed="NewGameButton_Pressed"-->
 
 
-                        <Image  Source="Button_lang.gif"
+                        <Image  Source="button_lang.png"
                                 x:Name="ContinueImage"
                                 VerticalOptions="CenterAndExpand"
-                                Margin="100,0,100,0"                                         
+                                Margin="180,10,180,10"                                         
+                                Grid.Row="1"
+                                />
+
+                        <Image  Source="button_lang_press.png"
+                                x:Name="ContinueImage_press"
+                                IsVisible="false"
+                                VerticalOptions="CenterAndExpand"
+                                Margin="180,10,180,10"                                         
                                 Grid.Row="1"
                                 />
 

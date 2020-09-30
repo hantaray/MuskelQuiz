@@ -28,6 +28,7 @@ namespace Quizz_PhysioUnited
             base.OnAppearing();
             popUpRestart.IsVisible = false;
             ChanceCategoryButton.IsEnabled = true;
+            ChanceImage.Opacity = 1;
         }
 
         void GoToGamePage(object sender, EventArgs e)
@@ -99,6 +100,7 @@ namespace Quizz_PhysioUnited
             if (testList.Count == 0 || !chanceAllowed)
             {
                 ChanceCategoryButton.IsEnabled = false;
+                ChanceImage.Opacity = 0.6;
             }
         }
 
@@ -280,42 +282,72 @@ namespace Quizz_PhysioUnited
 
         private void ButtonKatOne_Pressed(object sender, EventArgs e)
         {
-            KatOneImage.Source = "Button_lang_pres.gif";
+            KatOneImage_press.IsVisible = true;
         }
 
         private void ButtonKatOne_Released(object sender, EventArgs e)
         {
-            KatOneImage.Source = "Button_lang.gif";
+            KatOneImage_press.IsVisible = false;
         }
 
         private void ButtonKatTwo_Pressed(object sender, EventArgs e)
         {
-            KatTwoImage.Source = "Button_lang_pres.gif";
+            KatTwoImage_press.IsVisible = true;
         }
 
         private void ButtonKatTwo_Released(object sender, EventArgs e)
         {
-            KatTwoImage.Source = "Button_lang.gif";
+            KatTwoImage_press.IsVisible = false;
         }
 
         private void ButtonKatThree_Pressed(object sender, EventArgs e)
         {
-            KatThreeImage.Source = "Button_lang_pres.gif";
+            KatThreeImage_press.IsVisible = true;
         }
 
         private void ButtonKatThree_Released(object sender, EventArgs e)
         {
-            KatThreeImage.Source = "Button_lang.gif";
+            KatThreeImage_press.IsVisible = false;
         }
 
         private void ButtonKatFour_Pressed(object sender, EventArgs e)
         {
-            KatFourImage.Source = "Button_lang_pres.gif";
+            KatFourImage_press.IsVisible = true;
         }
 
         private void ButtonKatFour_Released(object sender, EventArgs e)
         {
-            KatFourImage.Source = "Button_lang.gif";
+            KatFourImage_press.IsVisible = false;
+        }
+
+        private void RestartCategoryButton_Pressed(object sender, EventArgs e)
+        {
+            RestartImage_pres.IsVisible = true;
+        }
+
+        private void RestartCategoryButton_Released(object sender, EventArgs e)
+        {
+            RestartImage_pres.IsVisible = false;
+        }
+
+        private void ChanceCategoryButton_Pressed(object sender, EventArgs e)
+        {
+            ChanceImage_pres.IsVisible = true;
+        }
+
+        private void ChanceCategoryButton_Released(object sender, EventArgs e)
+        {
+            ChanceImage_pres.IsVisible = false;
+        }
+
+        private void CancelPopUpChance_Pressed(object sender, EventArgs e)
+        {
+            CancelImage_pres.IsVisible = true;
+        }
+
+        private void CancelPopUpChance_Released(object sender, EventArgs e)
+        {
+            CancelImage_pres.IsVisible = false;
         }
 
 

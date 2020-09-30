@@ -94,239 +94,402 @@
       <Name>Quizz_PhysioUnited</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\bg_klein.jpg" />
+    <AndroidResource Include="Resources\mipmap-hdpi\BG.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Button_Klein_EURO_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\BG_chance.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Button_Klein_free.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\button_free.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Button_Klein_GEM.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\button_lang.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Button_Klein_GEM_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\button_lang_gruen_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Button_Klein_NEXT.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\button_lang_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Button_Klein_NEXT_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\Button_lang_restart_chance.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Button_lang.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\Button_lang_restart_chance_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Button_lang_gruen_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\button_lang_rot_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Button_lang_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\euro.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Button_lang_rot_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\euro_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Button_menue.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\gem.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-hdpi\Button_menue_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\gem_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\bg_klein.jpg" />
+    <AndroidResource Include="Resources\mipmap-hdpi\imp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Button_Klein_EURO_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\imp_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Button_Klein_free.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\menue.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Button_Klein_GEM.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\menue_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Button_Klein_GEM_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\next.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Button_Klein_NEXT.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\next_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Button_Klein_NEXT_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\sprechblase_auswahl.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Button_lang.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\sprechblase_hilfe.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Button_lang_gruen_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-hdpi\sprechblase_leer.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Button_lang_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\BG.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Button_lang_rot_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\BG_chance.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Button_menue.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\button_free.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-mdpi\Button_menue_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\button_lang.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\bg_klein.jpg" />
+    <AndroidResource Include="Resources\mipmap-mdpi\button_lang_gruen_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Button_Klein_EURO_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\button_lang_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Button_Klein_free.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\Button_lang_restart_chance.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Button_Klein_GEM.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\Button_lang_restart_chance_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Button_Klein_GEM_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\button_lang_rot_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Button_Klein_NEXT.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\euro.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Button_Klein_NEXT_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\euro_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Button_lang.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\gem.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Button_lang_gruen_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\gem_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Button_lang_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\imp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Button_lang_rot_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\imp_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Button_menue.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\menue.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xhdpi\Button_menue_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\menue_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\bg_klein.jpg" />
+    <AndroidResource Include="Resources\mipmap-mdpi\next.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_Klein_EURO_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\next_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_Klein_free.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\sprechblase_auswahl.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_Klein_GEM.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\sprechblase_hilfe.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_Klein_GEM_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-mdpi\sprechblase_leer.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_Klein_NEXT.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\BG.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_Klein_NEXT_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\BG_chance.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_lang.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\button_free.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_lang_gruen_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\button_lang.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_lang_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\button_lang_gruen_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_lang_rot_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\button_lang_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_menue.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\Button_lang_restart_chance.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_menue_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\Button_lang_restart_chance_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\bg_klein.jpg" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\button_lang_rot_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_Klein_EURO_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\euro.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_Klein_free.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\euro_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_Klein_GEM.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\gem.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_Klein_GEM_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\gem_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_Klein_NEXT.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\imp.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_Klein_NEXT_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\imp_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_lang.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\menue.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_lang_gruen_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\menue_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_lang_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\next.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_lang_rot_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\next_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_menue.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\sprechblase_auswahl.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_menue_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\sprechblase_hilfe.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\bg_klein.jpg" />
+    <AndroidResource Include="Resources\mipmap-xhdpi\sprechblase_leer.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Button_Klein_EURO_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\BG.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Button_Klein_free.gif" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\BG_chance.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Button_Klein_GEM.gif" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\button_free.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Button_Klein_GEM_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\button_lang.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Button_Klein_NEXT.gif" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\button_lang_gruen_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Button_Klein_NEXT_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\button_lang_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Button_lang.gif" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_lang_restart_chance.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Button_lang_gruen_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\Button_lang_restart_chance_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Button_lang_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\button_lang_rot_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Button_lang_rot_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\euro.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Button_menue.gif" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\euro_press.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\Button_menue_pres.gif" />
+    <AndroidResource Include="Resources\mipmap-xxhdpi\gem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\gem_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\imp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\imp_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\menue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\menue_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\next_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\sprechblase_auswahl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\sprechblase_hilfe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxhdpi\sprechblase_leer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\BG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\BG_chance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\button_free.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\button_lang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\button_lang_gruen_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\button_lang_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_lang_restart_chance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\Button_lang_restart_chance_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\button_lang_rot_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\euro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\euro_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\gem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\gem_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\imp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\imp_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\menue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\menue_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\next_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\sprechblase_auswahl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\sprechblase_hilfe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\mipmap-xxxhdpi\sprechblase_leer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\BG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\BG_chance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\button_free.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\button_lang.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\button_lang_gruen_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\button_lang_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Button_lang_restart_chance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Button_lang_restart_chance_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\button_lang_rot_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\euro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\euro_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\gem.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\gem_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\imp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\imp_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\menue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\menue_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\next.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\next_press.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\sprechblase_auswahl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\sprechblase_hilfe.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\sprechblase_leer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

@@ -66,7 +66,7 @@ namespace Quizz_PhysioUnited
             Settings.AllQuestionsNrKatFour = App.QCountKatFour.ToString();
             Settings.ChanceBoolKatFour = "True";
 
-            Settings.Gems = "0";
+            Settings.Gems = "40";
             SetTimerValues("30");
 
             await Navigation.PushAsync(new StartScreen());
@@ -90,22 +90,22 @@ namespace Quizz_PhysioUnited
 
         private void NewGameButton_Pressed(object sender, EventArgs e)
         {
-            NewGameImage.Source = "Button_lang_pres.gif";
+            NewGameImage_press.IsVisible = true;
         }
 
         private void NewGameButton_Released(object sender, EventArgs e)
         {
-            NewGameImage.Source = "Button_lang.gif";
+            NewGameImage_press.IsVisible = false;
         }
 
         private void ContinueGameButton_Pressed(object sender, EventArgs e)
         {
-            ContinueImage.Source = "Button_lang_pres.gif";
+            ContinueImage_press.IsVisible = true;
         }
 
         private void ContinueGameButton_Released(object sender, EventArgs e)
         {
-            ContinueImage.Source = "Button_lang.gif";
+            ContinueImage_press.IsVisible = false;
         }
     }
 }

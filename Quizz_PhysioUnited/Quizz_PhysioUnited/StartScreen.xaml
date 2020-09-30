@@ -6,80 +6,111 @@
              mc:Ignorable="d"
              x:Class="Quizz_PhysioUnited.StartScreen"
              NavigationPage.HasNavigationBar="False"
-             BackgroundImageSource="bg_klein.jpg">
+             BackgroundImageSource="BG.png">
 
-    <RelativeLayout>
 
-        <!--<Image Source="bg_klein.jpg" 
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>                
+            </Grid.RowDefinitions>
+        
+        <!--<Image Source="BG.png" 
                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
                    ></Image>-->
 
-        <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+        <!--<Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+            </Grid.RowDefinitions>-->
 
             <!--<AbsoluteLayout Padding="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">-->
             <!--AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All"-->
-            <StackLayout>
+            <!--<StackLayout>-->
 
-                <Grid HorizontalOptions="Center"
-                          VerticalOptions="CenterAndExpand">
+                <Grid   Grid.Row="0"
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        Padding="180,10,180,10">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
 
-                    <Image  Source="Button_lang.gif"
-                                x:Name="KatOneImage"
-                                VerticalOptions="CenterAndExpand"
-                                Margin="100,0,100,0"                                         
-                                Grid.Row="0"
-                                />
+                <!--Margin="180,10,180,10"-->
+                <Image  
+                    Source="button_lang.png"
+                    x:Name="KatOneImage"                                                                                                        
+                    Grid.Row="0"
+                    Margin="0,10,0,10"
+                    />
 
-                    <Button Text="Obere Extremitäten" 
+                <Image  
+                    Source="button_lang_press.png"
+                    x:Name="KatOneImage_press"
+                    IsVisible="false"
+                    Grid.Row="0"
+                    Margin="0,10,0,10"
+                    />
+
+                <Button Text="Obere Extremitäten" 
                             Clicked="GoToGamePage"
                             Pressed="ButtonKatOne_Pressed"
                             Released="ButtonKatOne_Released"
                             x:Name="ButtonKatOne"
                             ClassId="ButtonKatOne"
-                            VerticalOptions="CenterAndExpand"
-                            Margin="123,0,130,0"
+                            Margin="0,10,0,10"
+                            BackgroundColor="Transparent"
                             TextColor="White"
                             FontSize="Medium"
-                            BackgroundColor="Transparent"
                             Grid.Row="0"
                             />
 
-                    <Image  Source="Button_lang.gif"
-                            x:Name="KatTwoImage"
-                            VerticalOptions="CenterAndExpand"
-                            Margin="100,0,100,0"                                         
+                    <Image  Source="button_lang.png"
+                            x:Name="KatTwoImage"                                  
                             Grid.Row="1"
-                            />           
-                    
-                    <Button Text="Untere Extremitäten" 
-                            Clicked="GoToGamePage"
-                            Pressed="ButtonKatTwo_Pressed"
-                            Released="ButtonKatTwo_Released"
-                            x:Name="ButtonKatTwo"
-                            ClassId="ButtonKatTwo"
-                            VerticalOptions="CenterAndExpand"
-                            Margin="123,0,130,0"
-                            TextColor="White"
-                            FontSize="Medium"
-                            BackgroundColor="Transparent"
-                            Grid.Row="1"
+                            Margin="0,10,0,10"
                             />
 
-                    <Image  Source="Button_lang.gif"
-                            x:Name="KatThreeImage"
-                            VerticalOptions="CenterAndExpand"
-                            Margin="100,0,100,0"                                         
-                            Grid.Row="2"
-                            />
+                    <Image  
+                        Source="button_lang_press.png"
+                        x:Name="KatTwoImage_press"
+                        IsVisible="false"
+                        Grid.Row="1"
+                        Margin="0,10,0,10"
+                        />
+
+                <Button 
+                    Text="Untere Extremitäten" 
+                    Clicked="GoToGamePage"
+                    Pressed="ButtonKatTwo_Pressed"
+                    Released="ButtonKatTwo_Released"
+                    x:Name="ButtonKatTwo"
+                    ClassId="ButtonKatTwo"
+                    Margin="0,10,0,10"
+                    TextColor="White"
+                    FontSize="Medium"
+                    BackgroundColor="Transparent"
+                    Grid.Row="1"
+                    />
+
+                <Image  
+                    Source="button_lang.png"
+                    x:Name="KatThreeImage"                                                               
+                    Grid.Row="2"
+                    Margin="0,10,0,10"
+                    />
+
+                <Image  
+                    Source="button_lang_press.png"
+                    x:Name="KatThreeImage_press"                                                               
+                    IsVisible="false"
+                    Grid.Row="2"
+                    Margin="0,10,0,10"
+                    />
 
                     <Button Text="Rumpf" 
                             Clicked="GoToGamePage"
@@ -87,29 +118,34 @@
                             Released="ButtonKatThree_Released"
                             x:Name="ButtonKatThree"
                             ClassId="ButtonKatThree"
-                            VerticalOptions="CenterAndExpand"
-                            Margin="123,0,130,0"
+                            Margin="0,10,0,10"
                             TextColor="White"
+                            VerticalOptions="CenterAndExpand"                            
                             FontSize="Medium"
                             BackgroundColor="Transparent"
                             Grid.Row="2"
                             />
 
-                    <Image  Source="Button_lang.gif"
-                            x:Name="KatFourImage"
-                            VerticalOptions="CenterAndExpand"
-                            Margin="100,0,100,0"                                         
+                    <Image  Source="button_lang.png"
+                            x:Name="KatFourImage"                            
                             Grid.Row="3"
+                            Margin="0,10,0,10"
                             />
-                    
+
+                    <Image  Source="button_lang_press.png"
+                            x:Name="KatFourImage_press"                            
+                            IsVisible="false"
+                            Grid.Row="3"
+                            Margin="0,10,0,10"
+                            />
+
                     <Button Text="Kopf" 
                             Clicked="GoToGamePage"
                             Pressed="ButtonKatFour_Pressed"
                             Released="ButtonKatFour_Released"
                             x:Name="ButtonKatFour"
                             ClassId="ButtonKatFour"
-                            VerticalOptions="CenterAndExpand"
-                            Margin="123,0,130,0"
+                            Margin="0,10,0,10"
                             TextColor="White"
                             FontSize="Medium"
                             BackgroundColor="Transparent"
@@ -122,53 +158,189 @@
                                 VerticalOptions="CenterAndExpand"/>-->
 
                 </Grid>
-            </StackLayout>
+            <!--</StackLayout>-->
 
-        </Grid>
+        <!--</Grid>-->
 
 
         <ContentView x:Name="popUpRestart"
-                    BackgroundColor="#C0808080"
+                    BackgroundColor="Transparent"
                     IsVisible="false"
-                    RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
-                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+                    Grid.Row="0"
                      >
 
-            <StackLayout VerticalOptions="Center"
-                        HorizontalOptions="Center">
+            <!--RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"-->
 
-                <StackLayout Orientation="Vertical" 
-                             BackgroundColor="White"
-                             Margin="40,40,40,40"
-                             >
-                    <Label  HorizontalTextAlignment="Center"
-                            Text="Alle Fragen dieser Kategorie wurden beantwortet!"
-                            FontSize="Medium"></Label>
-                    <Label  HorizontalTextAlignment="Center"
-                            Text="Mit Restart können alle Fragen noch einmal beantwortet werden."/>
-                    <Button Margin="150,0,150,0" 
+
+
+            <Grid x:Name="BackgroundPopUp">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Image 
+                    Source="BG_chance.png"
+                    Grid.Row="0"
+                    Opacity="0.85"
+                    Aspect="Fill"
+                    />
+
+                <Grid x:Name="GridRestartMenue"
+                          Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.5*"/>
+                        <RowDefinition Height="0.7*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.7*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    
+
+
+                    <Label  Text="Alle Fragen dieser Kategorie wurden beantwortet!"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="End"                                
+                            FontSize="Medium"
+                            Grid.Row="0"/>
+
+                    <Label  Text="Mit Restart können alle Fragen noch einmal beantwortet werden."
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"                                
+                            Grid.Row="1"/>
+
+                    <!--Restart Button-->
+                    <Image  Source="button_lang_restart_chance.png"
+                            x:Name="RestartImage"                                                               
+                            Grid.Row="2"
+                            Margin="0,0,0,0"
+                            />
+
+                    <Image  Source="button_lang_restart_chance_press.png"                                                             
+                            x:Name="RestartImage_pres"                                                               
+                            Grid.Row="2"
+                            Margin="0,0,0,0"
+                            IsVisible="false"                            
+                            />
+
+
+                    <Button Margin="183,0,183,0" 
                             Text="Restart"
                             x:Name="RestartCategoryButton"
-                            Clicked="RestartCategoryButton_Clicked"/>
-                    <Label  HorizontalTextAlignment="Center"
-                            Text="Mit Chance werden einmalig die falsch beantworteten Fragen nochmal gestellt und der bisherige Score kann erhöht werden."/>
-                    <Button Margin="150,0,150,15" 
-                            Text="Chance"
+                            Clicked="RestartCategoryButton_Clicked"
+                            Pressed="RestartCategoryButton_Pressed"
+                            Released="RestartCategoryButton_Released"
+                            TextColor="White"
+                            FontSize="Medium"
+                            BackgroundColor="Transparent"
+                            Grid.Row="2"/>
+
+                    <!--Label Chance-->
+                    <Label  Text="Mit Chance werden einmalig die falsch beantworteten Fragen nochmal gestellt und der bisherige Score kann erhöht werden."
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Margin="60,0,60,0"
+                            Grid.Row="3"/>
+
+
+                    <!--Chance Button-->
+
+
+
+                    <Image  Source="button_lang_restart_chance.png"
+                            x:Name="ChanceImage"                                                               
+                            Grid.Row="4"
+                            Margin="0,0,0,0"
+                            />
+
+                    <Image  Source="button_lang_restart_chance_press.png"                                                             
+                            x:Name="ChanceImage_pres"                                                               
+                            Grid.Row="4"
+                            Margin="0,0,0,0"
+                            IsVisible="false"                            
+                            />
+
+                    <Button Margin="183,0,183,0" 
+                            Text=""
                             x:Name="ChanceCategoryButton"
-                            Clicked="ChanceCategoryButton_Clicked"/>
-                    <Button Margin="150,0,150,15"
-                            Text="abbrechen"
+                            Clicked="ChanceCategoryButton_Clicked"
+                            Pressed="ChanceCategoryButton_Pressed"
+                            Released="ChanceCategoryButton_Released"
+                            TextColor="White"
+                            FontSize="Medium"
+                            BackgroundColor="Transparent"
+                            Grid.Row="4"/>
+
+                    <Label Text="CHANCE" 
+                               VerticalOptions="CenterAndExpand" 
+                               HorizontalOptions="Center"
+                               Margin="183,0,183,0"
+                               InputTransparent="True"
+                                TextColor="White"
+                                FontSize="Medium"
+                                BackgroundColor="Transparent"
+                                Grid.Row="4"/>
+
+
+                    <!--cancel button-->
+                    <Grid
+                        Grid.Row="6">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="5*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+
+
+                        <Image  
+                            Source="button_lang_restart_chance.png"
+                            x:Name="CancelImage"
+                            Margin="0,5,5,5"
+                            Aspect="Fill"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            />
+
+                        <Image  
+                            Source="button_lang_restart_chance_press.png"                                                             
+                            x:Name="CancelImage_pres"                        
+                            Margin="0,5,5,5"
+                            Aspect="Fill"
+                            IsVisible="false"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            />
+
+                        <Button 
+                            Margin="0,5,5,5"
+                            Text="cancel"
                             x:Name="CancelPopUpChance"
-                            Clicked="CancelPopUpChance_Clicked"/>
-                </StackLayout>
-            </StackLayout>
+                            Clicked="CancelPopUpChance_Clicked"
+                            Pressed="CancelPopUpChance_Pressed"
+                            Released="CancelPopUpChance_Released"
+                            TextColor="White"
+                            FontSize="Small"
+                            BackgroundColor="Transparent"
+                            Grid.Row="0"
+                            Grid.Column="1"/>
+
+
+                    </Grid>
+
+                </Grid>
+            </Grid>
         </ContentView>
-
-    </RelativeLayout>
-
-    <!--HeightRequest="200" WidthRequest="300"-->
-    <!--popUpRestart.IsVisible = true;-->
+        </Grid>
 
 
-    <!--</AbsoluteLayout>-->
+   
+
+
+
 </ContentPage>
