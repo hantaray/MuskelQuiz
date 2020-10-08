@@ -17,10 +17,16 @@ namespace Quizz_PhysioUnited
     {
         public static int Kategorie;
 
-        
+        LoadingView loadingViewStartScreen = new LoadingView();
+
+
         public StartScreen()
         {
-            InitializeComponent();
+            InitializeComponent();            
+            StartScreenMainGrid.Children.Add(loadingViewStartScreen);
+            Grid.SetRow(loadingViewStartScreen, 0);
+            loadingViewStartScreen.IsLoading = false;
+            
         }
 
         protected override void OnAppearing()
@@ -133,7 +139,7 @@ namespace Quizz_PhysioUnited
                                                     Int32.Parse(Settings.AllQuestionsNrKatOne),
                                                     Int32.Parse(Settings.Gems),
                                                     Double.Parse(Settings.TimerValueKatOne)
-                                                    )); ;
+                                                    ));
         }
 
 
@@ -178,10 +184,12 @@ namespace Quizz_PhysioUnited
             await Navigation.PushAsync(new DatabasePage());
         }
 
-        private void RestartCategoryButton_Clicked(object sender, EventArgs e)
+        private async void RestartCategoryButton_Clicked(object sender, EventArgs e)
         {
+            loadingViewStartScreen.IsLoading = true;
             if (Kategorie == 1)
             {
+                //loadingViewStartScreen.IsLoading = true;
                 QuestionsData.UpdateCurrentWithOriginalByCat(Kategorie);
                 App.QAListKatOne = QuestionsData.GetCurrentQuestionsList(Kategorie);
                 App.QCountKatOne = App.QAListKatOne.Count;
@@ -190,7 +198,15 @@ namespace Quizz_PhysioUnited
                 Settings.ScoreKatOne = "0";
                 Settings.TimerValueKatOne = "30";
                 Settings.ChanceBoolKatOne = "True";
-                PageKatOne();
+                await Navigation.PushAsync(new GamePage(App.QAListKatOne,               //startet gamepage mit passende QaA Liste und übergibt attribute aus settings
+                                                    Int32.Parse(Settings.QuestionCounterKatOne),
+                                                    Int32.Parse(Settings.ScoreKatOne),
+                                                    Int32.Parse(Settings.AllQuestionsNrKatOne),
+                                                    Int32.Parse(Settings.Gems),
+                                                    Double.Parse(Settings.TimerValueKatOne)
+                                                    ));
+                //loadingViewStartScreen.IsLoading = false;
+
             }
             else if (Kategorie == 2)
             {
@@ -202,7 +218,13 @@ namespace Quizz_PhysioUnited
                 Settings.ScoreKatTwo = "0";
                 Settings.TimerValueKatTwo = "30";
                 Settings.ChanceBoolKatTwo = "True";
-                PageKatTwo();
+                await Navigation.PushAsync(new GamePage(App.QAListKatTwo,               //startet gamepage mit passende QaA Liste und übergibt attribute aus settings
+                                                    Int32.Parse(Settings.QuestionCounterKatTwo),
+                                                    Int32.Parse(Settings.ScoreKatTwo),
+                                                    Int32.Parse(Settings.AllQuestionsNrKatTwo),
+                                                    Int32.Parse(Settings.Gems),
+                                                    Double.Parse(Settings.TimerValueKatTwo)
+                                                    ));
             }
             else if (Kategorie == 3)
             {
@@ -214,7 +236,13 @@ namespace Quizz_PhysioUnited
                 Settings.ScoreKatThree = "0";
                 Settings.TimerValueKatThree = "30";
                 Settings.ChanceBoolKatThree = "True";
-                PageKatThree();
+                await Navigation.PushAsync(new GamePage(App.QAListKatThree,               //startet gamepage mit passende QaA Liste und übergibt attribute aus settings
+                                                    Int32.Parse(Settings.QuestionCounterKatThree),
+                                                    Int32.Parse(Settings.ScoreKatThree),
+                                                    Int32.Parse(Settings.AllQuestionsNrKatThree),
+                                                    Int32.Parse(Settings.Gems),
+                                                    Double.Parse(Settings.TimerValueKatThree)
+                                                    ));
             }
             else if (Kategorie == 4)
             {
@@ -226,13 +254,20 @@ namespace Quizz_PhysioUnited
                 Settings.ScoreKatFour = "0";
                 Settings.TimerValueKatFour = "30";
                 Settings.ChanceBoolKatFour = "True";
-                PageKatFour();
+                await Navigation.PushAsync(new GamePage(App.QAListKatFour,               //startet gamepage mit passende QaA Liste und übergibt attribute aus settings
+                                                    Int32.Parse(Settings.QuestionCounterKatFour),
+                                                    Int32.Parse(Settings.ScoreKatFour),
+                                                    Int32.Parse(Settings.AllQuestionsNrKatFour),
+                                                    Int32.Parse(Settings.Gems),
+                                                    Double.Parse(Settings.TimerValueKatFour)
+                                                    ));
             }
-           
+            loadingViewStartScreen.IsLoading = false;          
         }
 
-        private void ChanceCategoryButton_Clicked(object sender, EventArgs e)
+        private async void ChanceCategoryButton_Clicked(object sender, EventArgs e)
         {
+            loadingViewStartScreen.IsLoading = true;
             if (Kategorie == 1)
             {
                 QuestionsData.UpdateCurrentWithNext(Kategorie);
@@ -241,7 +276,13 @@ namespace Quizz_PhysioUnited
                 Settings.QuestionCounterKatOne = "1";
                 Settings.TimerValueKatOne = "30";
                 Settings.ChanceBoolKatOne = "False";
-                PageKatOne();
+                await Navigation.PushAsync(new GamePage(App.QAListKatOne,               //startet gamepage mit passende QaA Liste und übergibt attribute aus settings
+                                                    Int32.Parse(Settings.QuestionCounterKatOne),
+                                                    Int32.Parse(Settings.ScoreKatOne),
+                                                    Int32.Parse(Settings.AllQuestionsNrKatOne),
+                                                    Int32.Parse(Settings.Gems),
+                                                    Double.Parse(Settings.TimerValueKatOne)
+                                                    ));
             }
             else if (Kategorie == 2)
             {
@@ -251,7 +292,13 @@ namespace Quizz_PhysioUnited
                 Settings.QuestionCounterKatTwo = "1";
                 Settings.TimerValueKatTwo = "30";
                 Settings.ChanceBoolKatTwo = "False";
-                PageKatTwo();
+                await Navigation.PushAsync(new GamePage(App.QAListKatTwo,               //startet gamepage mit passende QaA Liste und übergibt attribute aus settings
+                                                    Int32.Parse(Settings.QuestionCounterKatTwo),
+                                                    Int32.Parse(Settings.ScoreKatTwo),
+                                                    Int32.Parse(Settings.AllQuestionsNrKatTwo),
+                                                    Int32.Parse(Settings.Gems),
+                                                    Double.Parse(Settings.TimerValueKatTwo)
+                                                    ));
             }
             else if (Kategorie == 3)
             {
@@ -261,7 +308,13 @@ namespace Quizz_PhysioUnited
                 Settings.QuestionCounterKatThree = "1";
                 Settings.TimerValueKatThree = "30";
                 Settings.ChanceBoolKatThree = "False";
-                PageKatThree();
+                await Navigation.PushAsync(new GamePage(App.QAListKatThree,               //startet gamepage mit passende QaA Liste und übergibt attribute aus settings
+                                                    Int32.Parse(Settings.QuestionCounterKatThree),
+                                                    Int32.Parse(Settings.ScoreKatThree),
+                                                    Int32.Parse(Settings.AllQuestionsNrKatThree),
+                                                    Int32.Parse(Settings.Gems),
+                                                    Double.Parse(Settings.TimerValueKatThree)
+                                                    ));
             }
             else if (Kategorie == 4)
             {
@@ -271,8 +324,15 @@ namespace Quizz_PhysioUnited
                 Settings.QuestionCounterKatFour = "1";
                 Settings.TimerValueKatFour = "30";
                 Settings.QuestionCounterKatFour = "False";
-                PageKatFour();
+                await Navigation.PushAsync(new GamePage(App.QAListKatFour,               //startet gamepage mit passende QaA Liste und übergibt attribute aus settings
+                                                    Int32.Parse(Settings.QuestionCounterKatFour),
+                                                    Int32.Parse(Settings.ScoreKatFour),
+                                                    Int32.Parse(Settings.AllQuestionsNrKatFour),
+                                                    Int32.Parse(Settings.Gems),
+                                                    Double.Parse(Settings.TimerValueKatFour)
+                                                    ));
             }
+            loadingViewStartScreen.IsLoading = false;
         }
 
         private void CancelPopUpChance_Clicked(object sender, EventArgs e)
