@@ -9,7 +9,8 @@
              BackgroundImageSource="BG.png">
 
 
-        <Grid >
+        <Grid 
+            x:Name="StartScreenMainGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>                
             </Grid.RowDefinitions>

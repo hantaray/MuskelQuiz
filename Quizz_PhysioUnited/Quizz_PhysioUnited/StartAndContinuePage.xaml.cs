@@ -1,6 +1,8 @@
 ﻿using Quizz_PhysioUnited.Utils;
+using Quizz_PhysioUnited.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,11 +13,52 @@ using Xamarin.Forms.Xaml;
 namespace Quizz_PhysioUnited
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class StartAndContinuePage : ContentPage
+    public partial class StartAndContinuePage : ContentPage, INotifyPropertyChanged
     {
+        //louding test
+        //private bool isLoading;
+        //public bool IsLoading
+        //{
+        //    get
+        //    {
+        //        return this.isLoading;
+        //    }
+
+        //    set
+        //    {
+        //        this.isLoading = value;
+        //        RaisePropertyChanged("IsLoading");
+        //    }
+        //}
+
+        //public event PropertyChangedEventHandler PropertyChanged;
+
+        //public void RaisePropertyChanged(string propName)
+        //{
+        //    if (PropertyChanged != null)
+        //    {
+        //        PropertyChanged(this, new PropertyChangedEventArgs(propName));
+        //    }
+        //}
+        //louding test
+
+        LoadingView LV = new LoadingView();
+
+        //LoadingViewModel loadViewModel = new LoadingViewModel();
+
         public StartAndContinuePage()
         {
-            InitializeComponent();           
+            InitializeComponent();
+            //BindingContext = loadViewModel;
+            //loadViewModel.IsLoading = false;
+            //LoadingView LV = new LoadingView();
+            LV.IsLoading = false;
+            StaAConLayout.Children.Add(LV,
+                xConstraint: Constraint.Constant(0),
+                yConstraint: Constraint.Constant(0),
+                widthConstraint: Constraint.RelativeToParent((parent) => { return parent.Width; }),
+                heightConstraint: Constraint.RelativeToParent((parent) => { return parent.Height; }));
+
         }
 
         protected override void OnAppearing()
@@ -42,6 +85,7 @@ namespace Quizz_PhysioUnited
 
         private async void NewGameButton_Clicked(object sender, EventArgs e)
         {
+            LV.IsLoading = true;
             await App.DatabaseAll.GetDataFromServer();
             QuestionsData.UpdateCurrentWithOriginal();
             App.setQALists();
@@ -68,8 +112,9 @@ namespace Quizz_PhysioUnited
 
             Settings.Gems = "40";
             SetTimerValues("30");
-
+            
             await Navigation.PushAsync(new StartScreen());
+            LV.IsLoading = false;
         }
 
         public static void SetTimerValues(string timerValue)
@@ -82,9 +127,11 @@ namespace Quizz_PhysioUnited
 
         private async void ContinueGameButton_Clicked(object sender, EventArgs e)
         {
+            LV.IsLoading = true;
             await App.DatabaseAll.GetDataFromServer();
             App.setQALists();
             await Navigation.PushAsync(new StartScreen());
+            LV.IsLoading = false;
         }
 
 

@@ -80,6 +80,8 @@ namespace Quizz_PhysioUnited
             {
                 CheckWithJoker(sender);
                 SaveUserData();
+                jokerButton.IsEnabled = true;
+                JokerImage.Opacity = 1;
             }
             else
             {
@@ -120,6 +122,8 @@ namespace Quizz_PhysioUnited
         private void jokerButton_Clicked(object sender, EventArgs e)
         {            
             jokerUsed();
+            jokerButton.IsEnabled = false;
+            JokerImage.Opacity = 0.45;
         }
 
         private void nextButton_Clicked(object sender, EventArgs e)
@@ -215,7 +219,7 @@ namespace Quizz_PhysioUnited
 
         public void SetGems()
         {
-            jokerButton.Text = $"{gems}";
+            jokerButton_Label.Text = $"{gems}";
         }
 
 
@@ -310,9 +314,7 @@ namespace Quizz_PhysioUnited
                 StopTimer();
                 TimerRestarts = true;
                 QuestionCounterPlus();
-                SaveUserData();
-                score++;
-                gems++;
+                SaveUserData();                
             }
             else
             {
@@ -333,7 +335,7 @@ namespace Quizz_PhysioUnited
             {
                 gems -= jokerCosts;
                 SetGems();
-                jokerCosts = jokerCosts * 2;
+                jokerCosts *= 2;
                 jokerIsUsed = true;
                 //jokerButton.BackgroundColor = Color.FromHex("#FFFFFF");
             }

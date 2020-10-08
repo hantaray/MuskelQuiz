@@ -310,12 +310,25 @@
                    Grid.Row="3"            
                    Grid.Column="0"/>
 
-            <Button Text="0"
+            <Button Text=""
                 x:Name="jokerButton"
                 Clicked="jokerButton_Clicked"
                 Pressed="jokerButton_Pressed"
                 Released="jokerButton_Released"
                 VerticalOptions="CenterAndExpand"
+                TextColor="Black"
+                FontSize="Medium"
+                FontAttributes="Bold"
+                BackgroundColor="Transparent"
+                Margin="15,5,15,5"                
+                Grid.Row="3"
+                Grid.Column="0"/>
+
+            <Label Text="0"
+                x:Name="jokerButton_Label"                
+                VerticalOptions="CenterAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                InputTransparent="True"
                 TextColor="Black"
                 FontSize="Medium"
                 FontAttributes="Bold"
