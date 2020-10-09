@@ -21,8 +21,13 @@
                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
                    ></Image>-->
 
+    <Grid 
+          x:Name="GamePageGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height = "*"/>
+        </Grid.RowDefinitions>
 
-    <Grid Grid.Row="0"
+        <Grid Grid.Row="0"
             Grid.Column="0"
           x:Name="PageGrid">
         <Grid.RowDefinitions>
@@ -81,23 +86,24 @@
                        VerticalOptions="Center"
                        Aspect="Fill"
                        Margin="10,18,10,10"/>
-                        
-
-                <Label  Text="0.0"
-                x:Name="labelTimer"
-                FontSize="Title"
-                TextColor="Red"
-                BackgroundColor="Transparent"
-                Margin="0,10,0,0"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Grid.Column="1"
-                Grid.Row="0"/>
 
 
+                    <Label  
+                        Text="0.0"
+                        x:Name="labelTimer"
+                        FontSize="Title"
+                        TextColor="Red"
+                        BackgroundColor="Transparent"
+                        Margin="0,10,0,0"
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"
+                        Grid.Column="1"
+                        Grid.Row="0"/>
 
 
-            </Grid>
+
+
+                </Grid>
 
 
 
@@ -224,7 +230,7 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />  <!--Spare Row, falls euro button noch kommt-->
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -369,10 +375,47 @@
 
             <!--</StackLayout>-->
 
-        </Grid> <!--closes game button grid-->
+            </Grid> <!--closes game button grid-->    
     
-    
-    </Grid>  <!--closes Page grid-->
+            </Grid>  <!--closes main button grid-->
+
+        <Grid 
+            x:Name="TextBubbleGrid"
+            IsVisible="False"
+            InputTransparent="True">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+        <Image Source="sprechblase_leer.png"
+                       Aspect="Fill"
+                       Grid.Row="0"
+                        Grid.Column="1"/>
+
+                <Label Text="Jetzt auf einen Antwortbutton drücken und die Runde ist nicht beendet. 
+                       1. Mal: 2 Gems
+                       2. Mal: 4 Gems
+                       3. Mal: 8 Gems
+                       4. Mal: 16 Gems"
+                       TextColor="Black"
+                       BackgroundColor="Transparent"
+                       VerticalOptions="CenterAndExpand"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"                       
+                       Margin="23,15,23,73"
+                       Grid.Row="0"
+                        Grid.Column="1"/>
+
+
+    </Grid>
+
+    </Grid>    <!--closes Page grid-->
 
     <!--</RelativeLayout>-->
     <!--</ContentPage.Content>-->
