@@ -22,25 +22,30 @@
                    RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
                    ></Image>-->
 
-            <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            <Grid 
+                x:Name="PageGrid"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                   RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*"/>                    
                 </Grid.RowDefinitions>
 
 
-                <StackLayout>
-                    <Grid HorizontalOptions="Center"
-                          VerticalOptions="CenterAndExpand">
+
+                    <Grid
+                        x:Name="ButtonGrid">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="*"/>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
                         <Image  Source="button_lang.png"
                                 x:Name="NewGameImage"
                                 VerticalOptions="CenterAndExpand"
                                 Margin="180,10,180,10"                                         
-                                Grid.Row="0"
+                                Grid.Row="1"
                                 />
 
                         <Image  Source="button_lang_press.png"
@@ -48,7 +53,7 @@
                                 IsVisible="false"
                                 VerticalOptions="CenterAndExpand"
                                 Margin="180,10,180,10"                                         
-                                Grid.Row="0"
+                                Grid.Row="1"
                                 />
 
                         <Button Text="New Game"
@@ -61,7 +66,7 @@
                                 TextColor="White"
                                 FontSize="Medium"
                                 BackgroundColor="Transparent"
-                                Grid.Row="0" />
+                                Grid.Row="1" />
 
                         <!--Pressed="NewGameButton_Pressed"-->
 
@@ -70,7 +75,7 @@
                                 x:Name="ContinueImage"
                                 VerticalOptions="CenterAndExpand"
                                 Margin="180,10,180,10"                                         
-                                Grid.Row="1"
+                                Grid.Row="2"
                                 />
 
                         <Image  Source="button_lang_press.png"
@@ -78,7 +83,7 @@
                                 IsVisible="false"
                                 VerticalOptions="CenterAndExpand"
                                 Margin="180,10,180,10"                                         
-                                Grid.Row="1"
+                                Grid.Row="2"
                                 />
 
 
@@ -92,7 +97,7 @@
                                 TextColor="White"
                                 FontSize="Medium"
                                 BackgroundColor="Transparent"
-                                Grid.Row="1"
+                                Grid.Row="2"
                                 />
 
                         <Label Text="CONTINUE" 
@@ -103,33 +108,141 @@
                                 TextColor="White"
                                 FontSize="Medium"
                                 BackgroundColor="Transparent"
-                                Grid.Row="1"
+                                Grid.Row="2"
                                 />
+                        
+                        
+                        <!--Impressumm Button-->
 
+                        <Grid
+                            x:Name="ImpressumButtonGrid"
+                            Padding="5,20,10,0"
+                            Grid.Row="3"
+                            >
 
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="4*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
+                            <Image
+                                Source="imp.png"
+                                x:Name="ImpressumImage"                                
+                                Grid.Row="0"
+                                Grid.Column="1"/>
 
-                        <!--<Button x:Name="label"
-                                Clicked="ImageButton_Clicked"
-                                Pressed="label_Pressed"
-                                Released="label_Released"
-                                Text="0 ImageButton clicks"
-                                FontSize="Small"
-                                Margin="123,0,130,0"
-                                VerticalOptions="CenterAndExpand"  
+                            <Image
+                                Source="imp_press.png"
+                                x:Name="ImpressumImage_press"
+                                IsVisible="false"
+                                Grid.Row="0"
+                                Grid.Column="1"/>
+
+                            <Button 
+                                x:Name="ImpressumButton"
+                                Clicked="ImpressumButton_Clicked"
+                                Pressed="ImpressumButton_Pressed"
+                                Released="ImpressumButton_Released"
+                                VerticalOptions="CenterAndExpand"
                                 TextColor="White"
                                 BackgroundColor="Transparent"
-                                Grid.Row="0"                                    
-                            >
-                        </Button>-->
+                                Opacity="0.5"
+                                FontSize="Medium"
+                                Grid.Row="0"
+                                Grid.Column="1"/>
+
+                        </Grid>
+
+
+
+
                     </Grid>
 
-                </StackLayout>
 
 
             </Grid>
 
-            <!--<ContentView x:Name="actIndBackground"
+            <ContentView x:Name="ImpressumPopUp"
+                BackgroundColor="White" Opacity="01"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
+                IsVisible="false">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    
+
+                    <Image 
+                        Source="BG_chance.png"                        
+                        Opacity="0.85"
+                        Aspect="Fill"
+                        Grid.Row="0"
+                        />
+
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="6.5*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Label 
+                            Text="Hier wird bald ein Impressum stehen"
+                            TextColor="Black"
+                            FontSize="Medium"
+                            HorizontalTextAlignment="Center"
+                            VerticalTextAlignment="Center"
+                            Grid.Row="0"/>
+
+
+                        <Image  
+                            Source="button_lang_restart_chance.png"
+                            x:Name="ImpressumCancelImage"
+                            Margin="0,5,5,5"                            
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            />
+
+                        <Image  
+                            Source="button_lang_restart_chance_press.png"                                                             
+                            x:Name="ImpressumCancelImage_pres"                        
+                            Margin="0,5,5,5"
+                            IsVisible="false"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            />
+
+                        <Button 
+                            Margin="0,5,5,5"
+                            Text="cancel"
+                            x:Name="CancelPopUpImpressum"
+                            Clicked="CancelPopUpImpressum_Clicked"
+                            Pressed="CancelPopUpImpressum_Pressed"
+                            Released="CancelPopUpImpressum_Released"
+                            TextColor="White"
+                            FontSize="Small"
+                            BackgroundColor="Transparent"
+                            Grid.Row="1"
+                            Grid.Column="0"/>
+
+
+                    </Grid>
+                    
+
+                </Grid>
+
+            </ContentView>
+
+        </RelativeLayout>
+    </ContentPage.Content>
+</ContentPage>
+
+
+<!--<ContentView x:Name="actIndBackground"
                 BackgroundColor="White" Opacity="01"
                 RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
                 RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"
@@ -156,13 +269,11 @@
                         Color="Black"
                         Grid.Row="0"/>
 
-                    --><!--AbsoluteLayout.LayoutFlags="PositionProportional"
-                    AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"--><!--
+                    -->
+<!--AbsoluteLayout.LayoutFlags="PositionProportional"
+                    AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"-->
+<!--
 
                 </Grid>
 
             </ContentView>-->
-
-        </RelativeLayout>
-    </ContentPage.Content>
-</ContentPage>

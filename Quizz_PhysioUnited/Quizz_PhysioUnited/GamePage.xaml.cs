@@ -13,6 +13,8 @@ namespace Quizz_PhysioUnited
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
 
+
+
     public partial class GamePage : ContentPage
     {
         //if you reached the end of the game and press continue gamae after closing the app, theres a excetion
@@ -41,20 +43,6 @@ namespace Quizz_PhysioUnited
 
 
 
-
-        //public GamePage(List<List<string>> questionsAndAnswers)
-        //{
-        //    this.questionsAndAnswers = questionsAndAnswers;
-        //    InitializeComponent();
-        //    InitializeGameData();
-        //    SetQuestionAndAnswer();
-        //    SetLevel();
-        //    SetScore();
-        //    SetGems();
-        //    EnableButtons();
-        //    SetTimer();
-        //}
-
         public GamePage(List<Question> questionsAndAnswers, int questionCounter, int score, int allQuestionsNr, int gems, double timerCounter)
         {            
             this.questionsAndAnswers = questionsAndAnswers;
@@ -82,6 +70,7 @@ namespace Quizz_PhysioUnited
                 SaveUserData();
                 jokerButton.IsEnabled = true;
                 JokerImage.Opacity = 1;
+                TextBubbleGrid.IsVisible = false;
             }
             else
             {
@@ -124,6 +113,7 @@ namespace Quizz_PhysioUnited
             jokerUsed();
             jokerButton.IsEnabled = false;
             JokerImage.Opacity = 0.45;
+            TextBubbleGrid.IsVisible = true;
         }
 
         private void nextButton_Clicked(object sender, EventArgs e)

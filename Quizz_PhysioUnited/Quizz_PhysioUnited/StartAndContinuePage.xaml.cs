@@ -15,32 +15,7 @@ namespace Quizz_PhysioUnited
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class StartAndContinuePage : ContentPage, INotifyPropertyChanged
     {
-        //louding test
-        //private bool isLoading;
-        //public bool IsLoading
-        //{
-        //    get
-        //    {
-        //        return this.isLoading;
-        //    }
-
-        //    set
-        //    {
-        //        this.isLoading = value;
-        //        RaisePropertyChanged("IsLoading");
-        //    }
-        //}
-
-        //public event PropertyChangedEventHandler PropertyChanged;
-
-        //public void RaisePropertyChanged(string propName)
-        //{
-        //    if (PropertyChanged != null)
-        //    {
-        //        PropertyChanged(this, new PropertyChangedEventArgs(propName));
-        //    }
-        //}
-        //louding test
+       
 
         LoadingView LV = new LoadingView();
 
@@ -153,6 +128,36 @@ namespace Quizz_PhysioUnited
         private void ContinueGameButton_Released(object sender, EventArgs e)
         {
             ContinueImage_press.IsVisible = false;
+        }
+
+        private void CancelPopUpImpressum_Clicked(object sender, EventArgs e)
+        {
+            ImpressumPopUp.IsVisible = false;
+        }
+
+        private void CancelPopUpImpressum_Pressed(object sender, EventArgs e)
+        {
+            ImpressumCancelImage_pres.IsVisible = true;
+        }
+
+        private void CancelPopUpImpressum_Released(object sender, EventArgs e)
+        {
+            ImpressumCancelImage_pres.IsVisible = false;
+        }
+
+        private void ImpressumButton_Clicked(object sender, EventArgs e)
+        {
+            ImpressumPopUp.IsVisible = true;
+        }
+
+        private void ImpressumButton_Pressed(object sender, EventArgs e)
+        {
+            ImpressumImage_press.IsVisible = true;
+        }
+
+        private void ImpressumButton_Released(object sender, EventArgs e)
+        {
+            ImpressumImage_press.IsVisible = false;
         }
     }
 }
