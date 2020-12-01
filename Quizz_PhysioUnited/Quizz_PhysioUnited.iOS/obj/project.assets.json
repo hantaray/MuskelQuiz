@@ -2,6 +2,20 @@
   "version": 3,
   "targets": {
     "Xamarin.iOS,Version=v1.0": {
+      "MarcTron.Admob/1.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Forms": "4.2.0.815419",
+          "Xamarin.Google.iOS.MobileAds": "7.66.0"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
@@ -128,6 +142,13 @@
           "lib/Xamarin.iOS10/Plugin.Settings.dll": {}
         }
       },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -139,6 +160,24 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.10.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
         }
       },
       "Xamarin.Forms/4.8.0.1269": {
@@ -262,10 +301,30 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Google.iOS.MobileAds/7.66.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.MobileAds.targets": {}
+        }
+      },
       "Quizz_PhysioUnited/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "MarcTron.Admob": "1.6.0",
           "Newtonsoft.Json": "12.0.3",
           "Rg.Plugins.Popup": "2.0.0.5",
           "System.Json": "4.7.1",
@@ -283,6 +342,20 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win": {
+      "MarcTron.Admob/1.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Forms": "4.2.0.815419",
+          "Xamarin.Google.iOS.MobileAds": "7.66.0"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
@@ -409,6 +482,13 @@
           "lib/Xamarin.iOS10/Plugin.Settings.dll": {}
         }
       },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -420,6 +500,24 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.10.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
         }
       },
       "Xamarin.Forms/4.8.0.1269": {
@@ -543,10 +641,30 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Google.iOS.MobileAds/7.66.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.MobileAds.targets": {}
+        }
+      },
       "Quizz_PhysioUnited/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "MarcTron.Admob": "1.6.0",
           "Newtonsoft.Json": "12.0.3",
           "Rg.Plugins.Popup": "2.0.0.5",
           "System.Json": "4.7.1",
@@ -564,6 +682,20 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x64": {
+      "MarcTron.Admob/1.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Forms": "4.2.0.815419",
+          "Xamarin.Google.iOS.MobileAds": "7.66.0"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
@@ -690,6 +822,13 @@
           "lib/Xamarin.iOS10/Plugin.Settings.dll": {}
         }
       },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -701,6 +840,24 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.10.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
         }
       },
       "Xamarin.Forms/4.8.0.1269": {
@@ -824,10 +981,30 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Google.iOS.MobileAds/7.66.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.MobileAds.targets": {}
+        }
+      },
       "Quizz_PhysioUnited/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "MarcTron.Admob": "1.6.0",
           "Newtonsoft.Json": "12.0.3",
           "Rg.Plugins.Popup": "2.0.0.5",
           "System.Json": "4.7.1",
@@ -845,6 +1022,20 @@
       }
     },
     "Xamarin.iOS,Version=v1.0/win-x86": {
+      "MarcTron.Admob/1.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Forms": "4.2.0.815419",
+          "Xamarin.Google.iOS.MobileAds": "7.66.0"
+        },
+        "compile": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Plugin.MtAdmob.dll": {}
+        }
+      },
       "Newtonsoft.Json/12.0.3": {
         "type": "package",
         "compile": {
@@ -971,6 +1162,13 @@
           "lib/Xamarin.iOS10/Plugin.Settings.dll": {}
         }
       },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "frameworkAssemblies": [
@@ -982,6 +1180,24 @@
         },
         "runtime": {
           "lib/xamarinios10/Xamarin.Essentials.dll": {}
+        }
+      },
+      "Xamarin.Firebase.iOS.Core/6.10.4": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Firebase.Core.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Firebase.iOS.Core.targets": {}
         }
       },
       "Xamarin.Forms/4.8.0.1269": {
@@ -1105,10 +1321,30 @@
           "buildTransitive/Xamarin.Forms.targets": {}
         }
       },
+      "Xamarin.Google.iOS.MobileAds/7.66.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Firebase.iOS.Core": "6.10.4"
+        },
+        "frameworkAssemblies": [
+          "Xamarin.iOS"
+        ],
+        "compile": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "runtime": {
+          "lib/xamarinios10/Google.MobileAds.dll": {}
+        },
+        "build": {
+          "buildTransitive/Xamarin.Google.iOS.MobileAds.targets": {}
+        }
+      },
       "Quizz_PhysioUnited/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "dependencies": {
+          "MarcTron.Admob": "1.6.0",
           "Newtonsoft.Json": "12.0.3",
           "Rg.Plugins.Popup": "2.0.0.5",
           "System.Json": "4.7.1",
@@ -1127,6 +1363,25 @@
     }
   },
   "libraries": {
+    "MarcTron.Admob/1.6.0": {
+      "sha512": "TmgkmPdrtuutjWmxJtVTtDg+QzoENXL9BfF8SI2ptj3lB1gmxc706WvhhYGpEuzC7GSCUujrIu3B/4SU9AGX/g==",
+      "type": "package",
+      "path": "marctron.admob/1.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid81/Plugin.MtAdmob.dll",
+        "lib/monoandroid90/Plugin.MtAdmob.dll",
+        "lib/netstandard1.0/Plugin.MtAdmob.dll",
+        "lib/netstandard2.0/Plugin.MtAdmob.dll",
+        "lib/uap10.0.18362/Plugin.MtAdmob.dll",
+        "lib/uap10.0.18362/Plugin.MtAdmob.pri",
+        "lib/xamarinios10/Plugin.MtAdmob.dll",
+        "marctron.admob.1.6.0.nupkg.sha512",
+        "marctron.admob.nuspec",
+        "readme.txt"
+      ]
+    },
     "Newtonsoft.Json/12.0.3": {
       "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
       "type": "package",
@@ -1438,6 +1693,28 @@
         "xam.plugins.settings.nuspec"
       ]
     },
+    "Xamarin.Build.Download/0.10.0": {
+      "sha512": "XiQNxx6Jox00O80sJRlZv6jXDZ/r3KC7SMwzQNQcD1gZ+vsZyJH3LcSpdJ5NiZhRrWZlTGNSbooHsOBF7lBOyQ==",
+      "type": "package",
+      "path": "xamarin.build.download/0.10.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "THIRD-PARTY-NOTICE.txt",
+        "build/Microsoft.Win32.Registry.dll",
+        "build/Newtonsoft.Json.dll",
+        "build/Xamarin.Build.Download.dll",
+        "build/Xamarin.Build.Download.props",
+        "build/Xamarin.Build.Download.targets",
+        "buildTransitive/Microsoft.Win32.Registry.dll",
+        "buildTransitive/Newtonsoft.Json.dll",
+        "buildTransitive/Xamarin.Build.Download.dll",
+        "buildTransitive/Xamarin.Build.Download.props",
+        "buildTransitive/Xamarin.Build.Download.targets",
+        "xamarin.build.download.0.10.0.nupkg.sha512",
+        "xamarin.build.download.nuspec"
+      ]
+    },
     "Xamarin.Essentials/1.5.3.2": {
       "sha512": "BSLgDJUOPFRwTpQaftM+s4qb/MsTjrqXulEYDOcK6KF3i0Orf75zo3RwRfqnQ8WfpoEFxW/v0jgcPWCvOMgHxg==",
       "type": "package",
@@ -1484,6 +1761,23 @@
         "readme.txt",
         "xamarin.essentials.1.5.3.2.nupkg.sha512",
         "xamarin.essentials.nuspec"
+      ]
+    },
+    "Xamarin.Firebase.iOS.Core/6.10.4": {
+      "sha512": "b/cy0xmGUGlT/RxQt2mvlB9lL/tiNRcfsZsWH20lP7FI6H/xABAGAQU0MDKM84KTTOx8NN9CB95eY74NWKGQtw==",
+      "type": "package",
+      "path": "xamarin.firebase.ios.core/6.10.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/Xamarin.Firebase.iOS.Core.targets",
+        "buildTransitive/Xamarin.Firebase.iOS.Core.targets",
+        "firebaseioscore_128x128.png",
+        "lib/xamarinios10/Firebase.Core.dll",
+        "xamarin.firebase.ios.core.6.10.4.nupkg.sha512",
+        "xamarin.firebase.ios.core.nuspec"
       ]
     },
     "Xamarin.Forms/4.8.0.1269": {
@@ -1800,6 +2094,23 @@
         "xamarin.forms.nuspec"
       ]
     },
+    "Xamarin.Google.iOS.MobileAds/7.66.0": {
+      "sha512": "e1SprUq3RNhNXyV2UCGI/2dte3nRcLDpXR/jlJj6h1OM+LVpGak/WzJp2yTQ7j1tgj8YDMrFAbYMtFVoLU7VKQ==",
+      "type": "package",
+      "path": "xamarin.google.ios.mobileads/7.66.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.md",
+        "THIRD-PARTY-NOTICES.txt",
+        "build/Xamarin.Google.iOS.MobileAds.targets",
+        "buildTransitive/Xamarin.Google.iOS.MobileAds.targets",
+        "googleiosmobileads_128x128.png",
+        "lib/xamarinios10/Google.MobileAds.dll",
+        "xamarin.google.ios.mobileads.7.66.0.nupkg.sha512",
+        "xamarin.google.ios.mobileads.nuspec"
+      ]
+    },
     "Quizz_PhysioUnited/1.0.0": {
       "type": "project",
       "path": "../Quizz_PhysioUnited/Quizz_PhysioUnited.csproj",
@@ -1808,6 +2119,7 @@
   },
   "projectFileDependencyGroups": {
     "Xamarin.iOS,Version=v1.0": [
+      "MarcTron.Admob >= 1.6.0",
       "Quizz_PhysioUnited >= 1.0.0",
       "Xam.Plugins.Settings >= 3.1.1",
       "Xamarin.Essentials >= 1.5.3.2",
@@ -1815,24 +2127,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\konne\\.nuget\\packages\\": {},
+    "C:\\Users\\ahant\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\Quizz_PhysioUnited.iOS.csproj",
+      "projectUniqueName": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\Quizz_PhysioUnited.iOS.csproj",
       "projectName": "Quizz_PhysioUnited.iOS",
-      "projectPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\Quizz_PhysioUnited.iOS.csproj",
-      "packagesPath": "C:\\Users\\konne\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\obj\\",
+      "projectPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\Quizz_PhysioUnited.iOS.csproj",
+      "packagesPath": "C:\\Users\\ahant\\.nuget\\packages\\",
+      "outputPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\konne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ahant\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1846,8 +2158,8 @@
       "frameworks": {
         "xamarinios10": {
           "projectReferences": {
-            "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj": {
-              "projectPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj"
+            "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj": {
+              "projectPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj"
             }
           }
         }
@@ -1856,6 +2168,10 @@
     "frameworks": {
       "xamarinios10": {
         "dependencies": {
+          "MarcTron.Admob": {
+            "target": "Package",
+            "version": "[1.6.0, )"
+          },
           "Xam.Plugins.Settings": {
             "target": "Package",
             "version": "[3.1.1, )"

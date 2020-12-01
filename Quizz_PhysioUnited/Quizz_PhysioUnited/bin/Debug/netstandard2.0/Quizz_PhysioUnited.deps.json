@@ -9,6 +9,7 @@
     ".NETStandard,Version=v2.0/": {
       "Quizz_PhysioUnited/1.0.0": {
         "dependencies": {
+          "MarcTron.Admob": "1.6.0",
           "NETStandard.Library": "2.0.3",
           "Newtonsoft.Json": "12.0.3",
           "Rg.Plugins.Popup": "2.0.0.5",
@@ -20,6 +21,18 @@
         },
         "runtime": {
           "Quizz_PhysioUnited.dll": {}
+        }
+      },
+      "MarcTron.Admob/1.6.0": {
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Forms": "4.8.0.1269"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.MtAdmob.dll": {
+            "assemblyVersion": "1.6.0.0",
+            "fileVersion": "1.6.0.0"
+          }
         }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {},
@@ -154,6 +167,7 @@
           }
         }
       },
+      "Xamarin.Build.Download/0.10.0": {},
       "Xamarin.Essentials/1.5.3.2": {
         "dependencies": {
           "System.Numerics.Vectors": "4.5.0"
@@ -188,6 +202,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "MarcTron.Admob/1.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TmgkmPdrtuutjWmxJtVTtDg+QzoENXL9BfF8SI2ptj3lB1gmxc706WvhhYGpEuzC7GSCUujrIu3B/4SU9AGX/g==",
+      "path": "marctron.admob/1.6.0",
+      "hashPath": "marctron.admob.1.6.0.nupkg.sha512"
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "type": "package",
@@ -293,6 +314,13 @@
       "sha512": "sha512-EQEYQJ64ZLqui5GWkLMavgqitHxwUHZHryTzUD1021UBuz1XwDSjPL45W0K4pPXjz9oKbg7YpRXKPR1luPr/5Q==",
       "path": "xam.plugins.settings/3.1.1",
       "hashPath": "xam.plugins.settings.3.1.1.nupkg.sha512"
+    },
+    "Xamarin.Build.Download/0.10.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XiQNxx6Jox00O80sJRlZv6jXDZ/r3KC7SMwzQNQcD1gZ+vsZyJH3LcSpdJ5NiZhRrWZlTGNSbooHsOBF7lBOyQ==",
+      "path": "xamarin.build.download/0.10.0",
+      "hashPath": "xamarin.build.download.0.10.0.nupkg.sha512"
     },
     "Xamarin.Essentials/1.5.3.2": {
       "type": "package",

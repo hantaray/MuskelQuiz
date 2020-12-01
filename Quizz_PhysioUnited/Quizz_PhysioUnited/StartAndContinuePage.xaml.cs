@@ -62,6 +62,7 @@ namespace Quizz_PhysioUnited
         {
             if (InternetTester.TestConnection())
             {
+                await App.DatabaseAll.DatabaseModified();
                 LV.IsLoading = true;
                 await App.DatabaseAll.GetDataFromServer();
                 QuestionsData.UpdateCurrentWithOriginal();

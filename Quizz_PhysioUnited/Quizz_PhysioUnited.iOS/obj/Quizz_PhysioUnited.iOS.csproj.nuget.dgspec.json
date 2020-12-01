@@ -1,24 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\Quizz_PhysioUnited.iOS.csproj": {}
+    "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\Quizz_PhysioUnited.iOS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\Quizz_PhysioUnited.iOS.csproj": {
+    "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\Quizz_PhysioUnited.iOS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\Quizz_PhysioUnited.iOS.csproj",
+        "projectUniqueName": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\Quizz_PhysioUnited.iOS.csproj",
         "projectName": "Quizz_PhysioUnited.iOS",
-        "projectPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\Quizz_PhysioUnited.iOS.csproj",
-        "packagesPath": "C:\\Users\\konne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\obj\\",
+        "projectPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\Quizz_PhysioUnited.iOS.csproj",
+        "packagesPath": "C:\\Users\\ahant\\.nuget\\packages\\",
+        "outputPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.iOS\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\konne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ahant\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -32,8 +32,8 @@
         "frameworks": {
           "xamarinios10": {
             "projectReferences": {
-              "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj": {
-                "projectPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj"
+              "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj": {
+                "projectPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj"
               }
             }
           }
@@ -42,6 +42,10 @@
       "frameworks": {
         "xamarinios10": {
           "dependencies": {
+            "MarcTron.Admob": {
+              "target": "Package",
+              "version": "[1.6.0, )"
+            },
             "Xam.Plugins.Settings": {
               "target": "Package",
               "version": "[3.1.1, )"
@@ -69,20 +73,20 @@
         }
       }
     },
-    "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj": {
+    "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj",
+        "projectUniqueName": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj",
         "projectName": "Quizz_PhysioUnited",
-        "projectPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj",
-        "packagesPath": "C:\\Users\\konne\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\obj\\",
+        "projectPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj",
+        "packagesPath": "C:\\Users\\ahant\\.nuget\\packages\\",
+        "outputPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\konne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ahant\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
@@ -95,6 +99,7 @@
         },
         "frameworks": {
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {}
           }
         },
@@ -106,7 +111,12 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
+            "MarcTron.Admob": {
+              "target": "Package",
+              "version": "[1.6.0, )"
+            },
             "NETStandard.Library": {
               "suppressParent": "All",
               "target": "Package",
@@ -152,7 +162,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

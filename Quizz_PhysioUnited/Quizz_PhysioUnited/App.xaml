@@ -3,9 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
              mc:Ignorable="d"
              x:Class="Quizz_PhysioUnited.App">
     <Application.Resources>
-
+        <Style TargetType="controls:MTAdView">
+            <Setter Property="HeightRequest">
+                <Setter.Value>
+                    <x:OnIdiom Phone="50" Tablet="90"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

@@ -130,5 +130,36 @@ namespace Quizz_PhysioUnited
                 return null;
             }
         }
+
+        public async Task<bool> DatabaseModified()
+        {
+            try
+            {
+                bool modified = false;
+                HttpClient client = new HttpClient();
+
+                RootMuskel muskelList = new RootMuskel();
+                Uri uri = new Uri("http://hasashi.bplaced.net/physio_united/api/checkModified.php");
+                HttpResponseMessage response = await client.GetAsync(uri);
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    Dictionary<string, DateTime> contentDict = JsonConvert.DeserializeObject<Dictionary<string, DateTime>>(content);
+
+                    DateTime modifiedDate = contentDict["UPDATE_TIME"];
+                    if (DateTime.Now > modifiedDate)
+                    {
+                        modified = true;
+                    }
+                }
+                return modified;
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ", e.Message);
+                return false;
+            }
+        }
     }
 }
