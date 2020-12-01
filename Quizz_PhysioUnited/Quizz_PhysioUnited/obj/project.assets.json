@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     ".NETStandard,Version=v2.0": {
+      "MarcTron.Admob/1.6.0": {
+        "type": "package",
+        "dependencies": {
+          "Xamarin.Build.Download": "0.10.0",
+          "Xamarin.Forms": "3.5.0.169047"
+        },
+        "compile": {
+          "lib/netstandard2.0/Plugin.MtAdmob.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Plugin.MtAdmob.dll": {}
+        }
+      },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
         "compile": {
@@ -220,6 +233,13 @@
           "lib/netstandard1.0/Plugin.Settings.dll": {}
         }
       },
+      "Xamarin.Build.Download/0.10.0": {
+        "type": "package",
+        "build": {
+          "buildTransitive/Xamarin.Build.Download.props": {},
+          "buildTransitive/Xamarin.Build.Download.targets": {}
+        }
+      },
       "Xamarin.Essentials/1.5.3.2": {
         "type": "package",
         "dependencies": {
@@ -252,6 +272,25 @@
     }
   },
   "libraries": {
+    "MarcTron.Admob/1.6.0": {
+      "sha512": "TmgkmPdrtuutjWmxJtVTtDg+QzoENXL9BfF8SI2ptj3lB1gmxc706WvhhYGpEuzC7GSCUujrIu3B/4SU9AGX/g==",
+      "type": "package",
+      "path": "marctron.admob/1.6.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/monoandroid81/Plugin.MtAdmob.dll",
+        "lib/monoandroid90/Plugin.MtAdmob.dll",
+        "lib/netstandard1.0/Plugin.MtAdmob.dll",
+        "lib/netstandard2.0/Plugin.MtAdmob.dll",
+        "lib/uap10.0.18362/Plugin.MtAdmob.dll",
+        "lib/uap10.0.18362/Plugin.MtAdmob.pri",
+        "lib/xamarinios10/Plugin.MtAdmob.dll",
+        "marctron.admob.1.6.0.nupkg.sha512",
+        "marctron.admob.nuspec",
+        "readme.txt"
+      ]
+    },
     "Microsoft.NETCore.Platforms/1.1.0": {
       "sha512": "kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
       "type": "package",
@@ -785,6 +824,28 @@
         "xam.plugins.settings.nuspec"
       ]
     },
+    "Xamarin.Build.Download/0.10.0": {
+      "sha512": "XiQNxx6Jox00O80sJRlZv6jXDZ/r3KC7SMwzQNQcD1gZ+vsZyJH3LcSpdJ5NiZhRrWZlTGNSbooHsOBF7lBOyQ==",
+      "type": "package",
+      "path": "xamarin.build.download/0.10.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "THIRD-PARTY-NOTICE.txt",
+        "build/Microsoft.Win32.Registry.dll",
+        "build/Newtonsoft.Json.dll",
+        "build/Xamarin.Build.Download.dll",
+        "build/Xamarin.Build.Download.props",
+        "build/Xamarin.Build.Download.targets",
+        "buildTransitive/Microsoft.Win32.Registry.dll",
+        "buildTransitive/Newtonsoft.Json.dll",
+        "buildTransitive/Xamarin.Build.Download.dll",
+        "buildTransitive/Xamarin.Build.Download.props",
+        "buildTransitive/Xamarin.Build.Download.targets",
+        "xamarin.build.download.0.10.0.nupkg.sha512",
+        "xamarin.build.download.nuspec"
+      ]
+    },
     "Xamarin.Essentials/1.5.3.2": {
       "sha512": "BSLgDJUOPFRwTpQaftM+s4qb/MsTjrqXulEYDOcK6KF3i0Orf75zo3RwRfqnQ8WfpoEFxW/v0jgcPWCvOMgHxg==",
       "type": "package",
@@ -1150,6 +1211,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
+      "MarcTron.Admob >= 1.6.0",
       "NETStandard.Library >= 2.0.3",
       "Newtonsoft.Json >= 12.0.3",
       "Rg.Plugins.Popup >= 2.0.0.5",
@@ -1161,23 +1223,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\konne\\.nuget\\packages\\": {},
+    "C:\\Users\\ahant\\.nuget\\packages\\": {},
     "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj",
+      "projectUniqueName": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj",
       "projectName": "Quizz_PhysioUnited",
-      "projectPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj",
-      "packagesPath": "C:\\Users\\konne\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\konne\\Coding\\C#\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\obj\\",
+      "projectPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\Quizz_PhysioUnited.csproj",
+      "packagesPath": "C:\\Users\\ahant\\.nuget\\packages\\",
+      "outputPath": "C:\\dev\\Xamarin\\Quiz_PhysioUnited\\quizz_physiounited\\Quizz_PhysioUnited\\Quizz_PhysioUnited\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\konne\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ahant\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -1190,6 +1252,7 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "projectReferences": {}
         }
       },
@@ -1201,7 +1264,12 @@
     },
     "frameworks": {
       "netstandard2.0": {
+        "targetAlias": "netstandard2.0",
         "dependencies": {
+          "MarcTron.Admob": {
+            "target": "Package",
+            "version": "[1.6.0, )"
+          },
           "NETStandard.Library": {
             "suppressParent": "All",
             "target": "Package",
@@ -1247,7 +1315,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:MarcTron.Plugin.Controls;assembly=Plugin.MtAdmob"
+             x:Class="Quizz_PhysioUnited.AdsPage">
+
+    <StackLayout>
+        <Button Text="Show Ad"
+                x:Name="AdButton"
+                Clicked="AdButton_Clicked" />
+        <Label Text="Let's test an Admob Banner!" 
+           HorizontalOptions="Center"
+           VerticalOptions="CenterAndExpand" />
+        <!-- Place the Admob controls here -->
+        <controls:MTAdView AdsId="ca-app-pub-3940256099942544/6300978111"/>
+    </StackLayout>
+</ContentPage>

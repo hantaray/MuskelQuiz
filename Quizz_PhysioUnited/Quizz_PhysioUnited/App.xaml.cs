@@ -1,14 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using MarcTron.Plugin;
+using MarcTron.Plugin.Controls;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Json;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace Quizz_PhysioUnited
 {
@@ -40,6 +36,23 @@ namespace Quizz_PhysioUnited
         public App()
         {
             InitializeComponent();
+
+            //CrossMTAdmob.Current.AdsId = "ca-app-pub-3940256099942544/6300978111";
+
+            MTAdView ads = new MTAdView();
+            ads.AdsId = "ca-app-pub-3940256099942544/6300978111";
+            //ads.PersonalizedAds = true;
+
+            var page = new ContentPage();
+            page.Title = "My Page";
+            var content = new StackLayout();
+            // add content controls to layout here
+            // you could prompt the user for input - ie, how many buttons, or labels, etc
+            // and populate the stack accordingly
+            content.Children.Add(ads);
+            page.Content = content;
+
+            //MainPage = new NavigationPage(new AdsPage());
 
             MainPage = new NavigationPage(new StartAndContinuePage());
         }
