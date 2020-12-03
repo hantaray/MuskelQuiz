@@ -60,9 +60,37 @@ namespace Quizz_PhysioUnited
 
         private async void NewGameButton_Clicked(object sender, EventArgs e)
         {
+
+            //same funktion has to exists in app start to update local muskel list (in the background)
+            //to check the load just if connection to internet and check if db is modified
+            if (App.DatabaseAll.IsMuskelDBEmpty())
+            {
+                if (InternetTester.TestConnection())
+                {
+                    await App.DatabaseAll.GetDataFromServer();
+                    //save modified date in settings
+                }
+                else
+                {
+                    await DisplayAlert("Kein Internet", "Das Telefon muss für das Laden der aktuellen Fragen mit dem Internet verbunden sein", "Ok");
+                }
+
+            }
+            else
+            {
+                if (InternetTester.TestConnection())
+                {
+                    //if lastModifiedDate < currentModifiedDate
+                        //load Data
+                }
+            }
+
+
+
+
             if (InternetTester.TestConnection())
             {
-                await App.DatabaseAll.DatabaseModified();
+                await App.DatabaseAll.DatabaseModified(Convert.ToDateTime(Settings.ModifiedDateSaved));
                 LV.IsLoading = true;
                 await App.DatabaseAll.GetDataFromServer();
                 QuestionsData.UpdateCurrentWithOriginal();
@@ -111,7 +139,7 @@ namespace Quizz_PhysioUnited
         private async void ContinueGameButton_Clicked(object sender, EventArgs e)
         {
             LV.IsLoading = true;
-            await App.DatabaseAll.GetDataFromServer();
+            //await App.DatabaseAll.GetDataFromServer();
             App.setQALists();
             await Navigation.PushAsync(new StartScreen());
             LV.IsLoading = false;

@@ -89,6 +89,21 @@ namespace Quizz_PhysioUnited
 
         }
 
+        public bool IsMuskelDBEmpty()
+        {
+            //int count2 = _database.Query<Question>("SELECT * FROM[Question]").Count;
+            int count = _database.ExecuteScalar<int>("SELECT count(*) FROM [Muskel]");
+            if (count == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
 
         //Es wird die ganze SQLite-DB ausgetauscht - vielleicht besser nur die Daten zu ziehen, die geändert wurden?
         public async Task<RootMuskel> GetDataFromServer()
@@ -131,7 +146,7 @@ namespace Quizz_PhysioUnited
             }
         }
 
-        public async Task<bool> DatabaseModified()
+        public async Task<bool> DatabaseModified(DateTime lastModifiedDate)
         {
             try
             {
@@ -147,7 +162,7 @@ namespace Quizz_PhysioUnited
                     Dictionary<string, DateTime> contentDict = JsonConvert.DeserializeObject<Dictionary<string, DateTime>>(content);
 
                     DateTime modifiedDate = contentDict["UPDATE_TIME"];
-                    if (DateTime.Now > modifiedDate)
+                    if (lastModifiedDate < modifiedDate)
                     {
                         modified = true;
                     }
@@ -161,5 +176,25 @@ namespace Quizz_PhysioUnited
                 return false;
             }
         }
+
+
+        //public async bool GetDataFromServerWithTest()
+        //{
+        //    if (IsMuskelDBEmpty())
+        //    {
+        //        if (Utils.InternetTester.TestConnection())
+        //        {
+        //            await GetDataFromServer();
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+
+        //    }
+        //}
+
+
     }
 }
