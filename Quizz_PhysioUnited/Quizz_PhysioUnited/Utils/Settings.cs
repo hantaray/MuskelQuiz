@@ -63,11 +63,15 @@ namespace Quizz_PhysioUnited.Utils
 
         private const string AllQuestionsNumberKatFourSetting = "allQuestionsNr_katFour_Key";
 
-        private const string ChanceBoolKatFourSetting = "chnaceBool_katFour_key";
+        private const string ChanceBoolKatFourSetting = "chanceBool_katFour_key";
 
-
+        //Gem Settings
 
         private const string GemsSettings = "last_gems_key";
+
+        //ModifiedDate Settings
+
+        private const string ModifiedDateSettings = "modifiedDate_key";
 
         //Defaults
         private static readonly string ThirtyAsDefault = "30";
@@ -337,6 +341,21 @@ namespace Quizz_PhysioUnited.Utils
             set
             {
                 AppSettings.AddOrUpdateValue(ChanceBoolKatFourSetting, value);
+            }
+        }
+
+
+
+        //ModifiedDate
+        public static string ModifiedDateSaved
+        {
+            get
+            {
+                return AppSettings.GetValueOrDefault(ModifiedDateSettings, SettingsDefault);
+            }
+            set
+            {
+                AppSettings.AddOrUpdateValue(ModifiedDateSettings, value);
             }
         }
 
