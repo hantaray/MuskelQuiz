@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -33,12 +34,16 @@ namespace Quizz_PhysioUnited
                 yConstraint: Constraint.Constant(0),
                 widthConstraint: Constraint.RelativeToParent((parent) => { return parent.Width; }),
                 heightConstraint: Constraint.RelativeToParent((parent) => { return parent.Height; }));
-
+            // Todo: wohin damit?
+            //TryToGetNewData();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
+
+            //TryToGetNewData();
+
             //soll den continue button freigeben, wenn eine frage beantwortet wurde
             if (Int32.Parse(Settings.QuestionCounterKatOne) == 1 &&  //funktioniert nur bei load, nicht bei back per pop
                 Int32.Parse(Settings.QuestionCounterKatTwo) == 1 &&
@@ -63,77 +68,44 @@ namespace Quizz_PhysioUnited
 
             //same funktion has to exists in app start to update local muskel list (in the background)
             //to check the load just if connection to internet and check if db is modified
+            LV.IsLoading = true;    //opens load screen
+
+            //App.DatabaseAll.ResetMuskelDB();    //clears muskel table in local db; DEBUG
+
             if (App.DatabaseAll.IsMuskelDBEmpty())
             {
+                Settings.ModifiedDateSaved = App.DatabaseAll.GetModifiedDate().ToString();
                 if (InternetTester.TestConnection())
                 {
                     await App.DatabaseAll.GetDataFromServer();
+
                     //save modified date in settings
+                    Settings.ModifiedDateSaved = App.DatabaseAll.GetModifiedDate().ToString();
+                    await StartNewGame();                    
                 }
                 else
                 {
                     await DisplayAlert("Kein Internet", "Das Telefon muss für das Laden der aktuellen Fragen mit dem Internet verbunden sein", "Ok");
                 }
-
             }
             else
             {
                 if (InternetTester.TestConnection())
                 {
-                    //if lastModifiedDate < currentModifiedDate
-                        //load Data
-                }
+                    DateTime modifiedDate = App.DatabaseAll.GetModifiedDate().Result;
+                    DateTime lastLocalModifiedDate = Convert.ToDateTime(Settings.ModifiedDateSaved);
+
+                    if (modifiedDate > lastLocalModifiedDate)
+                    {
+                        await App.DatabaseAll.GetDataFromServer();
+
+                        //save modified date in settings
+                        Settings.ModifiedDateSaved = App.DatabaseAll.GetModifiedDate().ToString();
+                    }                    
+                }                
+                await StartNewGame();                
             }
-
-
-
-
-            if (InternetTester.TestConnection())
-            {
-                await App.DatabaseAll.DatabaseModified(Convert.ToDateTime(Settings.ModifiedDateSaved));
-                LV.IsLoading = true;
-                await App.DatabaseAll.GetDataFromServer();
-                QuestionsData.UpdateCurrentWithOriginal();
-                App.setQALists();
-
-                Settings.QuestionCounterKatOne = "1";
-                Settings.ScoreKatOne = "0";
-                Settings.AllQuestionsNrKatOne = App.QCountKatOne.ToString();
-                Settings.ChanceBoolKatOne = "True";
-
-                Settings.QuestionCounterKatTwo = "1";
-                Settings.ScoreKatTwo = "0";
-                Settings.AllQuestionsNrKatTwo = App.QCountKatTwo.ToString();
-                Settings.ChanceBoolKatTwo = "True";
-
-                Settings.QuestionCounterKatThree = "1";
-                Settings.ScoreKatThree = "0";
-                Settings.AllQuestionsNrKatThree = App.QCountKatThree.ToString();
-                Settings.ChanceBoolKatThree = "True";
-
-                Settings.QuestionCounterKatFour = "1";
-                Settings.ScoreKatFour = "0";
-                Settings.AllQuestionsNrKatFour = App.QCountKatFour.ToString();
-                Settings.ChanceBoolKatFour = "True";
-
-                Settings.Gems = "40";
-                SetTimerValues("30");
-
-                await Navigation.PushAsync(new StartScreen());
-                LV.IsLoading = false;
-            }
-            else
-            {
-                await DisplayAlert("Kein Internet", "Das Telefon muss für das Laden der aktuellen Fragen mit dem Internet verbunden sein", "Ok");
-            }
-        }
-
-        public static void SetTimerValues(string timerValue)
-        {
-            Settings.TimerValueKatOne = timerValue;
-            Settings.TimerValueKatTwo = timerValue;
-            Settings.TimerValueKatThree = timerValue;
-            Settings.TimerValueKatFour = timerValue;
+            LV.IsLoading = false; //closes load screen
         }
 
         private async void ContinueGameButton_Clicked(object sender, EventArgs e)
@@ -144,6 +116,66 @@ namespace Quizz_PhysioUnited
             await Navigation.PushAsync(new StartScreen());
             LV.IsLoading = false;
         }
+
+
+        private async void TryToGetNewData()
+        {
+            LV.IsLoading = true;    //opens load screen
+            if (InternetTester.TestConnection())
+            {
+
+                DateTime modifiedDate = App.DatabaseAll.GetModifiedDate().Result;
+                DateTime lastLocalModifiedDate = Convert.ToDateTime(Settings.ModifiedDateSaved);
+
+                if (modifiedDate > lastLocalModifiedDate)
+                {
+                    await App.DatabaseAll.GetDataFromServer();
+
+                    //save modified date in settings
+                    Settings.ModifiedDateSaved = App.DatabaseAll.GetModifiedDate().ToString();
+                }
+            }
+            LV.IsLoading = false; //closes load screen
+        }
+
+        private async Task StartNewGame()
+        {
+            QuestionsData.UpdateCurrentWithOriginal();
+            App.setQALists();
+
+            Settings.QuestionCounterKatOne = "1";
+            Settings.ScoreKatOne = "0";
+            Settings.AllQuestionsNrKatOne = App.QCountKatOne.ToString();
+            Settings.ChanceBoolKatOne = "True";
+
+            Settings.QuestionCounterKatTwo = "1";
+            Settings.ScoreKatTwo = "0";
+            Settings.AllQuestionsNrKatTwo = App.QCountKatTwo.ToString();
+            Settings.ChanceBoolKatTwo = "True";
+
+            Settings.QuestionCounterKatThree = "1";
+            Settings.ScoreKatThree = "0";
+            Settings.AllQuestionsNrKatThree = App.QCountKatThree.ToString();
+            Settings.ChanceBoolKatThree = "True";
+
+            Settings.QuestionCounterKatFour = "1";
+            Settings.ScoreKatFour = "0";
+            Settings.AllQuestionsNrKatFour = App.QCountKatFour.ToString();
+            Settings.ChanceBoolKatFour = "True";
+
+            Settings.Gems = "40";
+            SetTimerValues("30");
+
+            await Navigation.PushAsync(new StartScreen());
+        }
+
+        public static void SetTimerValues(string timerValue)
+        {
+            Settings.TimerValueKatOne = timerValue;
+            Settings.TimerValueKatTwo = timerValue;
+            Settings.TimerValueKatThree = timerValue;
+            Settings.TimerValueKatFour = timerValue;
+        }        
 
 
         private void NewGameButton_Pressed(object sender, EventArgs e)
