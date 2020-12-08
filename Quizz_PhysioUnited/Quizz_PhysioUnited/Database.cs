@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace Quizz_PhysioUnited
 {
@@ -71,13 +72,32 @@ namespace Quizz_PhysioUnited
             _database.CreateTable<Question>();
         }
 
-
+        public void ResetMuskelDB()
+        {
+            _database.DropTable<Muskel>();
+            _database.CreateTable<Muskel>();
+        }
 
 
         public bool IsQuestionDBEmpty()
         {
             //int count2 = _database.Query<Question>("SELECT * FROM[Question]").Count;
             int count = _database.ExecuteScalar<int>("SELECT count(*) FROM [Question]");
+            if (count == 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+        public bool IsMuskelDBEmpty()
+        {
+            //int count2 = _database.Query<Question>("SELECT * FROM[Question]").Count;
+            int count = _database.ExecuteScalar<int>("SELECT count(*) FROM [Muskel]");
             if (count == 0)
             {
                 return true;
@@ -123,43 +143,45 @@ namespace Quizz_PhysioUnited
                 }
                 return muskelList;
             }
-            catch (HttpRequestException e)
+            catch (Exception e)
             {
-                Console.WriteLine("\nException Caught!");
-                Console.WriteLine("Message :{0} ", e.Message);
+                Debug.WriteLine("\nException Caught!");
+                Debug.WriteLine("Message :{0} ", e.Message);
                 return null;
             }
         }
 
-        public async Task<bool> DatabaseModified()
+        public async Task<DateTime> GetModifiedDate()
         {
+            DateTime modifiedDate = new DateTime(1111, 11, 11, 11, 11, 11);
             try
-            {
-                bool modified = false;
+            {                
                 HttpClient client = new HttpClient();
-
                 RootMuskel muskelList = new RootMuskel();
-                Uri uri = new Uri("http://hasashi.bplaced.net/physio_united/api/checkModified.php");
+                Uri uri = new Uri("http://hasashi.bplaced.net/physio_united/api/checkModified.php");                
                 HttpResponseMessage response = await client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     Dictionary<string, DateTime> contentDict = JsonConvert.DeserializeObject<Dictionary<string, DateTime>>(content);
-
-                    DateTime modifiedDate = contentDict["UPDATE_TIME"];
-                    if (DateTime.Now > modifiedDate)
-                    {
-                        modified = true;
-                    }
+                    modifiedDate = contentDict["UPDATE_TIME"];
+                    Debug.WriteLine(modifiedDate);    //debug
+                    return modifiedDate;                    
                 }
-                return modified;
+                else
+                {
+                    Debug.WriteLine(modifiedDate);    //debug
+                    return modifiedDate;
+                }
+                
             }
-            catch (HttpRequestException e)
+            catch (Exception e)
             {
-                Console.WriteLine("\nException Caught!");
-                Console.WriteLine("Message :{0} ", e.Message);
-                return false;
+                Debug.WriteLine("\nException Caught!");
+                Debug.WriteLine("Message :{0} ", e.Message);
+                Debug.WriteLine(modifiedDate);
+                return modifiedDate;
             }
-        }
+        }      
     }
 }

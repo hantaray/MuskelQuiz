@@ -84,6 +84,8 @@ namespace Quizz_PhysioUnited.Utils
 
         private static readonly string TrueDefault = "True";
 
+        private static readonly string DateDefault = "1212-12-12 12:12:12";
+
         #endregion 
 
         //Kategorie 1
@@ -351,7 +353,7 @@ namespace Quizz_PhysioUnited.Utils
         {
             get
             {
-                return AppSettings.GetValueOrDefault(ModifiedDateSettings, SettingsDefault);
+                return AppSettings.GetValueOrDefault(ModifiedDateSettings, DateDefault);
             }
             set
             {
