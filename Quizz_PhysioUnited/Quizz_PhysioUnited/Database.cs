@@ -141,6 +141,7 @@ namespace Quizz_PhysioUnited
                         Kategorie = muskel.Kategorie
                     });
                 }
+                Debug.WriteLine("online Db loaded");
                 return muskelList;
             }
             catch (Exception e)
