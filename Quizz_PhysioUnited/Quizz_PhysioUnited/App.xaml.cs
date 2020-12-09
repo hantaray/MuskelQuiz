@@ -53,8 +53,8 @@ namespace Quizz_PhysioUnited
             page.Content = content;
 
             //MainPage = new NavigationPage(new AdsPage());
-
-            MainPage = new NavigationPage(new StartAndContinuePage());
+            //MainPage = new NavigationPage(new StartAndContinuePage());
+            MainPage = new NavigationPage(new LoadingPage());
         }
 
         protected override void OnStart()

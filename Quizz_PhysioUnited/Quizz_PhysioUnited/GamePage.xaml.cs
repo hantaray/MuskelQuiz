@@ -58,6 +58,7 @@ namespace Quizz_PhysioUnited
             SetScore();
             SetGems();
             EnableButtons();
+            JokerButtonEnable();
             StartTimerAgain();            
         }
 
@@ -67,22 +68,22 @@ namespace Quizz_PhysioUnited
             if (jokerIsUsed)
             {
                 CheckWithJoker(sender);
-                SaveUserData();
-                jokerButton.IsEnabled = true;
-                JokerImage.Opacity = 1;
-                TextBubbleGrid.IsVisible = false;
+                SaveUserData();                
             }
             else
             {
                 questionRoundIsFinished = true;
                 CheckAnswer(sender);
                 DisableButtons();
+                JokerButtonDisable();
                 StopTimer();
                 TimerRestarts = true;
                 QuestionCounterPlus();
                 SaveUserData();
             }
         }
+
+        
 
         private void endButton_Clicked(object sender, EventArgs e)
         {
@@ -110,11 +111,11 @@ namespace Quizz_PhysioUnited
 
         private void jokerButton_Clicked(object sender, EventArgs e)
         {            
+            JokerButtonDisableWithPopUp();
             jokerUsed();
-            jokerButton.IsEnabled = false;
-            JokerImage.Opacity = 0.45;
-            TextBubbleGrid.IsVisible = true;
         }
+
+        
 
         private void nextButton_Clicked(object sender, EventArgs e)
         {            
@@ -129,6 +130,7 @@ namespace Quizz_PhysioUnited
                 SetQuestionAndAnswer();
                 SetLevel();
                 EnableButtons();
+                JokerButtonEnable();
                 SetTimer();
             }
 
@@ -243,6 +245,7 @@ namespace Quizz_PhysioUnited
                 {
                     timerBool = false;
                     DisableButtons();
+                    JokerButtonDisable();
                     SetAnswerButtonTransperent();
                     questionRoundIsFinished = true;
                     labelTimer.Text = "0,0";
@@ -285,7 +288,7 @@ namespace Quizz_PhysioUnited
             SetGems();
         }
 
-
+        //Joker methods
         public void CheckWithJoker( object sender)
         {
             Button clickedButton = (Button)sender;
@@ -301,6 +304,7 @@ namespace Quizz_PhysioUnited
                 SetScore();
                 SetGems();
                 DisableButtons();
+                JokerButtonDisable();
                 StopTimer();
                 TimerRestarts = true;
                 QuestionCounterPlus();
@@ -311,12 +315,11 @@ namespace Quizz_PhysioUnited
                 //clickedButton.BackgroundColor = Color.FromHex("#7D0000");
                 SetImageWrongAnswerJoker(buttonNumber);
                 clickedButton.InputTransparent = true;
-
+                JokerButtonEnable();
             }
             jokerIsUsed = false;
             //jokerButton.BackgroundColor = Color.FromHex("#000000");
         }
-
 
 
         public void jokerUsed()
@@ -331,8 +334,30 @@ namespace Quizz_PhysioUnited
             }
             else
             {
-                AlertNotEnoughGems();
+                JokerButtonDisable();
+                AlertNotEnoughGems();                
             }
+        }
+
+        private void JokerButtonDisable()
+        {
+            jokerButton.IsEnabled = false;
+            JokerImage.Opacity = 0.45;
+            TextBubbleGrid.IsVisible = false;
+        }
+        
+        private void JokerButtonDisableWithPopUp()
+        {
+            jokerButton.IsEnabled = false;
+            JokerImage.Opacity = 0.45;
+            TextBubbleGrid.IsVisible = true;
+        }
+
+        private void JokerButtonEnable()
+        {
+            jokerButton.IsEnabled = true;
+            JokerImage.Opacity = 1;
+            TextBubbleGrid.IsVisible = false;
         }
 
         public void EnableButtons()

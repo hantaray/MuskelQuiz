@@ -65,22 +65,18 @@ namespace Quizz_PhysioUnited
 
         private async void NewGameButton_Clicked(object sender, EventArgs e)
         {
-
             //same funktion has to exists in app start to update local muskel list (in the background)
             //to check the load just if connection to internet and check if db is modified
             LV.IsLoading = true;    //opens load screen
-
-            //App.DatabaseAll.ResetMuskelDB();    //clears muskel table in local db; DEBUG
-
+            //App.DatabaseAll.ResetMuskelDB();    //clears muskel table in local db; FOR TESTING
             if (App.DatabaseAll.IsMuskelDBEmpty())
             {
-                Settings.ModifiedDateSaved = App.DatabaseAll.GetModifiedDate().ToString();
                 if (InternetTester.TestConnection())
                 {
                     await App.DatabaseAll.GetDataFromServer();
-
                     //save modified date in settings
-                    Settings.ModifiedDateSaved = App.DatabaseAll.GetModifiedDate().ToString();
+                    DateTime modiDate = await App.DatabaseAll.GetModifiedDate();
+                    Settings.ModifiedDateSaved = modiDate.ToString();
                     await StartNewGame();                    
                 }
                 else
@@ -92,15 +88,14 @@ namespace Quizz_PhysioUnited
             {
                 if (InternetTester.TestConnection())
                 {
-                    DateTime modifiedDate = App.DatabaseAll.GetModifiedDate().Result;
+                    DateTime modifiedDate = await App.DatabaseAll.GetModifiedDate();
                     DateTime lastLocalModifiedDate = Convert.ToDateTime(Settings.ModifiedDateSaved);
-
                     if (modifiedDate > lastLocalModifiedDate)
                     {
                         await App.DatabaseAll.GetDataFromServer();
-
                         //save modified date in settings
-                        Settings.ModifiedDateSaved = App.DatabaseAll.GetModifiedDate().ToString();
+                        DateTime modiDate = await App.DatabaseAll.GetModifiedDate();
+                        Settings.ModifiedDateSaved = modiDate.ToString();
                     }                    
                 }                
                 await StartNewGame();                
@@ -124,7 +119,8 @@ namespace Quizz_PhysioUnited
             if (InternetTester.TestConnection())
             {
 
-                DateTime modifiedDate = App.DatabaseAll.GetModifiedDate().Result;
+
+                DateTime modifiedDate = await App.DatabaseAll.GetModifiedDate();
                 DateTime lastLocalModifiedDate = Convert.ToDateTime(Settings.ModifiedDateSaved);
 
                 if (modifiedDate > lastLocalModifiedDate)
@@ -132,7 +128,8 @@ namespace Quizz_PhysioUnited
                     await App.DatabaseAll.GetDataFromServer();
 
                     //save modified date in settings
-                    Settings.ModifiedDateSaved = App.DatabaseAll.GetModifiedDate().ToString();
+                    DateTime modiDate = await App.DatabaseAll.GetModifiedDate();
+                    Settings.ModifiedDateSaved = modiDate.ToString();
                 }
             }
             LV.IsLoading = false; //closes load screen
