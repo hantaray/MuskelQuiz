@@ -202,7 +202,7 @@
                         <Image  
                             Source="button_lang_restart_chance.png"
                             x:Name="ImpressumCancelImage"
-                            Margin="0,5,5,5"                            
+                            Margin="0,5,0,5"                            
                             Grid.Row="1"
                             Grid.Column="0"
                             />
@@ -210,22 +210,23 @@
                         <Image  
                             Source="button_lang_restart_chance_press.png"                                                             
                             x:Name="ImpressumCancelImage_pres"                        
-                            Margin="0,5,5,5"
+                            Margin="0,5,0,5"
                             IsVisible="false"
                             Grid.Row="1"
                             Grid.Column="0"
                             />
 
-                        <Button 
-                            Margin="0,5,5,5"
-                            Text="cancel"
+                        <Button                             
+                            Text="           cancel         "
                             x:Name="CancelPopUpImpressum"
                             Clicked="CancelPopUpImpressum_Clicked"
                             Pressed="CancelPopUpImpressum_Pressed"
                             Released="CancelPopUpImpressum_Released"
                             TextColor="White"
-                            FontSize="Small"
-                            BackgroundColor="Transparent"
+                            FontSize="Medium"
+                            BackgroundColor="Transparent"                            
+                            HorizontalOptions="CenterAndExpand"
+                            Margin="0,3,0,3"
                             Grid.Row="1"
                             Grid.Column="0"/>
 
