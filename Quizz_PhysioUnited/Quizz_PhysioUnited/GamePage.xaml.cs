@@ -28,6 +28,7 @@ namespace Quizz_PhysioUnited
         int totalQuestions;
         int rightAnswer;
         int score;
+        double scorePercent;
         int allQuestionsNr;
         int gems;
         double gameTime = 30.0;
@@ -204,9 +205,9 @@ namespace Quizz_PhysioUnited
 
         public void SetScore()
         {
-            double scoreProcent = (((double)score * 100) / (double)allQuestionsNr);
-            scoreProcent = Math.Round(scoreProcent, 0);
-            labelScore.Text = "Score " + scoreProcent + "%";
+            scorePercent = (((double)score * 100) / (double)allQuestionsNr);
+            scorePercent = Math.Round(scorePercent, 0);
+            labelScore.Text = "Score " + scorePercent + "%";
         }
 
         public void SetGems()
@@ -409,7 +410,8 @@ namespace Quizz_PhysioUnited
 
         async private void AlertGameEnd()
         {
-            await DisplayAlert("Congratulation!!!", "You have finished the game. Please end the game to restart", "OK");
+            //await DisplayAlert("Congratulation!!!", "You have finished the game. Please end the game to restart", "OK");
+            await Navigation.PushAsync(new FinishedCategoryPage(scorePercent));
         }
 
         async private void AlertNotEnoughGems()
