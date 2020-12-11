@@ -35,6 +35,7 @@ namespace Quizz_PhysioUnited
             popUpRestart.IsVisible = false;
             ChanceCategoryButton.IsEnabled = true;
             ChanceImage.Opacity = 1;
+            SetScores();
         }
 
         void GoToGamePage(object sender, EventArgs e)
@@ -334,6 +335,22 @@ namespace Quizz_PhysioUnited
             }
             loadingViewStartScreen.IsLoading = false;
         }
+
+
+        private void SetScores()
+        {
+            int[] scores = { Int32.Parse(Settings.ScoreKatOne), Int32.Parse(Settings.ScoreKatTwo), Int32.Parse(Settings.ScoreKatThree), Int32.Parse(Settings.ScoreKatFour) };
+            int[] questionCounters = { Int32.Parse(Settings.AllQuestionsNrKatOne), Int32.Parse(Settings.AllQuestionsNrKatTwo), Int32.Parse(Settings.AllQuestionsNrKatThree), Int32.Parse(Settings.AllQuestionsNrKatFour) };
+            Label[] labels = { ScoreKat1Label, ScoreKat2Label, ScoreKat3Label, ScoreKat4Label};
+            for (int i = 0; i < scores.Length; i++)
+            {
+                double scorePercent = (((double)scores[i] * 100) / (double)questionCounters[i]);
+                scorePercent = Math.Round(scorePercent, 0);
+                labels[i].Text = "Score " + scorePercent + "%";
+            }        
+        }
+
+
 
         private void CancelPopUpChance_Clicked(object sender, EventArgs e)
         {
