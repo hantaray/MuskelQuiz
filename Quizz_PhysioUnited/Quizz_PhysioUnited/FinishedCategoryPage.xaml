@@ -67,9 +67,10 @@
                     Grid.Column="0"
                     />
 
+                
                 <Button
                     x:Name="CancelFinishedPage"
-                    Text="                OK                 "
+                    Text="&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;OK&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;"
                     Clicked="CancelFinishedPage_Clicked"
                     Pressed="CancelFinishedPage_Pressed"
                     Released="CancelFinishedPage_Released"

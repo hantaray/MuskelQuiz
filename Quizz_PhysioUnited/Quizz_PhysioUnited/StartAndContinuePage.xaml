@@ -217,14 +217,14 @@
                             />
 
                         <Button                             
-                            Text="           cancel         "
+                            Text="&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;cancel&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;"
                             x:Name="CancelPopUpImpressum"
                             Clicked="CancelPopUpImpressum_Clicked"
                             Pressed="CancelPopUpImpressum_Pressed"
                             Released="CancelPopUpImpressum_Released"
                             TextColor="White"
                             FontSize="Medium"
-                            BackgroundColor="Transparent"                            
+                            BackgroundColor="Transparent"
                             HorizontalOptions="CenterAndExpand"
                             Margin="0,3,0,3"
                             Grid.Row="1"

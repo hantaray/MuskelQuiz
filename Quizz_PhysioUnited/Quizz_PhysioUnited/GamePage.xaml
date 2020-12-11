@@ -263,15 +263,16 @@
                 Grid.Row="0"
                 Grid.Column="0"/>
 
-            <Image Source="button_free.png"
-                   x:Name="LevelImage"
-                   Aspect="Fill"
-                   Grid.Row="1"
-                   Grid.Column="0"/>
-            
-            
+
             <!--Level Label-->
-            <Label  Text="Lvl "
+            <Image Source="button_free.png"
+                x:Name="LevelImage"
+                Aspect="Fill"
+                Grid.Row="1"
+                Grid.Column="0"/>
+            
+            <Label  
+                Text="Lvl "
                 x:Name="labelLevel"
                 FontSize="Medium"
                 TextColor="White"
@@ -281,15 +282,17 @@
                 Grid.Row="1"
                 Grid.Column="0"/>
 
-            <Image Source="button_free.png"
-                   x:Name="ScoreImage"
-                   Aspect="Fill"
-                   Grid.Row="2"
-                   Grid.Column="0"/>
-
-
             <!--Score Label-->
-            <Label  Text="Score "
+            <Image Source="button_free.png"
+                x:Name="ScoreImage"
+                Aspect="Fill"
+                Grid.Row="2"
+                Grid.Column="0"/>
+
+
+            
+            <Label  
+                Text="Score "
                 x:Name="labelScore"
                 FontSize="Medium"
                 TextColor="White"
