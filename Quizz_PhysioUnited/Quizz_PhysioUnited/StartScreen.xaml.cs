@@ -324,7 +324,7 @@ namespace Quizz_PhysioUnited
                 App.QCountKatFour = App.QAListKatFour.Count;
                 Settings.QuestionCounterKatFour = "1";
                 Settings.TimerValueKatFour = "30";
-                Settings.QuestionCounterKatFour = "False";
+                Settings.ChanceBoolKatFour = "False";
                 await Navigation.PushAsync(new GamePage(App.QAListKatFour,               //startet gamepage mit passende QaA Liste und übergibt attribute aus settings
                                                     Int32.Parse(Settings.QuestionCounterKatFour),
                                                     Int32.Parse(Settings.ScoreKatFour),

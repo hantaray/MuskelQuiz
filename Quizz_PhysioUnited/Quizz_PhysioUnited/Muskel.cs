@@ -11,7 +11,9 @@ namespace Quizz_PhysioUnited
         [PrimaryKey, AutoIncrement]
         [JsonProperty("id")]
         public int ID { get; set; }
-        [JsonProperty("name")]
+        [JsonProperty("reihenfolge")]
+        public int Reihenfolge { get; set; }
+        [JsonProperty("name")]        
         public string Name { get; set; }
         [JsonProperty("innervation")]
         public string Innervation { get; set; }

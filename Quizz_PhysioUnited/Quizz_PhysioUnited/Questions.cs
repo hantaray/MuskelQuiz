@@ -11,10 +11,10 @@ namespace Quizz_PhysioUnited
     {
 
 
-        public Dictionary<string, string[]> namesAndAnswersKatOne = new Dictionary<string, string[]>();
-        public Dictionary<string, string[]> namesAndAnswersKatTwo = new Dictionary<string, string[]>();
-        public Dictionary<string, string[]> namesAndAnswersKatThree = new Dictionary<string, string[]>();
-        public Dictionary<string, string[]> namesAndAnswersKatFour = new Dictionary<string, string[]>();
+        public SortedDictionary<int, string[]> namesAndAnswersKatOne = new SortedDictionary<int, string[]>();  // UMBAU key wird int und sortedDictionary CHECK
+        public SortedDictionary<int, string[]> namesAndAnswersKatTwo = new SortedDictionary<int, string[]>(); // UMBAU key wird int und sortedDictionary CHECK
+        public SortedDictionary<int, string[]> namesAndAnswersKatThree = new SortedDictionary<int, string[]>();   // UMBAU key wird int und sortedDictionary CHECK
+        public SortedDictionary<int, string[]> namesAndAnswersKatFour = new SortedDictionary<int, string[]>();    // UMBAU key wird int und sortedDictionary CHECK
 
         static List<Muskel> muskelList = new List<Muskel>();
 
@@ -39,7 +39,7 @@ namespace Quizz_PhysioUnited
             namesAndAnswersKatTwo.Clear();
             namesAndAnswersKatThree.Clear();
             namesAndAnswersKatFour.Clear();
-            muskelList = App.DatabaseAll.GetMuskel();
+            muskelList = App.DatabaseAll.GetMuskeln();
             SetDicionaries();
         }
 
@@ -79,43 +79,53 @@ namespace Quizz_PhysioUnited
         {
             foreach (Muskel muskel in muskelList)
             {
-                string[] answersMuskel = { muskel.Innervation, muskel.Ursprung, muskel.Ansatz};
+                string[] answersAndName = { muskel.Innervation, muskel.Ursprung, muskel.Ansatz, muskel.Name}; // UMBAU list gets 4 strings CHECK
                 if (muskel.Kategorie == 1) 
                 {
-                    namesAndAnswersKatOne.Add(muskel.Name, answersMuskel);
+                    namesAndAnswersKatOne.Add(muskel.Reihenfolge, answersAndName);
                 } 
                 else if (muskel.Kategorie == 2)
                 {
-                    namesAndAnswersKatTwo.Add(muskel.Name, answersMuskel);
+                    namesAndAnswersKatTwo.Add(muskel.Reihenfolge, answersAndName);
                 }
                 else if (muskel.Kategorie == 3)
                 {
-                    namesAndAnswersKatThree.Add(muskel.Name, answersMuskel);
+                    namesAndAnswersKatThree.Add(muskel.Reihenfolge, answersAndName);
                 }
                 else if (muskel.Kategorie == 4)
                 {
-                    namesAndAnswersKatFour.Add(muskel.Name, answersMuskel);
+                    namesAndAnswersKatFour.Add(muskel.Reihenfolge, answersAndName);
                 }
             }
 
         }
 
-        public List<List<string>> getAllQuestionsAndAnswers(Dictionary<string, string[]> dic)
+        public List<List<string>> getAllQuestionsAndAnswers(SortedDictionary<int, string[]> dic)
         {
             List<List<string>> questionsAndAnswers = new List<List<string>>();
-            int numberOfQuestions = questions.Length;
-            foreach (KeyValuePair<string, string[]> kvp in dic)
+            int countOfQuestions = questions.Length;                       
+
+
+            foreach (KeyValuePair<int, string[]> kvp in dic)
             {                
-                string bandName = kvp.Key;
-                for (int i = 0; i < numberOfQuestions; i++)
-                {                    
-                    string rightAnswer = GetRightAnswer(dic, bandName, i);
+                //wird int Reihenfolge
+                //string bandName = kvp.Key;
+                string[] anwersAndName = kvp.Value;
+                string muskelName = anwersAndName[3];
+                for (int questionNr = 0; questionNr < countOfQuestions; questionNr++)
+                {
+                    string rightAnswer = anwersAndName[questionNr];
+                    //string rightAnswer = GetRightAnswer(dic, bandName, questionNr);
                     if (string.IsNullOrEmpty(rightAnswer))
                     {
                         continue;
-                    }
-                    List<string> choices = GetChoices(dic, i, rightAnswer);
-                    string question = GetQuestion(bandName, i);
+                    }                    
+                    
+                    List<string> choices = GetChoices(dic, questionNr, rightAnswer);
+                    
+                    
+                    //name has to come from answer list, muskelName
+                    string question = GetQuestion(muskelName, questionNr);
 
                     questionsAndAnswers.Add(new List<string> { question,
                                                                choices[0],
@@ -127,45 +137,37 @@ namespace Quizz_PhysioUnited
                 }
             }
             return questionsAndAnswers;
-        }
-    
+        }    
 
-        public List<string> GetBandNames(Dictionary<string, string[]> namesAndAnswers)
+       
+
+
+        public static string GetQuestion(string muskelName, int questionNumber)
         {
-            List<string> bandNames = new List<string>();
-            foreach (KeyValuePair<string, string[]> kvp in namesAndAnswers)
-            {
-                bandNames.Add(kvp.Key);
-            }
-            return bandNames;
-        }
-
-
-        public static string GetQuestion(string bandName, int questionNumber)
-        {
-            string question = questions[questionNumber].Replace("*", bandName);
+            string question = questions[questionNumber].Replace("*", muskelName);
             return question;
-
         }
 
-        public string GetRightAnswer(Dictionary<string, string[]> namesAndAnswers, string bandName, int questionNumber)
-        {
-            string[] answers = namesAndAnswers[bandName];
-            string rightAnswer = answers[questionNumber];
-            return rightAnswer;
 
-        }
+        //bandname muss zu index i as key werden
+        ////public string GetRightAnswer(Dictionary<string, string[]> namesAndAnswers, string bandName, int questionNumber)
+        ////{
+        ////    string[] answers = namesAndAnswers[bandName];
+        ////    string rightAnswer = answers[questionNumber];
+        ////    return rightAnswer;
 
-        public List<string> GetChoices(Dictionary<string, string[]> namesAndAnswers, int questionNumber, string rightAnswer)
+        ////}
+
+        public List<string> GetChoices(SortedDictionary<int, string[]> namesAndAnswers, int questionNumber, string rightAnswer)
         {
-            List<string> choices = SetChoices(namesAndAnswers, questionNumber, rightAnswer);
-            //FischerShuffle.ShuffleArray(choices);           //gives choices rnd positions in List
+            List<string> choices = SetChoices(namesAndAnswers, questionNumber, rightAnswer);            
+            // adds the right randomly to choices
             Random rnd = new Random();
             int rightAnswerPos = rnd.Next(4);
             choices.Add(rightAnswer);
             choices.Insert(rightAnswerPos, rightAnswer);
             choices.RemoveAt(choices.Count - 1);
-            //bis dahin löschen und fisher shuffle nicht mehr als Kommentar
+            // adds the position number of the right answer to choices
             rightAnswerPos += 1;
             choices.Add(rightAnswerPos.ToString());
             return choices;
@@ -177,13 +179,16 @@ namespace Quizz_PhysioUnited
         // 1 is corret answer
         // they mixed rnd
         // check if right anser == poolobject
-        private static List<string> SetChoices(Dictionary<string, string[]> dic, int questionNumber, string rightAnswer)
+
+
+        //change dictionary type
+        private static List<string> SetChoices(SortedDictionary<int, string[]> dic, int questionNumber, string rightAnswer)
         {
             List<string> choices = new List<string>();
             List<string> answerPool = new List<string>();
             Random r = new Random();
             //maybe make an seperate funcion for answer pool, so it doesnt run every time
-            foreach (KeyValuePair<string, string[]> kvp in dic)
+            foreach (KeyValuePair<int, string[]> kvp in dic)
             {
                 string[] answers = kvp.Value;
                 answerPool.Add(answers[questionNumber]);

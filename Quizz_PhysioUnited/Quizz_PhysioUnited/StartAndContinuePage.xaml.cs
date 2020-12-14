@@ -42,7 +42,7 @@ namespace Quizz_PhysioUnited
         {
             base.OnAppearing();
 
-            //TryToGetNewData();
+            //TryToGetNewData();            
 
             //soll den continue button freigeben, wenn eine frage beantwortet wurde
             if (Int32.Parse(Settings.QuestionCounterKatOne) == 1 &&  //funktioniert nur bei load, nicht bei back per pop
@@ -113,27 +113,27 @@ namespace Quizz_PhysioUnited
         }
 
 
-        private async void TryToGetNewData()
-        {
-            LV.IsLoading = true;    //opens load screen
-            if (InternetTester.TestConnection())
-            {
+        //private async void TryToGetNewData()
+        //{
+        //    LV.IsLoading = true;    //opens load screen
+        //    if (InternetTester.TestConnection())
+        //    {
 
 
-                DateTime modifiedDate = await App.DatabaseAll.GetModifiedDate();
-                DateTime lastLocalModifiedDate = Convert.ToDateTime(Settings.ModifiedDateSaved);
+        //        DateTime modifiedDate = await App.DatabaseAll.GetModifiedDate();
+        //        DateTime lastLocalModifiedDate = Convert.ToDateTime(Settings.ModifiedDateSaved);
 
-                if (modifiedDate > lastLocalModifiedDate)
-                {
-                    await App.DatabaseAll.GetDataFromServer();
+        //        if (modifiedDate > lastLocalModifiedDate)
+        //        {
+        //            await App.DatabaseAll.GetDataFromServer();
 
-                    //save modified date in settings
-                    DateTime modiDate = await App.DatabaseAll.GetModifiedDate();
-                    Settings.ModifiedDateSaved = modiDate.ToString();
-                }
-            }
-            LV.IsLoading = false; //closes load screen
-        }
+        //            //save modified date in settings
+        //            DateTime modiDate = await App.DatabaseAll.GetModifiedDate();
+        //            Settings.ModifiedDateSaved = modiDate.ToString();
+        //        }
+        //    }
+        //    LV.IsLoading = false; //closes load screen
+        //}
 
         private async Task StartNewGame()
         {
