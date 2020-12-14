@@ -20,7 +20,7 @@ namespace Quizz_PhysioUnited
             _database.CreateTable<Question>();
         }
 
-        public List<Muskel> GetMuskel()
+        public List<Muskel> GetMuskeln()
         {
             return _database.Table<Muskel>().ToList();
         }
@@ -33,7 +33,7 @@ namespace Quizz_PhysioUnited
 
         public List<Question> GetQuestions(int category)
         {
-            return _database.Query<Question>("SELECT * FROM [Question] WHERE [Category] = " + category).ToList();
+            return _database.Query<Question>("SELECT * FROM [Question] WHERE [Category] = " + category).ToList(); //sorted by ID is done automaticly
         }
 
         public void FilterOnlyNextQuestionsInDB(int category)
@@ -134,12 +134,13 @@ namespace Quizz_PhysioUnited
                     App.DatabaseAll.SaveMuskel(new Muskel
                     {
                         ID = muskel.ID,
+                        Reihenfolge = muskel.Reihenfolge,
                         Name = muskel.Name,
                         Innervation = muskel.Innervation,
                         Ursprung = muskel.Ursprung,
                         Ansatz = muskel.Ansatz,
                         Kategorie = muskel.Kategorie
-                    });
+                    }); ;
                 }
                 Debug.WriteLine("online Db loaded");
                 return muskelList;
