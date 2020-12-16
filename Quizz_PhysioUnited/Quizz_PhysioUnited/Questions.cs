@@ -18,7 +18,7 @@ namespace Quizz_PhysioUnited
 
         static List<Muskel> muskelList = new List<Muskel>();
 
-        //static List<Band> bandList = new List<Band>();
+        public List<List<string>> answerPool = new List<List<string>> { new List<string>() , new List<string>(), new List<string>() } ; 
 
         static string[] questions =
         {
@@ -103,8 +103,8 @@ namespace Quizz_PhysioUnited
         public List<List<string>> getAllQuestionsAndAnswers(SortedDictionary<int, string[]> dic)
         {
             List<List<string>> questionsAndAnswers = new List<List<string>>();
-            int countOfQuestions = questions.Length;                       
-
+            int countOfQuestions = questions.Length;
+            SetAnswerPool(dic);
 
             foreach (KeyValuePair<int, string[]> kvp in dic)
             {                
@@ -121,7 +121,7 @@ namespace Quizz_PhysioUnited
                         continue;
                     }                    
                     
-                    List<string> choices = GetChoices(dic, questionNr, rightAnswer);
+                    List<string> choices = GetChoices(questionNr, rightAnswer);
                     
                     
                     //name has to come from answer list, muskelName
@@ -158,9 +158,9 @@ namespace Quizz_PhysioUnited
 
         ////}
 
-        public List<string> GetChoices(SortedDictionary<int, string[]> namesAndAnswers, int questionNumber, string rightAnswer)
+        public List<string> GetChoices(int questionNumber, string rightAnswer)
         {
-            List<string> choices = SetChoices(namesAndAnswers, questionNumber, rightAnswer);            
+            List<string> choices = SetChoices(questionNumber, rightAnswer);            
             // adds the right randomly to choices
             Random rnd = new Random();
             int rightAnswerPos = rnd.Next(4);
@@ -182,21 +182,15 @@ namespace Quizz_PhysioUnited
 
 
         //change dictionary type
-        private static List<string> SetChoices(SortedDictionary<int, string[]> dic, int questionNumber, string rightAnswer)
+        public List<string> SetChoices(int questionNumber, string rightAnswer)
         {
             List<string> choices = new List<string>();
-            List<string> answerPool = new List<string>();
             Random r = new Random();
-            //maybe make an seperate funcion for answer pool, so it doesnt run every time
-            foreach (KeyValuePair<int, string[]> kvp in dic)
-            {
-                string[] answers = kvp.Value;
-                answerPool.Add(answers[questionNumber]);
-            }
+            
             while (choices.Count < 3)
             {
-                int rndNumber = r.Next((answerPool.Count));
-                string currChoice = answerPool[rndNumber];
+                int rndNumber = r.Next((answerPool[questionNumber].Count));
+                string currChoice = answerPool[questionNumber] [rndNumber];
                 if (!choices.Contains(currChoice)&&!currChoice.Equals(rightAnswer))
                 {
                     choices.Add(currChoice);
@@ -204,5 +198,46 @@ namespace Quizz_PhysioUnited
             }
             return choices;
         }
+
+
+        private void SetAnswerPool(SortedDictionary<int, string[]> dic)
+        {
+            foreach (List<string> list in answerPool)
+            {
+                list.Clear();
+            }
+            
+            foreach (KeyValuePair<int, string[]> kpv in dic)
+            {
+                for (int i = 0; i < answerPool.Count; i++)
+                {
+                    answerPool[i].Add(kpv.Value[i]);
+                }
+            }
+        }
+
+        
+        //private static List<string> SetChoices(SortedDictionary<int, string[]> dic, int questionNumber, string rightAnswer)
+        //{
+        //    List<string> choices = new List<string>();
+        //    List<string> answerPool = new List<string>();
+        //    Random r = new Random();
+        //    //maybe make an seperate funcion for answer pool, so it doesnt run every time
+        //    foreach (KeyValuePair<int, string[]> kvp in dic)
+        //    {
+        //        string[] answers = kvp.Value;
+        //        answerPool.Add(answers[questionNumber]);
+        //    }
+        //    while (choices.Count < 3)
+        //    {
+        //        int rndNumber = r.Next((answerPool.Count));
+        //        string currChoice = answerPool[rndNumber];
+        //        if (!choices.Contains(currChoice)&&!currChoice.Equals(rightAnswer))
+        //        {
+        //            choices.Add(currChoice);
+        //        }
+        //    }
+        //    return choices;
+        //}
     }
 }
