@@ -39,6 +39,8 @@ namespace Quizz_PhysioUnited
         bool jokerIsUsed = false;
         bool TimerRestarts = false;
 
+        int adShowCounter = 5;
+
 
         public static string responseBody; //was is das?
 
@@ -133,6 +135,7 @@ namespace Quizz_PhysioUnited
                 EnableButtons();
                 JokerButtonEnable();
                 SetTimer();
+                ShowAd();
             }
 
         }
@@ -517,6 +520,15 @@ namespace Quizz_PhysioUnited
                 AnswerFourImage.Source = "button_lang_rot_press.png";               
             }
         }
+
+        private void ShowAd()
+        {
+            if (questionCounter % adShowCounter == 0)
+            {
+                AdController.LoadAndShowAd();
+            }
+        }
+
 
         private void endButton_Pressed(object sender, EventArgs e)
         {
