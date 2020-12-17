@@ -39,22 +39,22 @@ namespace Quizz_PhysioUnited
 
             //CrossMTAdmob.Current.AdsId = "ca-app-pub-3940256099942544/6300978111";
 
-            MTAdView ads = new MTAdView();
-            ads.AdsId = "ca-app-pub-3940256099942544/6300978111";
-            //ads.PersonalizedAds = true;
+            //MTAdView ads = new MTAdView();
+            //ads.AdsId = "ca-app-pub-3940256099942544/6300978111";
+            ////ads.PersonalizedAds = true;
 
-            var page = new ContentPage();
-            page.Title = "My Page";
-            var content = new StackLayout();
-            // add content controls to layout here
-            // you could prompt the user for input - ie, how many buttons, or labels, etc
-            // and populate the stack accordingly
-            content.Children.Add(ads);
-            page.Content = content;
+            //var page = new ContentPage();
+            //page.Title = "My Page";
+            //var content = new StackLayout();
+            //// add content controls to layout here
+            //// you could prompt the user for input - ie, how many buttons, or labels, etc
+            //// and populate the stack accordingly
+            //content.Children.Add(ads);
+            //page.Content = content;
 
             //MainPage = new NavigationPage(new AdsPage());
             //MainPage = new NavigationPage(new StartAndContinuePage());
-            MainPage = new NavigationPage(new LoadingPage());
+            MainPage = new NavigationPage(new LoadingPage());    //final
         }
 
         protected override void OnStart()
