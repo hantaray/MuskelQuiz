@@ -29,14 +29,20 @@ namespace Quizz_PhysioUnited
 
         }
 
-        private void AdButton_Clicked(object sender, EventArgs e)
+        private void LoadButton_Clicked(object sender, EventArgs e)
         {
 
-            AdController.LoadAndShowAd();
+            AdController.LoadAd();
+            
 
             //CrossMTAdmob.Current.LoadInterstitial("ca-app-pub-3940256099942544/1033173712");
 
             //CrossMTAdmob.Current.ShowInterstitial();
+        }
+
+        private void ShowButton_Clicked(object sender, EventArgs e)
+        {
+            AdController.ShowAd();
         }
 
         //private void Current_OnInterstitialLoaded(object sender, EventArgs e)

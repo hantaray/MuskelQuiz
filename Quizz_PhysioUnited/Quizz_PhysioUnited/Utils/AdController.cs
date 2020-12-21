@@ -1,6 +1,7 @@
 ﻿using MarcTron.Plugin;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace Quizz_PhysioUnited.Utils
@@ -15,17 +16,32 @@ namespace Quizz_PhysioUnited.Utils
         //    CrossMTAdmob.Current.OnInterstitialLoaded += Current_OnInterstitialLoaded;
         //}
 
-        public static void LoadAndShowAd()
+        public static void LoadAd()
         {
 
-            CrossMTAdmob.Current.OnInterstitialLoaded += Current_OnInterstitialLoaded;
-            CrossMTAdmob.Current.LoadInterstitial(adUnit);
+            //CrossMTAdmob.Current.OnInterstitialLoaded += Current_OnInterstitialLoaded;
+            if (!CrossMTAdmob.Current.IsInterstitialLoaded())
+            {
+                CrossMTAdmob.Current.LoadInterstitial(adUnit);
+                //Debug.WriteLine("Ad starts loading");
+            }            
         }
+
+        public static void ShowAd()
+        {
+            if (CrossMTAdmob.Current.IsInterstitialLoaded())
+            {
+                //Debug.WriteLine("Ad is shown");
+                CrossMTAdmob.Current.ShowInterstitial();
+            }
+        }
+
 
 
         private static void Current_OnInterstitialLoaded(object sender, EventArgs e)
         {
-            CrossMTAdmob.Current.ShowInterstitial();
+            
+            Debug.WriteLine("Ad is loaded");
             CrossMTAdmob.Current.OnInterstitialLoaded -= Current_OnInterstitialLoaded;
         }
 
