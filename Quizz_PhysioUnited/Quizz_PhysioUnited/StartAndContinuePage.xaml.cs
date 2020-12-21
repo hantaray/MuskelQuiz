@@ -77,11 +77,19 @@ namespace Quizz_PhysioUnited
                     //save modified date in settings
                     DateTime modiDate = await App.DatabaseAll.GetModifiedDate();
                     Settings.ModifiedDateSaved = modiDate.ToString();
-                    await StartNewGame();                    
+                    //await StartNewGame();      //              
                 }
                 else
                 {
                     await DisplayAlert("Kein Internet", "Das Telefon muss für das Laden der aktuellen Fragen mit dem Internet verbunden sein", "Ok");
+                }
+                if (!App.DatabaseAll.IsMuskelDBEmpty())
+                {
+                    await StartNewGame();
+                }
+                else
+                {
+                    await DisplayAlert("Keine Datenbankverbindung!", "Verbindung zur Datenbank nicht möglich", "Ok");
                 }
             }
             else
