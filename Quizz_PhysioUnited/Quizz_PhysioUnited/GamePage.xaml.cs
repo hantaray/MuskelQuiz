@@ -135,7 +135,7 @@ namespace Quizz_PhysioUnited
                 EnableButtons();
                 JokerButtonEnable();
                 SetTimer();
-                ShowAd();
+                LoadAndShowAd();
             }
 
         }
@@ -521,11 +521,13 @@ namespace Quizz_PhysioUnited
             }
         }
 
-        private void ShowAd()
+        private void LoadAndShowAd()
         {
-            if (questionCounter % adShowCounter == 0)
+
+            AdController.LoadAd();
+            if ((questionCounter - 1) % adShowCounter == 0)
             {
-                AdController.LoadAndShowAd();
+                AdController.ShowAd();
             }
         }
 

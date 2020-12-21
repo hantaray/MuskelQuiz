@@ -5,9 +5,18 @@
              x:Class="Quizz_PhysioUnited.AdsPage">
 
     <StackLayout>
+        <Button Text="Load Ad"
+                x:Name="LoadButton"
+                Clicked="LoadButton_Clicked" />
+        
+        
         <Button Text="Show Ad"
-                x:Name="AdButton"
-                Clicked="AdButton_Clicked" />
+                x:Name="ShowButton"
+                Clicked="ShowButton_Clicked" />
+        
+        
+        
+        
         <Label Text="Let's test an Admob Banner!" 
            HorizontalOptions="Center"
            VerticalOptions="CenterAndExpand" />
