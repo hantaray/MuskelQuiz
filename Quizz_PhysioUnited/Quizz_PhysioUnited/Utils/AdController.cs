@@ -30,20 +30,19 @@ namespace Quizz_PhysioUnited.Utils
         public static void ShowAd()
         {
             if (CrossMTAdmob.Current.IsInterstitialLoaded())
-            {
-                //Debug.WriteLine("Ad is shown");
-                CrossMTAdmob.Current.ShowInterstitial();
+            {                
+                CrossMTAdmob.Current.ShowInterstitial();                
             }
         }
 
 
 
-        private static void Current_OnInterstitialLoaded(object sender, EventArgs e)
-        {
+        //private static void Current_OnInterstitialLoaded(object sender, EventArgs e)
+        //{
             
-            Debug.WriteLine("Ad is loaded");
-            CrossMTAdmob.Current.OnInterstitialLoaded -= Current_OnInterstitialLoaded;
-        }
+        //    Debug.WriteLine("Ad is loaded");
+        //    CrossMTAdmob.Current.OnInterstitialLoaded -= Current_OnInterstitialLoaded;
+        //}
 
 
 

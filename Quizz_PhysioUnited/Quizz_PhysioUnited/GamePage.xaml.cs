@@ -1,4 +1,5 @@
-﻿using Quizz_PhysioUnited.Utils;
+﻿using MarcTron.Plugin;
+using Quizz_PhysioUnited.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,6 +40,9 @@ namespace Quizz_PhysioUnited
         bool jokerIsUsed = false;
         bool TimerRestarts = false;
 
+
+        //Ad attributes
+        string adUnit = "ca-app-pub-3940256099942544/1033173712";
         int adShowCounter = 5;
 
 
@@ -523,12 +527,33 @@ namespace Quizz_PhysioUnited
 
         private void LoadAndShowAd()
         {
-
-            AdController.LoadAd();
-            if ((questionCounter - 1) % adShowCounter == 0)
+            if (!CrossMTAdmob.Current.IsInterstitialLoaded())
             {
-                AdController.ShowAd();
+                CrossMTAdmob.Current.LoadInterstitial(adUnit);
+                //Debug.WriteLine("Ad starts loading");
             }
+            if ((questionCounter - 1) % adShowCounter == 0)
+            {                
+                if (CrossMTAdmob.Current.IsInterstitialLoaded())
+                {
+                    CrossMTAdmob.Current.OnInterstitialOpened += Current_OnInterstitialOpened;
+                    CrossMTAdmob.Current.OnInterstitialClosed += Current_OnInterstitialClosed;
+                    CrossMTAdmob.Current.ShowInterstitial();
+                }
+            }
+        }
+
+
+        private void Current_OnInterstitialOpened(object sender, EventArgs e)
+        {
+            StopTimer();
+            CrossMTAdmob.Current.OnInterstitialOpened -= Current_OnInterstitialOpened;
+        }
+
+        private void Current_OnInterstitialClosed(object sender, EventArgs e)
+        {
+            StartTimerAgain();
+            CrossMTAdmob.Current.OnInterstitialClosed -= Current_OnInterstitialClosed;
         }
 
 
