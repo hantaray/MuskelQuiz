@@ -101,7 +101,7 @@ namespace Quizz_PhysioUnited
                     if (modifiedDate > lastLocalModifiedDate)
                     {
                         await App.DatabaseAll.GetDataFromServer();
-                        //save modified date in settings
+                        // save modified date in settings
                         DateTime modiDate = await App.DatabaseAll.GetModifiedDate();
                         Settings.ModifiedDateSaved = modiDate.ToString();
                     }                    
@@ -114,7 +114,7 @@ namespace Quizz_PhysioUnited
         private async void ContinueGameButton_Clicked(object sender, EventArgs e)
         {
             LV.IsLoading = true;
-            //await App.DatabaseAll.GetDataFromServer();
+            // await App.DatabaseAll.GetDataFromServer();
             App.setQALists();
             await Navigation.PushAsync(new StartScreen());
             LV.IsLoading = false;

@@ -25,8 +25,7 @@ namespace Quizz_PhysioUnited
             InitializeComponent();            
             StartScreenMainGrid.Children.Add(loadingViewStartScreen);
             Grid.SetRow(loadingViewStartScreen, 0);
-            loadingViewStartScreen.IsLoading = false;
-            
+            loadingViewStartScreen.IsLoading = false;            
         }
 
         protected override void OnAppearing()
@@ -36,7 +35,7 @@ namespace Quizz_PhysioUnited
             ChanceCategoryButton.IsEnabled = true;
             ChanceImage.Opacity = 1;
             SetScores();
-        }
+        }        
 
         void GoToGamePage(object sender, EventArgs e)
         {
