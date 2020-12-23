@@ -78,9 +78,9 @@
                     x:Name="ButtonKatOne"
                     ClassId="ButtonKatOne"
                     Margin="35,10,35,10"
-                    BackgroundColor="Transparent"                   
+                    BackgroundColor="Transparent"
                     TextColor="White"
-                    FontSize="Medium"
+                    FontSize="Large"
                     Grid.Row="0"
                     Grid.Column="0"
                     />
@@ -113,7 +113,7 @@
                     ClassId="ButtonKatTwo"
                     Margin="35,10,35,10"
                     TextColor="White"
-                    FontSize="Medium"
+                    FontSize="Large"
                     BackgroundColor="Transparent"
                     Grid.Row="1"
                     Grid.Column="0"
@@ -146,7 +146,7 @@
                     ClassId="ButtonKatThree"
                     Margin="35,10,35,10"
                     TextColor="White"                                             
-                    FontSize="Medium"
+                    FontSize="Large"
                     BackgroundColor="Transparent"
                     Grid.Row="2"
                     Grid.Column="0"
@@ -179,7 +179,7 @@
                     ClassId="ButtonKatFour"
                     Margin="35,10,35,10"
                     TextColor="White"
-                    FontSize="Medium"
+                    FontSize="Large"
                     BackgroundColor="Transparent"
                     Grid.Row="3"
                     Grid.Column="0"
@@ -300,7 +300,7 @@
                 <Image 
                     Source="BG_chance.png"
                     Grid.Row="0"
-                    Opacity="0.85"
+                    Opacity="1"
                     Aspect="Fill"
                     />
 
@@ -310,7 +310,7 @@
                         <RowDefinition Height="0.5*"/>
                         <RowDefinition Height="0.7*"/>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="0.7*"/>
+                        <RowDefinition Height="1*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="0.4*"/>
                         <RowDefinition Height="*"/>
@@ -322,12 +322,15 @@
                     <Label  Text="Alle Fragen dieser Kategorie wurden beantwortet!"
                             HorizontalTextAlignment="Center"
                             VerticalTextAlignment="End"                                
-                            FontSize="Medium"
+                            FontSize="Large"
+                            TextColor="Black"
                             Grid.Row="0"/>
 
                     <Label  Text="Mit Restart können alle Fragen noch einmal beantwortet werden."
                             HorizontalTextAlignment="Center"
-                            VerticalTextAlignment="Center"                                
+                            VerticalTextAlignment="Center"
+                            FontSize="Medium"
+                            TextColor="Black"
                             Grid.Row="1"/>
 
                     <!--Restart Button-->
@@ -345,7 +348,7 @@
                             />
 
 
-                    <Button Margin="183,0,183,0" 
+                    <Button Margin="180,0,180,0" 
                             Text="Restart"
                             x:Name="RestartCategoryButton"
                             Clicked="RestartCategoryButton_Clicked"
@@ -360,6 +363,8 @@
                     <Label  Text="Mit Chance werden einmalig die falsch beantworteten Fragen nochmal gestellt und der bisherige Score kann erhöht werden."
                             HorizontalTextAlignment="Center"
                             VerticalTextAlignment="Center"
+                            FontSize="Medium"
+                            TextColor="Black"
                             Margin="60,0,60,0"
                             Grid.Row="3"/>
 
@@ -381,7 +386,7 @@
                             IsVisible="false"                            
                             />
 
-                    <Button Margin="183,0,183,0" 
+                    <Button Margin="180,0,180,0" 
                             Text=""
                             x:Name="ChanceCategoryButton"
                             Clicked="ChanceCategoryButton_Clicked"

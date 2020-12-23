@@ -40,6 +40,8 @@
                             <RowDefinition Height="*" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
+                        
+                        <!--new game button-->
 
                         <Image  Source="button_lang.png"
                                 x:Name="NewGameImage"
@@ -61,14 +63,14 @@
                                 Clicked="NewGameButton_Clicked"
                                 Pressed="NewGameButton_Pressed"                                
                                 Released="NewGameButton_Released"                                                                
-                                Margin="123,0,130,0"
+                                Margin="180,0,180,0"
                                 VerticalOptions="CenterAndExpand"  
                                 TextColor="White"
                                 FontSize="Medium"
                                 BackgroundColor="Transparent"
                                 Grid.Row="1" />
 
-                        <!--Pressed="NewGameButton_Pressed"-->
+                        <!--continue-->
 
 
                         <Image  Source="button_lang.png"
@@ -92,7 +94,7 @@
                                 Clicked="ContinueGameButton_Clicked"
                                 Pressed="ContinueGameButton_Pressed"
                                 Released="ContinueGameButton_Released"
-                                Margin="123,0,130,0"
+                                Margin="180,0,180,0"
                                 VerticalOptions="CenterAndExpand"  
                                 TextColor="White"
                                 FontSize="Medium"
@@ -217,7 +219,7 @@
                             />
 
                         <Button                             
-                            Text="&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;cancel&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;"
+                            Text="&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;cancel&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;"
                             x:Name="CancelPopUpImpressum"
                             Clicked="CancelPopUpImpressum_Clicked"
                             Pressed="CancelPopUpImpressum_Pressed"
