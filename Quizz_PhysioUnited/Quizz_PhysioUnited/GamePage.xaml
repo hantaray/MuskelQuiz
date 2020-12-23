@@ -107,31 +107,7 @@
 
 
 
-            <!--<
-                HorizontalOptions="Center"
-                          VerticalOptions="CenterAndExpand"
-                Image  Source="button_lang.png"
-                                x:Name="KatOneImage"
-                                VerticalOptions="CenterAndExpand"
-                                Margin="100,0,100,0"                                         
-                                Grid.Row="0"
-                                />
-
-                    <Button Text="Obere Extremitäten" 
-                            Clicked="GoToGamePage"
-                            Pressed="ButtonKatOne_Pressed"
-                            Released="ButtonKatOne_Released"
-                            x:Name="ButtonKatOne"
-                            ClassId="ButtonKatOne"
-                            VerticalOptions="CenterAndExpand"
-                            Margin="123,0,130,0"
-                            TextColor="White"
-                            FontSize="Medium"
-                            BackgroundColor="Transparent"
-                            Grid.Row="0"
-                            VerticalOptions="Fill"
-                            HorizontalOptions="Fill"
-                            />-->
+            <!--Answer button 1-->
 
             <Image  Source="button_lang.png"
                 x:Name="AnswerOneImage"
@@ -141,18 +117,20 @@
                 Grid.Row="1"/>
 
 
-            <Button Text="answerButton1"                    
+                <Button Text="answerButton1"                    
                 x:Name="answerButton1"
                 ClassId="answerButton1"
                 Clicked="answerButton_Clicked"
                 VerticalOptions="CenterAndExpand"
-                Margin="30,0,35,0"
+                Margin="10,0,10,0"
                 TextColor="White"
                 BackgroundColor="Transparent"
                 Grid.Column="0"
                 Grid.Row="1"/>
 
 
+            <!--Answer button 2-->
+            
             <Image  Source="button_lang.png"
                 x:Name="AnswerTwoImage"
                 Aspect="Fill"
@@ -165,13 +143,15 @@
                 ClassId="answerButton2"                
                 Clicked="answerButton_Clicked"
                 VerticalOptions="CenterAndExpand"
-                Margin="30,0,35,0"
+                Margin="10,0,10,0"
                 TextColor="White"
                 BackgroundColor="Transparent"
                 Grid.Column="0"
                 Grid.Row="2"/>
 
 
+            <!--Answer button 3-->
+            
             <Image  Source="button_lang.png"
                 x:Name="AnswerThreeImage"
                 Aspect="Fill"
@@ -185,12 +165,14 @@
                 ClassId="answerButton3"
                 Clicked="answerButton_Clicked"
                 VerticalOptions="CenterAndExpand"
-                Margin="30,0,35,0"
+                Margin="10,0,10,0"
                 TextColor="White"
                 BackgroundColor="Transparent"
                 Grid.Column="0"
                 Grid.Row="3"/>
 
+            <!--Answer button 4-->
+            
             <Image  Source="button_lang.png"
                 x:Name="AnswerFourImage"
                 Aspect="Fill"
@@ -204,7 +186,7 @@
                 ClassId="answerButton4"
                 Clicked="answerButton_Clicked"
                 VerticalOptions="CenterAndExpand"
-                Margin="30,0,35,0"
+                Margin="10,0,10,0"
                 TextColor="White"
                 BackgroundColor="Transparent"
                 Grid.Column="0"
@@ -255,11 +237,10 @@
                 x:Name="endButton"
                 Clicked="endButton_Clicked"
                 Pressed="endButton_Pressed"
-                Released="endButton_Released"
-                VerticalOptions="CenterAndExpand"
+                Released="endButton_Released"                
                 BackgroundColor="Transparent"
                 TextColor="White"
-                Margin="15,5,15,5"                
+                Margin="5,5,5,5"                
                 Grid.Row="0"
                 Grid.Column="0"/>
 
@@ -324,12 +305,11 @@
                 Clicked="jokerButton_Clicked"
                 Pressed="jokerButton_Pressed"
                 Released="jokerButton_Released"
-                VerticalOptions="CenterAndExpand"
                 TextColor="Black"
                 FontSize="Medium"
                 FontAttributes="Bold"
                 BackgroundColor="Transparent"
-                Margin="15,5,15,5"                
+                Margin="5,5,5,5"                
                 Grid.Row="3"
                 Grid.Column="0"/>
 
@@ -367,11 +347,10 @@
                 Clicked="nextButton_Clicked"
                 Pressed="nextButton_Pressed"
                 Released="nextButton_Released"
-                VerticalOptions="CenterAndExpand"
                 TextColor="White"
                 FontSize="Medium"
                 BackgroundColor="Transparent"
-                Margin="15,5,15,5"                
+                Margin="5,5,5,5"                
                 Grid.Row="5"
                 Grid.Column="0"
                 />
@@ -400,11 +379,7 @@
                        Grid.Row="0"
                         Grid.Column="1"/>
 
-                <Label Text="Jetzt auf einen Antwortbutton drücken und die Runde ist nicht beendet. 
-                       1. Mal: 2 Gems
-                       2. Mal: 4 Gems
-                       3. Mal: 8 Gems
-                       4. Mal: 16 Gems"
+            <Label Text="Jetzt auf einen Antwortbutton drücken und die Runde ist nicht beendet.&#10;1. Mal: 2 Gems&#10;2. Mal: 4 Gems&#10;3. Mal: 8 Gems&#10;4. Mal: 16 Gems"
                        TextColor="Black"
                        BackgroundColor="Transparent"
                        VerticalOptions="CenterAndExpand"
