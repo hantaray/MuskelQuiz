@@ -193,13 +193,16 @@
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
-                        <Label 
-                            Text="Hier wird bald ein Impressum stehen"
-                            TextColor="Black"
-                            FontSize="Medium"
-                            HorizontalTextAlignment="Center"
-                            VerticalTextAlignment="Center"
-                            Grid.Row="0"/>
+
+                        <ScrollView>
+                            <Label 
+                                Text="Hier wird bald ein Impressum stehen&#x0a;1&#x0a;2&#x0a;3&#x0a;4&#x0a;5&#x0a;6&#x0a;7&#x0a;8&#x0a;9&#x0a;1&#x0a;2&#x0a;3&#x0a;4&#x0a;5&#x0a;6&#x0a;7&#x0a;8&#x0a;9"
+                                TextColor="Black"
+                                FontSize="Medium"
+                                HorizontalTextAlignment="Center"
+                                VerticalTextAlignment="Center"
+                                Grid.Row="0"/>
+                        </ScrollView>
 
 
                         <Image  
@@ -228,7 +231,7 @@
                             TextColor="White"
                             FontSize="Medium"
                             BackgroundColor="Transparent"
-                            Opacity="0.5"
+                            Opacity="1"
                             HorizontalOptions="CenterAndExpand"
                             Margin="0,3,0,3"
                             Grid.Row="1"
