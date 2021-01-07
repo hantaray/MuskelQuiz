@@ -117,14 +117,15 @@
                 Grid.Row="1"/>
 
 
-                <Button Text="answerButton1"                    
+            <Button 
+                Text="answerButton1"                    
                 x:Name="answerButton1"
                 ClassId="answerButton1"
                 Clicked="answerButton_Clicked"
-                VerticalOptions="CenterAndExpand"
-                Margin="10,0,10,0"
                 TextColor="White"
                 BackgroundColor="Transparent"
+                Opacity="1"
+                Margin="10,2,10,2"
                 Grid.Column="0"
                 Grid.Row="1"/>
 
@@ -138,14 +139,15 @@
                 Grid.Column="0"
                 Grid.Row="2"/>
 
-            <Button Text="answerButton2"
+            <Button 
+                Text="answerButton2"
                 x:Name="answerButton2"
                 ClassId="answerButton2"                
                 Clicked="answerButton_Clicked"
-                VerticalOptions="CenterAndExpand"
-                Margin="10,0,10,0"
                 TextColor="White"
                 BackgroundColor="Transparent"
+                Opacity="1"
+                Margin="10,2,10,2"
                 Grid.Column="0"
                 Grid.Row="2"/>
 
@@ -164,10 +166,10 @@
                 x:Name="answerButton3"
                 ClassId="answerButton3"
                 Clicked="answerButton_Clicked"
-                VerticalOptions="CenterAndExpand"
-                Margin="10,0,10,0"
                 TextColor="White"
                 BackgroundColor="Transparent"
+                Opacity="1"
+                Margin="10,2,10,2"
                 Grid.Column="0"
                 Grid.Row="3"/>
 
@@ -185,10 +187,10 @@
                 x:Name="answerButton4"
                 ClassId="answerButton4"
                 Clicked="answerButton_Clicked"
-                VerticalOptions="CenterAndExpand"
-                Margin="10,0,10,0"
                 TextColor="White"
                 BackgroundColor="Transparent"
+                Opacity="1"
+                Margin="10,2,10,2"
                 Grid.Column="0"
                 Grid.Row="4"/>
 
@@ -201,12 +203,13 @@
             <!--Layout nested in grid and in column 2, contains endButton, level label, score label, timer, next button-->
             <!--<StackLayout Grid.Column="1">-->
 
-        <Grid   Grid.Row="0"
-              Grid.Column="1"
-                Margin="0,5,10,5"
+        <Grid   
+            Grid.Row="0"
+            Grid.Column="1"
+            Margin="0,5,10,5"
             x:Name="GameButtonsGrid"
-            HorizontalOptions="Center"
-            VerticalOptions="CenterAndExpand">
+            >
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
@@ -239,8 +242,8 @@
                 Pressed="endButton_Pressed"
                 Released="endButton_Released"                
                 BackgroundColor="Transparent"
-                TextColor="White"
-                Margin="5,5,5,5"                
+                Opacity="1"
+                TextColor="White"                
                 Grid.Row="0"
                 Grid.Column="0"/>
 
@@ -309,7 +312,7 @@
                 FontSize="Medium"
                 FontAttributes="Bold"
                 BackgroundColor="Transparent"
-                Margin="5,5,5,5"                
+                Opacity="1"               
                 Grid.Row="3"
                 Grid.Column="0"/>
 
@@ -321,8 +324,7 @@
                 TextColor="Black"
                 FontSize="Medium"
                 FontAttributes="Bold"
-                BackgroundColor="Transparent"
-                Margin="15,5,15,5"                
+                BackgroundColor="Transparent"                
                 Grid.Row="3"
                 Grid.Column="0"/>
 
@@ -350,7 +352,7 @@
                 TextColor="White"
                 FontSize="Medium"
                 BackgroundColor="Transparent"
-                Margin="5,5,5,5"                
+                Opacity="1"             
                 Grid.Row="5"
                 Grid.Column="0"
                 />

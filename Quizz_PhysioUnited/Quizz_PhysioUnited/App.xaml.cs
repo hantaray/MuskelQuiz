@@ -54,7 +54,8 @@ namespace Quizz_PhysioUnited
 
             //MainPage = new NavigationPage(new AdsPage());
             //MainPage = new NavigationPage(new StartAndContinuePage());
-            MainPage = new NavigationPage(new LoadingPage());    //final
+            //MainPage = new NavigationPage(new FinishedCategoryPage(15));
+            MainPage = new NavigationPage(new LoadingPage());    //FINAL
         }
 
         protected override void OnStart()

@@ -24,8 +24,7 @@
 
             <Grid 
                 x:Name="PageGrid"
-                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}"
-                  RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}">
+                >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>                    
                 </Grid.RowDefinitions>
@@ -43,50 +42,69 @@
                         
                         <!--new game button-->
 
-                        <Image  Source="button_lang.png"
-                                x:Name="NewGameImage"
-                                VerticalOptions="CenterAndExpand"
-                                Margin="180,0,180,0"                                         
-                                Grid.Row="1"
-                                />
+                        <Grid
+                            Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="1.8*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>                        
 
-                        <Image  Source="button_lang_press.png"
-                                x:Name="NewGameImage_press"
-                                IsVisible="false"
-                                VerticalOptions="CenterAndExpand"
-                                Margin="180,0,180,0"                                         
-                                Grid.Row="1"
-                                />
+                            <Image  Source="button_lang.png"
+                                    x:Name="NewGameImage"
+                                    VerticalOptions="CenterAndExpand"                                                                             
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    />
 
-                        <Button Text="New Game"
-                                x:Name="NewGameButton"
-                                Clicked="NewGameButton_Clicked"
-                                Pressed="NewGameButton_Pressed"                                
-                                Released="NewGameButton_Released"                                                                
-                                Margin="180,0,180,0"
-                                VerticalOptions="CenterAndExpand"  
-                                TextColor="White"
-                                FontSize="Medium"
-                                BackgroundColor="Transparent"
-                                Opacity="1"
-                                Grid.Row="1" />
+                            <Image  Source="button_lang_press.png"
+                                    x:Name="NewGameImage_press"
+                                    IsVisible="false"
+                                    VerticalOptions="CenterAndExpand"
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    />
 
-                        <!--continue-->
+                            <Button Text="New Game"
+                                    x:Name="NewGameButton"
+                                    Clicked="NewGameButton_Clicked"
+                                    Pressed="NewGameButton_Pressed"                                
+                                    Released="NewGameButton_Released"                                                                
+                                    VerticalOptions="CenterAndExpand"  
+                                    TextColor="White"
+                                    FontSize="Medium"
+                                    BackgroundColor="Transparent"
+                                    Opacity="1"
+                                    Grid.Row="0"
+                                    Grid.Column="1"/>
+
+                        </Grid>
+
+                    <!--continue-->
+
+
+                    <Grid
+                            Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1.8*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
 
                         <Image  Source="button_lang.png"
                                 x:Name="ContinueImage"
-                                VerticalOptions="CenterAndExpand"
-                                Margin="180,0,180,0"                                         
-                                Grid.Row="2"
+                                VerticalOptions="CenterAndExpand"                                        
+                                Grid.Row="0"
+                                Grid.Column="1"
                                 />
 
                         <Image  Source="button_lang_press.png"
                                 x:Name="ContinueImage_press"
                                 IsVisible="false"
                                 VerticalOptions="CenterAndExpand"
-                                Margin="180,0,180,0"                                         
-                                Grid.Row="2"
+                                Grid.Row="0"
+                                Grid.Column="1"
                                 />
 
 
@@ -95,27 +113,29 @@
                                 Clicked="ContinueGameButton_Clicked"
                                 Pressed="ContinueGameButton_Pressed"
                                 Released="ContinueGameButton_Released"
-                                Margin="180,0,180,0"
                                 VerticalOptions="CenterAndExpand"  
                                 TextColor="White"
                                 FontSize="Medium"
                                 BackgroundColor="Transparent"
-                                Grid.Row="2"
+                                Opacity="1"
+                                Grid.Row="0"
+                                Grid.Column="1"
                                 />
 
-                        <Label Text="CONTINUE" 
-                               VerticalOptions="CenterAndExpand" 
-                               HorizontalOptions="Center"
-                               Margin="123,0,130,0"
-                               InputTransparent="True"
-                                TextColor="White"
-                                FontSize="Medium"
-                                BackgroundColor="Transparent"
-                                Grid.Row="2"
+                        <Label 
+                            Text="CONTINUE" 
+                            VerticalOptions="CenterAndExpand" 
+                            HorizontalOptions="Center"
+                            InputTransparent="True"
+                            TextColor="White"
+                            FontSize="Medium"
+                            BackgroundColor="Transparent"
+                            Grid.Row="0"
+                            Grid.Column="1"
                                 />
-                        
-                        
-                        <!--Impressumm Button-->
+
+                    </Grid>
+                    <!--Impressumm Button-->
 
                         <Grid
                             x:Name="ImpressumButtonGrid"
@@ -194,50 +214,59 @@
                         </Grid.RowDefinitions>
 
 
-                        <ScrollView>
+                        <ScrollView
+                            Grid.Row="0">
                             <Label 
                                 Text="Hier wird bald ein Impressum stehen&#x0a;1&#x0a;2&#x0a;3&#x0a;4&#x0a;5&#x0a;6&#x0a;7&#x0a;8&#x0a;9&#x0a;1&#x0a;2&#x0a;3&#x0a;4&#x0a;5&#x0a;6&#x0a;7&#x0a;8&#x0a;9"
                                 TextColor="Black"
                                 FontSize="Medium"
                                 HorizontalTextAlignment="Center"
                                 VerticalTextAlignment="Center"
-                                Grid.Row="0"/>
+                                />
                         </ScrollView>
+                        
+                        <!--cancel button-->
+
+                        <Grid
+                            Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image  
+                                Source="button_lang_restart_chance.png"
+                                x:Name="ImpressumCancelImage"
+                                                            
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                />
+
+                            <Image  
+                                Source="button_lang_restart_chance_press.png"                                                             
+                                x:Name="ImpressumCancelImage_pres"                        
+                                IsVisible="false"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                />
+
+                            <Button                             
+                                Text="cancel"
+                                x:Name="CancelPopUpImpressum"
+                                Clicked="CancelPopUpImpressum_Clicked"
+                                Pressed="CancelPopUpImpressum_Pressed"
+                                Released="CancelPopUpImpressum_Released"
+                                TextColor="White"
+                                FontSize="Medium"
+                                BackgroundColor="Transparent"
+                                VerticalOptions="CenterAndExpand"
+                                Opacity="1"
+                                Grid.Row="0"
+                                Grid.Column="1"/>
 
 
-                        <Image  
-                            Source="button_lang_restart_chance.png"
-                            x:Name="ImpressumCancelImage"
-                            Margin="0,5,0,5"                            
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            />
-
-                        <Image  
-                            Source="button_lang_restart_chance_press.png"                                                             
-                            x:Name="ImpressumCancelImage_pres"                        
-                            Margin="0,5,0,5"
-                            IsVisible="false"
-                            Grid.Row="1"
-                            Grid.Column="0"
-                            />
-
-                        <Button                             
-                            Text="&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;cancel&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;"
-                            x:Name="CancelPopUpImpressum"
-                            Clicked="CancelPopUpImpressum_Clicked"
-                            Pressed="CancelPopUpImpressum_Pressed"
-                            Released="CancelPopUpImpressum_Released"
-                            TextColor="White"
-                            FontSize="Medium"
-                            BackgroundColor="Transparent"
-                            Opacity="1"
-                            HorizontalOptions="CenterAndExpand"
-                            Margin="0,3,0,3"
-                            Grid.Row="1"
-                            Grid.Column="0"/>
-
-
+                        </Grid>
                     </Grid>
                     
 

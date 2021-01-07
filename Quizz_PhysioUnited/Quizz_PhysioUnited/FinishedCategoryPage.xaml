@@ -19,10 +19,10 @@
 
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2.5*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="2.5*"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2.2*"/>
+                    <RowDefinition Height="1.3*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="0.9*"/>
                 </Grid.RowDefinitions>
 
                 <Label 
@@ -36,7 +36,7 @@
                 <Label 
                     Text="Super, alle Fragen dieser Kategorie wurden beantwortet!&#10;Der Score ist:"
                     TextColor="Black"
-                    FontSize="Large"
+                    FontSize="Medium"
                     HorizontalTextAlignment="Center"
                     VerticalTextAlignment="Center"
                     Grid.Row="1"/>
@@ -46,42 +46,49 @@
                     TextColor="Black"
                     FontSize="Header"
                     HorizontalTextAlignment="Center"
-                    VerticalTextAlignment="Center"
+                    VerticalTextAlignment="End"
                     Grid.Row="2"/>
 
+<!--OK Button-->
 
-                <Image  
-                    Source="button_lang_restart_chance.png"
-                    x:Name="FinishedCancelImage"
-                    Margin="0,5,0,5"                            
-                    Grid.Row="3"
-                    Grid.Column="0"
-                    />
+                <Grid
+                    Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <Image  
-                    Source="button_lang_restart_chance_press.png"                                                             
-                    x:Name="FinishedCancelImage_pres"                        
-                    Margin="0,5,0,5"
-                    IsVisible="false"
-                    Grid.Row="3"
-                    Grid.Column="0"
-                    />
+                    <Image  
+                        Source="button_lang_restart_chance.png"
+                        x:Name="FinishedCancelImage"                           
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        />
 
-                
-                <Button
-                    x:Name="CancelFinishedPage"
-                    Text="&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;OK&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;&#x09;"
-                    Clicked="CancelFinishedPage_Clicked"
-                    Pressed="CancelFinishedPage_Pressed"
-                    Released="CancelFinishedPage_Released"
-                    TextColor="White"
-                    FontSize="Medium"
-                    HorizontalOptions="CenterAndExpand"
-                    VerticalOptions="CenterAndExpand"
-                    BackgroundColor="Transparent"
-                    Margin="0,3,0,3"
-                    Grid.Row="3"
-                    Grid.Column="0"/>
+                    <Image  
+                        Source="button_lang_restart_chance_press.png"                                                             
+                        x:Name="FinishedCancelImage_pres"                        
+                        IsVisible="false"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        />
+
+                    <Button
+                        x:Name="CancelFinishedPage"
+                        Text="OK"
+                        Clicked="CancelFinishedPage_Clicked"
+                        Pressed="CancelFinishedPage_Pressed"
+                        Released="CancelFinishedPage_Released"
+                        TextColor="White"
+                        FontSize="Medium"
+                        BackgroundColor="Transparent"
+                        Opacity="1"
+                        Margin="0,1,0,1"
+                        Grid.Row="0"
+                        Grid.Column="1"/>
+
+                </Grid>
 
 
             </Grid>
