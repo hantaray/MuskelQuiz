@@ -19,6 +19,8 @@ namespace Quizz_PhysioUnited
             LoadData();            
         }
 
+        //try to start LoadData with OnAppearing
+
         private async void LoadData()
         {
             if (InternetTester.TestConnection())
