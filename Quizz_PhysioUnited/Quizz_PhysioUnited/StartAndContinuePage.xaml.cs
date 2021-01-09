@@ -232,5 +232,12 @@ namespace Quizz_PhysioUnited
         {
             ImpressumImage_press.IsVisible = false;
         }
+
+        //disable the backbutton that you cant get stuck on the loading page
+        protected override bool OnBackButtonPressed()
+        {
+            return true;
+        }
+
     }
 }
