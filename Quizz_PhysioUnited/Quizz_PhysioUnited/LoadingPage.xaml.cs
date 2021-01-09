@@ -16,7 +16,14 @@ namespace Quizz_PhysioUnited
         public LoadingPage()
         {
             InitializeComponent();
-            LoadData();            
+            LoadData();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            //InitializeComponent();
+            //LoadData();
         }
 
         //try to start LoadData with OnAppearing
