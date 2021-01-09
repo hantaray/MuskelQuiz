@@ -118,7 +118,7 @@ namespace Quizz_PhysioUnited
                 HttpClient client = new HttpClient();
 
                 RootMuskel muskelList = new RootMuskel();
-                Uri uri = new Uri("http://hasashi.bplaced.net/physio_united/api/read.php");
+                Uri uri = new Uri("http://muskelabcd.bplaced.net/physio_united/api/read.php");
                 HttpResponseMessage response = await client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
@@ -142,13 +142,13 @@ namespace Quizz_PhysioUnited
                         Kategorie = muskel.Kategorie
                     }); ;
                 }
-                Debug.WriteLine("online Db loaded");
+                //Debug.WriteLine("online Db loaded");
                 return muskelList;
             }
             catch (Exception e)
             {
-                Debug.WriteLine("\nException Caught!");
-                Debug.WriteLine("Message :{0} ", e.Message);
+                //Debug.WriteLine("\nException Caught!");
+                //Debug.WriteLine("Message :{0} ", e.Message);
                 return null;
             }
         }
@@ -160,7 +160,7 @@ namespace Quizz_PhysioUnited
             {                
                 HttpClient client = new HttpClient();
                 RootMuskel muskelList = new RootMuskel();
-                Uri uri = new Uri("http://hasashi.bplaced.net/physio_united/api/checkModified.php");                
+                Uri uri = new Uri("http://muskelabcd.bplaced.net/physio_united/api/checkModified.php");                
                 HttpResponseMessage response = await client.GetAsync(uri);
                 if (response.IsSuccessStatusCode)
                 {
